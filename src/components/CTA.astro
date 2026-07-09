@@ -24,14 +24,14 @@ const { title, subtitle, actions = [] } = Astro.props;
               a.variant === 'ghost' ? (
                 <a
                   href={a.href}
-                  class="rounded-md border border-white/25 px-5 py-2.5 text-sm font-medium text-white hover:border-gold-400 hover:text-gold-400"
+                  class="rounded-md border border-white/25 px-5 py-2.5 text-base font-medium text-white hover:border-brand-400 hover:text-brand-400"
                 >
                   {a.label}
                 </a>
               ) : (
                 <a
                   href={a.href}
-                  class="rounded-md bg-gold-400 px-5 py-2.5 text-sm font-semibold text-charcoal-950 hover:bg-gold-300"
+                  class="rounded-md bg-brand-500 px-5 py-2.5 text-base font-semibold text-white hover:bg-brand-600"
                 >
                   {a.label}
                 </a>

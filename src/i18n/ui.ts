@@ -16,6 +16,7 @@ interface Strings {
   footer: {
     tagline: string;
     rights: string;
+    contact: string;
     privacy: NavItem;
   };
 }
@@ -38,6 +39,7 @@ export const ui: Record<Lang, Strings> = {
     footer: {
       tagline: 'AI & IT consulting, built on 20+ years of capital-markets engineering.',
       rights: 'All rights reserved.',
+      contact: 'Contact us',
       privacy: { label: 'Privacy', href: '/privacy' },
     },
   },
@@ -55,6 +57,7 @@ export const ui: Record<Lang, Strings> = {
     footer: {
       tagline: "Conseil en IA & IT, fondé sur 20+ ans d'ingénierie des marchés de capitaux.",
       rights: 'Tous droits réservés.',
+      contact: 'Nous contacter',
       privacy: { label: 'Confidentialité', href: '/fr/privacy' },
     },
   },
@@ -63,7 +66,6 @@ export const ui: Record<Lang, Strings> = {
 export const SITE = {
   name: 'NitroX Consulting',
   domain: 'nitroxconsulting.com',
-  email: 'contact@nitroxconsulting.com',
   linkedin: 'https://www.linkedin.com/company/nitrox-consulting',
   location: 'Montpellier, France',
   contactEndpoint: 'https://ls.nitroxconsulting.com/contact',

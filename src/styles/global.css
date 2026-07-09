@@ -8,25 +8,24 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
-  Palette derived from the site's hero image — a dark trading-terminal
-  screen (near-black charcoal, cold monitor glow, a warm gold "Gold spot"
-  chart). Base = charcoal; accent = gold/amber (deliberately distinct from
-  nitroxbrain.com's electric cyan, so the two brands read as siblings).
+  Base = charcoal (from the dark trading-terminal hero image); accent = the
+  NitroX brand red taken from the logo's "X" mark. Charcoal + red matches the
+  logo and stays distinct from nitroxbrain.com's electric cyan.
 */
 @theme {
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
 
-  /* Brand accent — gold */
-  --color-gold-50: #fdf8ec;
-  --color-gold-100: #f9edcc;
-  --color-gold-200: #f2d998;
-  --color-gold-300: #e9c25c;
-  --color-gold-400: #e3b23c;
-  --color-gold-500: #d19a24;
-  --color-gold-600: #b07d1c;
-  --color-gold-700: #8a601a;
-  --color-gold-800: #6f4d1c;
-  --color-gold-900: #5d411c;
+  /* Brand accent — NitroX red (from the logo) */
+  --color-brand-50: #fff1f1;
+  --color-brand-100: #ffdede;
+  --color-brand-200: #ffc2c2;
+  --color-brand-300: #ff8a8a;
+  --color-brand-400: #ff4d4d;
+  --color-brand-500: #e10600;
+  --color-brand-600: #c20510;
+  --color-brand-700: #9b0410;
+  --color-brand-800: #7d0612;
+  --color-brand-900: #680a14;
 
   /* Charcoal — dark surfaces from the terminal image */
   --color-charcoal-700: #1c2128;
@@ -55,7 +54,7 @@
   --text: #171a1f;
   --muted: #5b636d;
   --border: #e4e2dd;
-  --primary: #b07d1c;
+  --primary: #d10510;
   --primary-contrast: #ffffff;
 }
 
@@ -65,8 +64,8 @@
   --text: #e6e8eb;
   --muted: #9aa3ad;
   --border: #262b33;
-  --primary: #e3b23c;
-  --primary-contrast: #0d0f12;
+  --primary: #ff4d4d;
+  --primary-contrast: #ffffff;
 }
 
 @layer base {
