@@ -16,18 +16,18 @@ const altHref = t.altLangHref(path);
 
 <header class="sticky top-0 z-40 border-b border-token bg-surface/85 backdrop-blur-md">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-    <a href={lang === 'fr' ? '/fr' : '/'} class="flex items-center gap-2.5" aria-label="NitroX Consulting — home">
-      {/* Logo swaps with the theme: black wordmark on light, white on dark */}
-      <img src="/images/logo-nitrox-black.png" alt="NitroX" width="900" height="213" class="block h-8 w-auto dark:hidden" />
-      <img src="/images/logo-nitrox-white.png" alt="NitroX" width="900" height="213" class="hidden h-8 w-auto dark:block" />
-      <span class="text-lg font-semibold tracking-tight">Consulting</span>
+    <a href={lang === 'fr' ? '/fr' : '/'} class="flex items-center" aria-label={`NitroX — ${t.nav[0].label}`}>
+      {/* Logo swaps with the theme: black wordmark on light, white on dark.
+          alt="" because the parent link already carries an accessible name. */}
+      <img src="/images/logo-nitrox-black.png" alt="" width="900" height="213" class="block h-9 w-auto dark:hidden" />
+      <img src="/images/logo-nitrox-white.png" alt="" width="900" height="213" class="hidden h-9 w-auto dark:block" />
     </a>
 
     <!-- Desktop nav -->
     <nav class="hidden items-center gap-8 md:flex">
       {
         t.nav.map((item) => (
-          <a href={item.href} class="text-base font-medium text-muted transition-colors hover:text-primary">
+          <a href={item.href} class="text-lg font-medium text-muted transition-colors hover:text-primary">
             {item.label}
           </a>
         ))
@@ -68,7 +68,7 @@ const altHref = t.altLangHref(path);
   <nav id="mobile-nav" class="hidden border-t border-token px-4 py-3 md:hidden">
     {
       t.nav.map((item) => (
-        <a href={item.href} class="block py-2 text-base font-medium text-muted hover:text-primary">
+        <a href={item.href} class="block py-2 text-lg font-medium text-muted hover:text-primary">
           {item.label}
         </a>
       ))
