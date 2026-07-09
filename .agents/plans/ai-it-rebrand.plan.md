@@ -37,9 +37,10 @@ Static output, deployed to GitHub Pages (build → `dist/`). CNAME preserved.
 
 ## Phase 2 — Polish (follow-up PRs)
 
-- [ ] Real brand logo (replace the placeholder gold square in Header/Footer).
+- [x] Real brand logo wired in Header/Footer (theme-swapped white/black NITROX wordmark). *(PR #5)*
+- [x] Accent switched gold → NitroX red to match the logo; hero overlay lightened; nav enlarged. *(PR #5)*
 - [ ] AI/IT-themed imagery for interior sections (currently text + cards only).
-- [ ] Tune the exact gold accent + light-mode contrast with the operator.
+- [ ] Tune the exact red shade + light-mode contrast with the operator.
 - [ ] Optional: solutions/case-study detail pages (Excel add-in, FX platform, NitroxBrain), a blog, analytics.
 - [ ] Copy review pass (EN + FR) with the operator; confirm company facts (founding claims, LinkedIn URL, SIRET/legal footer).
 

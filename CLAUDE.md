@@ -8,7 +8,7 @@ Marketing website for **NitroX Consulting** (nitroxconsulting.com) — an **AI &
 (repositioned in 2026 from its financial-consulting origins). The site is built with **Astro + Tailwind CSS v4**
 and deployed to **GitHub Pages** via the `.github/workflows/deploy-pages.yml` Actions workflow (build → upload
 `dist/` → deploy). The design mirrors the sibling product site **nitroxbrain.com** (Astro/Tailwind), with a
-distinct **charcoal + gold** palette derived from the hero image (a dark trading-terminal screen).
+**charcoal** base (from the dark trading-terminal hero image) + the **NitroX red** accent (from the logo).
 
 ## Build & Run
 
@@ -28,7 +28,7 @@ npm run preview  # preview the production build
   `ContactForm.astro` POSTs JSON to `https://ls.nitroxconsulting.com/contact` (the same NitroxBrain dispatcher /
   AWS SES EU endpoint used by nitroxbrain.com) — no third-party form processor.
 - **`src/i18n/ui.ts`** — nav, footer strings and site constants per locale (`en` / `fr`).
-- **`src/styles/global.css`** — Tailwind v4 `@theme` tokens (gold + charcoal) and semantic light/dark variables.
+- **`src/styles/global.css`** — Tailwind v4 `@theme` tokens (NitroX red `brand-*` + charcoal) and semantic light/dark variables.
 - **`public/`** — static assets served as-is: `CNAME`, `favicon.ico`, `robots.txt`, `images/hero-terminal.png`.
 
 ## Legacy

@@ -46,6 +46,11 @@ const domains = [
 
 const track = [
   {
+    year: '2026',
+    title: 'SailingRouter',
+    body: 'A sailing weather-routing web platform (<a class="underline hover:text-primary" href="https://sailingrouter.com" target="_blank" rel="noopener">sailingrouter.com</a>) — real-time optimal-route computation, applying our data and modelling engineering to a live product.',
+  },
+  {
     year: '2024–2026',
     title: 'NitroxBrain',
     body: 'Designed and shipped a production multi-user AI second brain across Google Chat, Slack and Microsoft Teams — approved on the Microsoft Teams Store.',
@@ -92,7 +97,7 @@ const track = [
             <div class="shrink-0 text-sm font-semibold uppercase tracking-wider text-primary sm:w-32">{t.year}</div>
             <div>
               <h3 class="text-lg font-semibold">{t.title}</h3>
-              <p class="mt-1 text-sm leading-relaxed text-muted">{t.body}</p>
+              <p class="mt-1 text-sm leading-relaxed text-muted" set:html={t.body} />
             </div>
           </div>
         ))
