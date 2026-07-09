@@ -1,0 +1,40 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import ContactForm from '~/components/ContactForm.astro';
+import { SITE } from '~/i18n/ui';
+---
+
+<Layout
+  title="Contact"
+  description="Contactez NitroX Consulting — envoyez un message ou écrivez-nous directement. Nous répondons à chaque demande, généralement sous un jour ouvré."
+  lang="fr"
+  path="/contact"
+>
+  <Hero
+    tagline="Contact"
+    title="Parlons-en."
+    subtitle="Une petite équipe UE. Pas de formulaire de qualification, pas de bot commercial. Nous répondons à chaque demande — généralement sous un jour ouvré."
+  />
+
+  <Section>
+    <div class="grid gap-12 md:grid-cols-2">
+      <ContactForm lang="fr" />
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-primary">Email</h3>
+          <a href={`mailto:${SITE.email}`} class="mt-1 block hover:text-primary">{SITE.email}</a>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-primary">LinkedIn</h3>
+          <a href={SITE.linkedin} target="_blank" rel="noopener" class="mt-1 block hover:text-primary">NitroX Consulting</a>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-primary">Où nous sommes</h3>
+          <p class="mt-1 text-muted">{SITE.location} — basés dans l’UE, au service de clients partout en Europe.</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+</Layout>

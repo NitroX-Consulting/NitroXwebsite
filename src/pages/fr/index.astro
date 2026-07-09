@@ -1,0 +1,113 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import Features from '~/components/Features.astro';
+import CTA from '~/components/CTA.astro';
+
+const services = [
+  {
+    title: 'Systèmes d’IA agentique',
+    description:
+      'Des assistants et workflows autonomes qui lisent vos outils, agissent sur vos données et restent sous votre contrôle. Nous avons créé <strong>NitroxBrain</strong> — notre propre second cerveau IA multi-utilisateurs — et nous déployons la même ingénierie pour vous.',
+    icon: 'tabler:robot',
+  },
+  {
+    title: 'IT & logiciels pragmatiques',
+    description:
+      'Moteurs de pricing, pipelines de données, outils internes et plateformes web — des logiciels concrets qui résolvent un vrai problème et sont livrés, pas une présentation.',
+    icon: 'tabler:code',
+  },
+  {
+    title: 'Données & analytique',
+    description:
+      'Transformez tableurs et données éparses en modèles interrogeables. Analytique de risque, scénarios de stress et aide à la décision, par des gens qui ont géré de vrais livres.',
+    icon: 'tabler:chart-histogram',
+  },
+];
+
+const proof = [
+  {
+    title: 'NitroxBrain',
+    description:
+      'Un assistant IA multi-utilisateurs en production sur Google Chat, Slack et Microsoft Teams — la preuve que nous construisons et opérons de l’IA réelle en production.',
+    icon: 'tabler:brain',
+  },
+  {
+    title: 'Moteurs de pricing & risque',
+    description:
+      'Add-ins Excel et plateformes web pour IRS, swaps, options et FX — y compris la gestion du risque knock-in / knock-out sur desks réels.',
+    icon: 'tabler:calculator',
+  },
+  {
+    title: 'Modélisation réglementaire',
+    description:
+      'Modélisation et scénarios de stress issus de régimes FRTB / IRRBB réels — la rigueur de la finance régulée appliquée à vos systèmes.',
+    icon: 'tabler:shield-check',
+  },
+];
+---
+
+<Layout
+  title="Conseil IA & IT"
+  description="NitroX Consulting conçoit et livre des systèmes d’IA et d’IT — assistants agentiques, moteurs de pricing et plateformes de données — forts de deux décennies d’ingénierie des marchés de capitaux."
+  lang="fr"
+  path="/"
+>
+  <Hero
+    tagline="Conseil IA & IT"
+    title="Des systèmes d’IA qui sont réellement livrés —<br class='hidden sm:block'/> par des ingénieurs qui ont géré du vrai risque."
+    subtitle="NitroX Consulting conçoit, construit et opère des systèmes d’IA et d’IT pour les équipes qui veulent des résultats, pas des prototypes. Deux décennies sur les marchés de capitaux ; aujourd’hui, l’IA agentique en production."
+    actions={[
+      { label: 'Nous contacter', href: '/fr/contact', variant: 'primary' },
+      { label: 'Notre expertise', href: '/fr/expertise', variant: 'ghost' },
+    ]}
+  />
+
+  <Section
+    tagline="Ce que nous faisons"
+    title="De l’idée à un système en production"
+    subtitle="Trois pratiques, une seule équipe. Nous prenons un problème de bout en bout — conception, construction, déploiement et exploitation."
+  >
+    <Features items={services} columns={3} />
+  </Section>
+
+  <Section surface tagline="Pourquoi nous" title="La rigueur de la finance régulée, appliquée à l’IA & l’IT">
+    <div class="grid gap-8 md:grid-cols-2 md:items-center">
+      <p class="text-lg leading-relaxed text-muted">
+        NitroX Consulting construit des systèmes de pricing, de risque et de modélisation pour les marchés de capitaux
+        <strong>depuis 2001</strong>. La gestion du risque s’apprend en situation de crise — et c’est précisément ce qui manque à la
+        plupart des projets d’IA. Nous l’apportons : des systèmes corrects, auditables, sûrs à mettre face à de l’argent réel et à de
+        vrais utilisateurs.
+      </p>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="rounded-xl border border-token bg-surface p-6">
+          <div class="text-3xl font-bold text-primary">2001</div>
+          <div class="mt-1 text-sm text-muted">Fondée — deux décennies d’ingénierie</div>
+        </div>
+        <div class="rounded-xl border border-token bg-surface p-6">
+          <div class="text-3xl font-bold text-primary">3</div>
+          <div class="mt-1 text-sm text-muted">Canaux IA en production (Chat · Slack · Teams)</div>
+        </div>
+        <div class="rounded-xl border border-token bg-surface p-6">
+          <div class="text-3xl font-bold text-primary">UE</div>
+          <div class="mt-1 text-sm text-muted">Données résidentes, RGPD d’abord</div>
+        </div>
+        <div class="rounded-xl border border-token bg-surface p-6">
+          <div class="text-3xl font-bold text-primary">FRTB</div>
+          <div class="mt-1 text-sm text-muted">Héritage de modélisation réglementaire</div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section tagline="Preuve" title="Nous livrons aussi nos propres produits" subtitle="La meilleure façon de juger un constructeur, c’est ce qu’il met en production.">
+    <Features items={proof} columns={3} />
+  </Section>
+
+  <CTA
+    title="Un problème qui mérite d’être résolu ?"
+    subtitle="Dites-nous ce que vous aimeriez confier à l’IA ou au logiciel. Si nous ne sommes pas les bons, nous vous le dirons."
+    actions={[{ label: 'Démarrer la conversation', href: '/fr/contact', variant: 'primary' }]}
+  />
+</Layout>

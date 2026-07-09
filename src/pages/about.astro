@@ -1,0 +1,63 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import CTA from '~/components/CTA.astro';
+---
+
+<Layout
+  title="About"
+  description="NitroX Consulting — a French, EU-based consultancy founded in 2001, now focused on AI and IT systems built on deep capital-markets engineering."
+  lang="en"
+  path="/about"
+>
+  <Hero
+    tagline="About"
+    title="A small team that ships."
+    subtitle="Founded in 2001 in the south of France. We started in capital-markets risk and pricing; today we build and run AI and IT systems on that same foundation."
+  />
+
+  <Section title="From trading desks to AI in production">
+    <div class="prose-none max-w-3xl space-y-5 text-lg leading-relaxed text-muted">
+      <p>
+        NitroX Consulting was founded in 2001 to solve hard, practical problems for capital-markets clients — pricing exotic and
+        optional products, managing risk on live books, and building the software that made it possible.
+      </p>
+      <p>
+        Risk management, we learned, is earned in crisis situations. That instinct — for what can go wrong, and for building systems
+        that are correct and auditable — is exactly what most technology projects are missing.
+      </p>
+      <p>
+        Today our focus is <strong>AI and IT</strong>. We design, build and operate agentic AI systems, quantitative software, and
+        data platforms — most visibly <strong>NitroxBrain</strong>, our own production AI assistant. We bring regulated-finance rigour
+        to a field that badly needs it.
+      </p>
+      <p>
+        We are deliberately small, EU-based, and data-resident by default. You work directly with the people who build your system —
+        no account layer, no offshore hand-off.
+      </p>
+    </div>
+  </Section>
+
+  <Section surface title="How we work">
+    <div class="grid gap-6 sm:grid-cols-3">
+      <div class="rounded-xl border border-token bg-surface p-6">
+        <h3 class="font-semibold">Direct</h3>
+        <p class="mt-2 text-sm text-muted">You talk to the engineers doing the work, start to finish.</p>
+      </div>
+      <div class="rounded-xl border border-token bg-surface p-6">
+        <h3 class="font-semibold">Honest scoping</h3>
+        <p class="mt-2 text-sm text-muted">If AI or a custom build is the wrong answer, we tell you before you spend.</p>
+      </div>
+      <div class="rounded-xl border border-token bg-surface p-6">
+        <h3 class="font-semibold">EU-first</h3>
+        <p class="mt-2 text-sm text-muted">Data residency and RGPD are defaults, not add-ons.</p>
+      </div>
+    </div>
+  </Section>
+
+  <CTA
+    title="Let's build something that works."
+    actions={[{ label: 'Contact us', href: '/contact', variant: 'primary' }]}
+  />
+</Layout>

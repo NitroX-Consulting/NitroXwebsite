@@ -1,0 +1,93 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import Features from '~/components/Features.astro';
+import CTA from '~/components/CTA.astro';
+
+const ai = [
+  {
+    title: 'Agentic assistants',
+    description: 'Deploy AI that lives where your team already works — chat, email, documents — and takes real actions safely.',
+    icon: 'tabler:robot',
+  },
+  {
+    title: 'RAG & knowledge systems',
+    description: 'Make your own documents, data and history searchable and answerable, with per-user isolation and EU residency.',
+    icon: 'tabler:database-search',
+  },
+  {
+    title: 'Automation & scheduled tasks',
+    description: 'Recurring briefings, watchers, and multi-step workflows that run unattended and report back.',
+    icon: 'tabler:clock-cog',
+  },
+];
+
+const it = [
+  {
+    title: 'Software & web platforms',
+    description: 'Internal tools, dashboards and customer-facing web apps — built to ship and maintainable afterwards.',
+    icon: 'tabler:app-window',
+  },
+  {
+    title: 'Pricing & quant tooling',
+    description: 'Excel add-ins and web pricers for IRS, swaps, options, inflation and FX, including KO/KI instruments.',
+    icon: 'tabler:calculator',
+  },
+  {
+    title: 'Cloud & deployment',
+    description: 'Containerised, scale-to-zero deployments on GCP / Azure / AWS with sensible cost and security defaults.',
+    icon: 'tabler:cloud-cog',
+  },
+];
+
+const advisory = [
+  {
+    title: 'AI strategy & feasibility',
+    description: 'Where AI actually pays off for your team — and where it does not. Honest scoping before you spend.',
+    icon: 'tabler:route',
+  },
+  {
+    title: 'Risk & regulatory modelling',
+    description: 'Modelling, stress scenarios and compliance-aware design informed by FRTB / IRRBB experience.',
+    icon: 'tabler:shield-check',
+  },
+  {
+    title: 'Education & enablement',
+    description: 'Interactive teaching and hands-on debriefs — from FX-option simulation to getting a team productive with AI.',
+    icon: 'tabler:school',
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="What NitroX Consulting does: agentic AI systems, practical IT and software, pricing and quant tooling, and AI-and-risk advisory."
+  lang="en"
+  path="/services"
+>
+  <Hero
+    tagline="Services"
+    title="Three practices. One accountable team."
+    subtitle="We take problems end to end — from feasibility to a system running in production and maintained afterwards."
+    actions={[{ label: 'Talk to us', href: '/contact', variant: 'primary' }]}
+  />
+
+  <Section tagline="AI" title="Agentic AI systems" subtitle="Autonomous, controllable AI that acts on your data — the engineering behind NitroxBrain.">
+    <Features items={ai} columns={3} />
+  </Section>
+
+  <Section surface tagline="IT" title="Practical IT & software" subtitle="Pragmatic software that solves a real problem and stays maintainable.">
+    <Features items={it} columns={3} />
+  </Section>
+
+  <Section tagline="Advisory" title="Strategy, risk & enablement" subtitle="Two decades of regulated-finance judgement, applied to your decisions.">
+    <Features items={advisory} columns={3} />
+  </Section>
+
+  <CTA
+    title="Not sure which of these you need?"
+    subtitle="That is what a first conversation is for. We will help you scope it — no obligation."
+    actions={[{ label: 'Book a call', href: '/contact', variant: 'primary' }]}
+  />
+</Layout>

@@ -1,0 +1,86 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+/*
+  Class-based dark mode (toggle sets `.dark` on <html>) instead of the
+  Tailwind v4 default of prefers-color-scheme, so the header toggle works.
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Palette derived from the site's hero image — a dark trading-terminal
+  screen (near-black charcoal, cold monitor glow, a warm gold "Gold spot"
+  chart). Base = charcoal; accent = gold/amber (deliberately distinct from
+  nitroxbrain.com's electric cyan, so the two brands read as siblings).
+*/
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand accent — gold */
+  --color-gold-50: #fdf8ec;
+  --color-gold-100: #f9edcc;
+  --color-gold-200: #f2d998;
+  --color-gold-300: #e9c25c;
+  --color-gold-400: #e3b23c;
+  --color-gold-500: #d19a24;
+  --color-gold-600: #b07d1c;
+  --color-gold-700: #8a601a;
+  --color-gold-800: #6f4d1c;
+  --color-gold-900: #5d411c;
+
+  /* Charcoal — dark surfaces from the terminal image */
+  --color-charcoal-700: #1c2128;
+  --color-charcoal-800: #14181d;
+  --color-charcoal-900: #0d0f12;
+  --color-charcoal-950: #08090b;
+
+  /*
+    Semantic colors registered as real Tailwind tokens (so `text-primary`,
+    `hover:text-primary`, `bg-primary/10`, `border-token`, `bg-surface/85`,
+    `focus:ring-primary`, `text-muted` all generate). Each points at a CSS
+    variable that flips between the light `:root` and `.dark` values below,
+    so the utilities are theme-aware at runtime.
+  */
+  --color-primary: var(--primary);
+  --color-surface: var(--surface);
+  --color-page: var(--page);
+  --color-muted: var(--muted);
+  --color-token: var(--border);
+}
+
+/* Semantic tokens, resolved per color scheme */
+:root {
+  --page: #f7f6f3;
+  --surface: #ffffff;
+  --text: #171a1f;
+  --muted: #5b636d;
+  --border: #e4e2dd;
+  --primary: #b07d1c;
+  --primary-contrast: #ffffff;
+}
+
+.dark {
+  --page: #0d0f12;
+  --surface: #14181d;
+  --text: #e6e8eb;
+  --muted: #9aa3ad;
+  --border: #262b33;
+  --primary: #e3b23c;
+  --primary-contrast: #0d0f12;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+  }
+  body {
+    background-color: var(--page);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-contrast);
+  }
+}
