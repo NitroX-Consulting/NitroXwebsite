@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import Layout from '~/layouts/Layout.astro';
 import Hero from '~/components/Hero.astro';
 import Section from '~/components/Section.astro';
@@ -48,11 +49,13 @@ const track = [
   {
     year: '2026',
     title: 'SailingRouter',
-    body: 'A sailing weather-routing web platform (<a class="underline hover:text-primary" href="https://sailingrouter.com" target="_blank" rel="noopener">sailingrouter.com</a>) — real-time optimal-route computation, applying our data and modelling engineering to a live product.',
+    href: 'https://sailingrouter.com',
+    body: 'A sailing weather-routing web platform — real-time optimal-route computation, applying our data and modelling engineering to a live product.',
   },
   {
     year: '2025–2026',
     title: 'NitroxBrain',
+    href: 'https://nitroxbrain.com',
     body: 'Designed and shipped a production multi-user AI second brain across Google Chat, Slack and Microsoft Teams — approved on the Microsoft Teams Store.',
   },
   {
@@ -96,7 +99,18 @@ const track = [
           <div class="flex flex-col gap-2 rounded-xl border border-token bg-surface p-6 sm:flex-row sm:gap-8">
             <div class="shrink-0 text-sm font-semibold uppercase tracking-wider text-primary sm:w-32">{t.year}</div>
             <div>
-              <h3 class="text-lg font-semibold">{t.title}</h3>
+              <h3 class="text-lg font-semibold">
+                {
+                  t.href ? (
+                    <a href={t.href} target="_blank" rel="noopener" class="inline-flex items-center gap-1 hover:text-primary">
+                      {t.title}
+                      <Icon name="tabler:external-link" class="h-4 w-4 opacity-60" />
+                    </a>
+                  ) : (
+                    t.title
+                  )
+                }
+              </h3>
               <p class="mt-1 text-sm leading-relaxed text-muted" set:html={t.body} />
             </div>
           </div>
