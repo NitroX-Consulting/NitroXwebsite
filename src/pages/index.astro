@@ -1,0 +1,112 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import Features from '~/components/Features.astro';
+import CTA from '~/components/CTA.astro';
+
+const services = [
+  {
+    title: 'Agentic AI systems',
+    description:
+      'Autonomous assistants and workflows that read your tools, act on your data, and stay under your control. We built <strong>NitroxBrain</strong> — our own multi-user AI second brain — and we deploy the same engineering for you.',
+    icon: 'tabler:robot',
+  },
+  {
+    title: 'Practical IT & software',
+    description:
+      'Pricing engines, data pipelines, internal tools, and web platforms — pragmatic software that solves a real problem and ships, not a slide deck.',
+    icon: 'tabler:code',
+  },
+  {
+    title: 'Data & analytics',
+    description:
+      'Turn spreadsheets and scattered records into models you can query. Risk analytics, scenario testing, and decision support built by people who priced real books.',
+    icon: 'tabler:chart-histogram',
+  },
+];
+
+const proof = [
+  {
+    title: 'NitroxBrain',
+    description:
+      'A production multi-user AI assistant on Google Chat, Slack and Microsoft Teams — our flagship proof that we build and run real AI in production.',
+    icon: 'tabler:brain',
+  },
+  {
+    title: 'Pricing & risk engines',
+    description:
+      'Excel pricing add-ins and web platforms for IRS, swaps, options and FX — including knock-in / knock-out risk management used on live desks.',
+    icon: 'tabler:calculator',
+  },
+  {
+    title: 'Regulatory-grade modelling',
+    description:
+      'Modelling and stress-scenario work informed by real FRTB / IRRBB regimes — the discipline of regulated finance applied to your systems.',
+    icon: 'tabler:shield-check',
+  },
+];
+---
+
+<Layout
+  title="AI & IT consulting"
+  description="NitroX Consulting builds and ships AI and IT systems — agentic assistants, pricing engines, and data platforms — backed by two decades of capital-markets engineering."
+  lang="en"
+  path="/"
+>
+  <Hero
+    tagline="AI & IT Consulting"
+    title="AI systems that actually ship —<br class='hidden sm:block'/> built by engineers who ran real risk."
+    subtitle="NitroX Consulting designs, builds and operates AI and IT systems for teams that need results, not prototypes. Two decades in capital markets; today, agentic AI in production."
+    actions={[
+      { label: 'Talk to us', href: '/contact', variant: 'primary' },
+      { label: 'Our expertise', href: '/expertise', variant: 'ghost' },
+    ]}
+  />
+
+  <Section
+    tagline="What we do"
+    title="From idea to something running in production"
+    subtitle="Three practices, one team. We take a problem end to end — design, build, deploy, and keep it running."
+  >
+    <Features items={services} columns={3} />
+  </Section>
+
+  <Section surface tagline="Why us" title="Regulated-finance rigour, applied to AI & IT">
+    <div class="grid gap-8 md:grid-cols-2 md:items-center">
+      <p class="text-lg leading-relaxed text-muted">
+        NitroX Consulting has built pricing, risk and modelling systems for capital markets <strong>since 2001</strong>.
+        Risk management is learned in crisis situations — and that discipline is exactly what most AI projects lack.
+        We bring it: systems that are correct, auditable, and safe to put in front of real money and real users.
+      </p>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="rounded-xl border border-token bg-surface p-6">
+          <div class="text-3xl font-bold text-primary">2001</div>
+          <div class="mt-1 text-sm text-muted">Founded — two decades of engineering</div>
+        </div>
+        <div class="rounded-xl border border-token bg-surface p-6">
+          <div class="text-3xl font-bold text-primary">3</div>
+          <div class="mt-1 text-sm text-muted">AI channels in production (Chat · Slack · Teams)</div>
+        </div>
+        <div class="rounded-xl border border-token bg-surface p-6">
+          <div class="text-3xl font-bold text-primary">EU</div>
+          <div class="mt-1 text-sm text-muted">Data-resident, RGPD-first</div>
+        </div>
+        <div class="rounded-xl border border-token bg-surface p-6">
+          <div class="text-3xl font-bold text-primary">FRTB</div>
+          <div class="mt-1 text-sm text-muted">Regulatory-grade modelling heritage</div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section tagline="Proof" title="We ship our own products, too" subtitle="The fastest way to judge a builder is what they run in production.">
+    <Features items={proof} columns={3} />
+  </Section>
+
+  <CTA
+    title="Have a problem worth solving?"
+    subtitle="Tell us what you wish AI or software handled for your team. If we are the wrong fit, we will say so."
+    actions={[{ label: 'Start a conversation', href: '/contact', variant: 'primary' }]}
+  />
+</Layout>

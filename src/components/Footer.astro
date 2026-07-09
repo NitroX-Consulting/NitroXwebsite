@@ -1,0 +1,42 @@
+---
+import { Icon } from 'astro-icon/components';
+import { ui, SITE, type Lang } from '~/i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = ui[lang];
+const year = 2026;
+---
+
+<footer class="border-t border-token bg-surface">
+  <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
+    <div class="max-w-md">
+      <div class="flex items-center gap-2 font-semibold tracking-tight">
+        <span class="inline-block h-5 w-5 rounded-md bg-primary"></span>
+        <span>NitroX<span class="text-primary">Consulting</span></span>
+      </div>
+      <p class="mt-2 text-sm text-muted">{t.footer.tagline}</p>
+    </div>
+
+    <div class="flex flex-col gap-3 text-sm">
+      <a href={`mailto:${SITE.email}`} class="flex items-center gap-2 text-muted hover:text-primary">
+        <Icon name="tabler:mail" class="h-4 w-4" />{SITE.email}
+      </a>
+      <a href={SITE.linkedin} class="flex items-center gap-2 text-muted hover:text-primary" target="_blank" rel="noopener">
+        <Icon name="tabler:brand-linkedin" class="h-4 w-4" />LinkedIn
+      </a>
+      <span class="flex items-center gap-2 text-muted">
+        <Icon name="tabler:map-pin" class="h-4 w-4" />{SITE.location}
+      </span>
+    </div>
+  </div>
+
+  <div class="border-t border-token">
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <span>© {year} {SITE.name}. {t.footer.rights}</span>
+      <a href={t.footer.privacy.href} class="hover:text-primary">{t.footer.privacy.label}</a>
+    </div>
+  </div>
+</footer>

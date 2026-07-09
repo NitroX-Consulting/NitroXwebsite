@@ -1,0 +1,48 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Section from '~/components/Section.astro';
+import { SITE } from '~/i18n/ui';
+---
+
+<Layout
+  title="Privacy Policy"
+  description="How NitroX Consulting handles the personal data you submit through this website."
+  lang="en"
+  path="/privacy"
+>
+  <Section title="Privacy Policy">
+    <div class="max-w-3xl space-y-5 text-muted [&_h3]:mt-8 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-[var(--text)]">
+      <p class="text-sm">Last updated: 2026-07-09</p>
+
+      <h3>Who we are</h3>
+      <p>
+        This website is operated by {SITE.name}, a French company based in {SITE.location}. For any privacy question, contact us at
+        <a href={`mailto:${SITE.email}`} class="underline">{SITE.email}</a>.
+      </p>
+
+      <h3>What we collect</h3>
+      <p>
+        We only collect the information you choose to send us through the contact form on this site — your name, email address and
+        message. We do not sell data and we do not use it for marketing.
+      </p>
+
+      <h3>How your message is processed</h3>
+      <p>
+        Contact-form submissions are delivered over an encrypted connection to our own infrastructure and relayed to us by email via
+        Amazon SES in the EU (Paris region). Your message is processed within the European Union. We use it solely to reply to you.
+      </p>
+
+      <h3>Retention</h3>
+      <p>We keep contact messages only as long as needed to handle your enquiry and any resulting relationship, then delete them.</p>
+
+      <h3>Your rights</h3>
+      <p>
+        Under the GDPR (RGPD) you may request access to, correction of, or deletion of your personal data, and you may object to its
+        processing. Email <a href={`mailto:${SITE.email}`} class="underline">{SITE.email}</a> and we will respond.
+      </p>
+
+      <h3>Cookies & analytics</h3>
+      <p>This site does not set advertising cookies. Any analytics, if enabled, are privacy-respecting and EU-based.</p>
+    </div>
+  </Section>
+</Layout>

@@ -1,0 +1,105 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import Features from '~/components/Features.astro';
+import CTA from '~/components/CTA.astro';
+
+const domains = [
+  {
+    title: 'IA agentique en production',
+    description:
+      'Des assistants IA multi-utilisateurs qui lisent les outils, agissent sur les données et restent contrôlables — conçus, livrés et opérés par nous.',
+    icon: 'tabler:robot',
+  },
+  {
+    title: 'Pricing & risque de dérivés',
+    description:
+      'Produits exotiques et optionnels, IRS, swaps, inflation et FX. Pricing, deltas, scénarios de stress et gestion concrète d’un livre en vie.',
+    icon: 'tabler:chart-candle',
+  },
+  {
+    title: 'Cadres réglementaires',
+    description: 'Une pratique concrète des régimes de conformité en évolution — FRTB, IRRBB — et de la discipline de modélisation qu’ils exigent.',
+    icon: 'tabler:gavel',
+  },
+  {
+    title: 'Ingénierie quant & logicielle',
+    description:
+      'Add-ins Excel, pricers web, crawlers et plateformes de données. Tout le chemin du modèle sur le papier à l’outil utilisé au quotidien.',
+    icon: 'tabler:code',
+  },
+  {
+    title: 'Data engineering & analytique',
+    description: 'Transformer des données réelles désordonnées en modèles interrogeables — le moteur qui alimente les outils datasets de NitroxBrain.',
+    icon: 'tabler:database',
+  },
+  {
+    title: 'Formation & simulation',
+    description: 'Plateformes d’enseignement interactives avec débriefing de performance — pour rendre instruments complexes et outils IA réellement apprenables.',
+    icon: 'tabler:school',
+  },
+];
+
+const track = [
+  {
+    year: '2024–2026',
+    title: 'NitroxBrain',
+    body: 'Conception et livraison d’un second cerveau IA multi-utilisateurs en production sur Google Chat, Slack et Microsoft Teams — approuvé sur le Microsoft Teams Store.',
+  },
+  {
+    year: '2018–2023',
+    title: 'Plateformes d’options FX & missions CRO',
+    body: 'Plateformes web de risque d’options FX (instruments KO / KI) et missions de direction des risques pour clients institutionnels.',
+  },
+  {
+    year: '2001–2017',
+    title: 'Systèmes de pricing & risque',
+    body: 'Add-ins de pricing Excel, analytique de pricing du vin avec crawlers web, et modélisation de produits exotiques et optionnels sur desks de marchés.',
+  },
+];
+---
+
+<Layout
+  title="Expertise"
+  description="L’expertise de NitroX Consulting : IA agentique en production, pricing et risque de dérivés, modélisation réglementaire, ingénierie quant et logicielle — un parcours depuis 2001."
+  lang="fr"
+  path="/expertise"
+>
+  <Hero
+    tagline="Expertise"
+    title="Des domaines profonds, pas une large brochure."
+    subtitle="Nous faisons quelques choses à haut niveau : IA en production, logiciel quantitatif et risque de finance régulée. Voici d’où vient cette profondeur."
+    actions={[{ label: 'Travailler avec nous', href: '/fr/contact', variant: 'primary' }]}
+  />
+
+  <Section
+    tagline="Domaines"
+    title="Ce que nous maîtrisons en profondeur"
+    subtitle="Une combinaison rare : l’ingénierie IA moderne et la discipline des marchés de capitaux régulés."
+  >
+    <Features items={domains} columns={3} />
+  </Section>
+
+  <Section surface tagline="Parcours" title="Vingt-cinq ans à livrer" subtitle="Une sélection — des desks de trading à l’IA en production.">
+    <div class="space-y-6">
+      {
+        track.map((t) => (
+          <div class="flex flex-col gap-2 rounded-xl border border-token bg-surface p-6 sm:flex-row sm:gap-8">
+            <div class="shrink-0 text-sm font-semibold uppercase tracking-wider text-primary sm:w-32">{t.year}</div>
+            <div>
+              <h3 class="text-lg font-semibold">{t.title}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-muted">{t.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <CTA
+    title="Besoin de ce mélange précis de compétences ?"
+    subtitle="Ingénierie IA et vrai jugement du risque : c’est rare. Si c’est ce qu’exige votre problème, parlons-en."
+    actions={[{ label: 'Nous contacter', href: '/fr/contact', variant: 'primary' }]}
+  />
+</Layout>

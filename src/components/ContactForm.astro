@@ -1,0 +1,151 @@
+---
+import { SITE, type Lang } from '~/i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'en' } = Astro.props;
+
+// Submissions POST to the same NitroxBrain dispatcher /contact endpoint used by
+// nitroxbrain.com — it relays via AWS SES in eu-west-3 (Paris), EU-resident, no
+// third-party form processor. Same-company infra behind Caddy on Lightsail.
+const CONTACT_ENDPOINT = SITE.contactEndpoint;
+
+const copy = {
+  en: {
+    heading: 'Send us a message',
+    subtitle: 'We answer every inbound — usually within one business day.',
+    name: 'Name',
+    email: 'Email',
+    message: 'Message',
+    send: 'Send message',
+    sending: 'Sending…',
+    ok: 'Thanks — your message is on its way. We reply within one business day.',
+    rate: 'You just sent a message — please wait a moment before sending another.',
+    err: 'Something went wrong. Please try again in a moment.',
+    net: 'Network error. Please try again in a moment.',
+    privacy: 'We use your message only to reply — no marketing. Delivered over an encrypted connection and processed in the EU. See our',
+    privacyLink: 'Privacy Policy',
+    privacyHref: '/privacy',
+  },
+  fr: {
+    heading: 'Envoyez-nous un message',
+    subtitle: 'Nous répondons à chaque demande — généralement sous un jour ouvré.',
+    name: 'Nom',
+    email: 'Email',
+    message: 'Message',
+    send: 'Envoyer',
+    sending: 'Envoi…',
+    ok: 'Merci — votre message est parti. Nous répondons sous un jour ouvré.',
+    rate: "Vous venez d'envoyer un message — merci de patienter un instant.",
+    err: "Une erreur s'est produite. Merci de réessayer dans un instant.",
+    net: 'Erreur réseau. Merci de réessayer dans un instant.',
+    privacy: 'Nous utilisons votre message uniquement pour répondre — aucun marketing. Transmis via une connexion chiffrée et traité dans l’UE. Voir notre',
+    privacyLink: 'politique de confidentialité',
+    privacyHref: '/fr/privacy',
+  },
+}[lang];
+
+const inputCls =
+  'w-full rounded-md border border-token bg-surface px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary';
+---
+
+<div class="mx-auto max-w-2xl">
+  <h2 class="text-2xl font-bold tracking-tight">{copy.heading}</h2>
+  <p class="mt-2 text-muted">{copy.subtitle}</p>
+
+  <form
+    id="nx-contact-form"
+    class="mt-8"
+    data-endpoint={CONTACT_ENDPOINT}
+    data-msg-sending={copy.sending}
+    data-msg-ok={copy.ok}
+    data-msg-rate={copy.rate}
+    data-msg-err={copy.err}
+    data-msg-net={copy.net}
+  >
+    {/* honeypot — bots fill this; humans never see it */}
+    <input type="text" name="hp" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div>
+        <label for="nx-name" class="mb-1 block text-sm font-medium">{copy.name}</label>
+        <input id="nx-name" name="name" type="text" required autocomplete="name" class={inputCls} />
+      </div>
+      <div>
+        <label for="nx-email" class="mb-1 block text-sm font-medium">{copy.email}</label>
+        <input id="nx-email" name="email" type="email" required autocomplete="email" class={inputCls} />
+      </div>
+      <div class="sm:col-span-2">
+        <label for="nx-message" class="mb-1 block text-sm font-medium">{copy.message}</label>
+        <textarea id="nx-message" name="message" rows="5" required class={inputCls}></textarea>
+      </div>
+    </div>
+
+    <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-[var(--primary-contrast)] transition hover:opacity-90 disabled:opacity-60"
+      >
+        {copy.send}
+      </button>
+      <p id="nx-contact-status" class="text-sm text-muted" aria-live="polite"></p>
+    </div>
+
+    <p class="mt-3 text-xs text-muted">
+      {copy.privacy} <a href={copy.privacyHref} class="underline">{copy.privacyLink}</a>.
+    </p>
+  </form>
+</div>
+
+<script is:inline data-astro-rerun>
+  (function () {
+    // Bind every #nx-contact-form on the page independently, scoping all
+    // queries to the form element — robust to multiple instances and to
+    // client-side re-renders (no global document.getElementById).
+    document.querySelectorAll('#nx-contact-form').forEach(function (form) {
+      if (form.dataset.bound) return;
+      form.dataset.bound = '1';
+      const status = form.querySelector('#nx-contact-status');
+      const btn = form.querySelector('button[type="submit"]');
+      const endpoint = form.getAttribute('data-endpoint');
+      const M = {
+        sending: form.getAttribute('data-msg-sending'),
+        ok: form.getAttribute('data-msg-ok'),
+        rate: form.getAttribute('data-msg-rate'),
+        err: form.getAttribute('data-msg-err'),
+        net: form.getAttribute('data-msg-net'),
+      };
+      const val = (name) => {
+        const el = form.querySelector('[name="' + name + '"]');
+        return el ? el.value : '';
+      };
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (status) status.textContent = M.sending;
+        if (btn) btn.disabled = true;
+        const payload = { name: val('name'), email: val('email'), message: val('message'), hp: val('hp') };
+
+        fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+          .then(function (r) {
+            if (r.ok) {
+              if (status) status.textContent = M.ok;
+              form.reset();
+            } else if (r.status === 429) {
+              if (status) status.textContent = M.rate;
+            } else {
+              if (status) status.textContent = M.err;
+            }
+          })
+          .catch(function () {
+            if (status) status.textContent = M.net;
+          })
+          .finally(function () {
+            // Always re-enable so the user can send another message or retry.
+            if (btn) btn.disabled = false;
+          });
+      });
+    });
+  })();
+</script>

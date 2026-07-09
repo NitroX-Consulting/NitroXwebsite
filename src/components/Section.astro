@@ -1,0 +1,28 @@
+---
+interface Props {
+  tagline?: string;
+  title?: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+  surface?: boolean;
+}
+const { tagline, title, subtitle, align = 'left', surface = false } = Astro.props;
+const alignCls = align === 'center' ? 'text-center mx-auto' : '';
+---
+
+<section class={surface ? 'bg-surface' : ''}>
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+    {
+      (tagline || title || subtitle) && (
+        <div class={`max-w-2xl ${alignCls}`}>
+          {tagline && <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">{tagline}</p>}
+          {title && <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>}
+          {subtitle && <p class="mt-4 text-lg text-muted">{subtitle}</p>}
+        </div>
+      )
+    }
+    <div class={tagline || title || subtitle ? 'mt-12' : ''}>
+      <slot />
+    </div>
+  </div>
+</section>

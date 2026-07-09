@@ -1,0 +1,64 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import CTA from '~/components/CTA.astro';
+---
+
+<Layout
+  title="À propos"
+  description="NitroX Consulting — un cabinet français, basé dans l’UE, fondé en 2001, aujourd’hui centré sur les systèmes d’IA et d’IT bâtis sur une ingénierie profonde des marchés de capitaux."
+  lang="fr"
+  path="/about"
+>
+  <Hero
+    tagline="À propos"
+    title="Une petite équipe qui livre."
+    subtitle="Fondée en 2001 dans le sud de la France. Nous avons commencé dans le risque et le pricing des marchés de capitaux ; aujourd’hui nous construisons et opérons des systèmes d’IA et d’IT sur ces mêmes fondations."
+  />
+
+  <Section title="Des desks de trading à l’IA en production">
+    <div class="max-w-3xl space-y-5 text-lg leading-relaxed text-muted">
+      <p>
+        NitroX Consulting a été fondée en 2001 pour résoudre des problèmes concrets et difficiles pour des clients des marchés de
+        capitaux — pricing de produits exotiques et optionnels, gestion du risque sur livres réels, et construction des logiciels qui
+        rendaient tout cela possible.
+      </p>
+      <p>
+        La gestion du risque, nous l’avons appris, se gagne en situation de crise. Cet instinct — pour ce qui peut mal tourner, et pour
+        bâtir des systèmes corrects et auditables — est précisément ce qui manque à la plupart des projets technologiques.
+      </p>
+      <p>
+        Aujourd’hui, notre focus est l’<strong>IA et l’IT</strong>. Nous concevons, construisons et opérons des systèmes d’IA agentique,
+        du logiciel quantitatif et des plateformes de données — au premier rang desquels <strong>NitroxBrain</strong>, notre propre
+        assistant IA en production. Nous apportons la rigueur de la finance régulée à un domaine qui en a grand besoin.
+      </p>
+      <p>
+        Nous sommes délibérément petits, basés dans l’UE, et résidents des données par défaut. Vous travaillez directement avec les
+        personnes qui construisent votre système — pas de couche commerciale, pas de sous-traitance lointaine.
+      </p>
+    </div>
+  </Section>
+
+  <Section surface title="Notre façon de travailler">
+    <div class="grid gap-6 sm:grid-cols-3">
+      <div class="rounded-xl border border-token bg-surface p-6">
+        <h3 class="font-semibold">Direct</h3>
+        <p class="mt-2 text-sm text-muted">Vous parlez aux ingénieurs qui font le travail, du début à la fin.</p>
+      </div>
+      <div class="rounded-xl border border-token bg-surface p-6">
+        <h3 class="font-semibold">Cadrage honnête</h3>
+        <p class="mt-2 text-sm text-muted">Si l’IA ou un développement sur mesure n’est pas la bonne réponse, nous vous le disons avant que vous ne dépensiez.</p>
+      </div>
+      <div class="rounded-xl border border-token bg-surface p-6">
+        <h3 class="font-semibold">UE d’abord</h3>
+        <p class="mt-2 text-sm text-muted">Résidence des données et RGPD par défaut, pas en option.</p>
+      </div>
+    </div>
+  </Section>
+
+  <CTA
+    title="Construisons quelque chose qui fonctionne."
+    actions={[{ label: 'Nous contacter', href: '/fr/contact', variant: 'primary' }]}
+  />
+</Layout>

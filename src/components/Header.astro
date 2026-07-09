@@ -1,0 +1,93 @@
+---
+import { Icon } from 'astro-icon/components';
+import { ui, type Lang } from '~/i18n/ui';
+
+interface Props {
+  lang: Lang;
+  /** Locale-relative path of the current page, e.g. '/' or '/services' (no /fr prefix). */
+  path: string;
+}
+const { lang, path } = Astro.props;
+const t = ui[lang];
+// `path` is locale-relative (no /fr prefix). The per-locale altLangHref helper
+// in i18n/ui.ts maps it to the same page in the other locale.
+const altHref = t.altLangHref(path);
+---
+
+<header class="sticky top-0 z-40 border-b border-token bg-surface/85 backdrop-blur-md">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+    <a href={lang === 'fr' ? '/fr' : '/'} class="flex items-center gap-2 font-semibold tracking-tight">
+      <span class="inline-block h-6 w-6 rounded-md bg-primary"></span>
+      <span>NitroX<span class="text-primary">Consulting</span></span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-6 md:flex">
+      {
+        t.nav.map((item) => (
+          <a href={item.href} class="text-sm text-muted transition-colors hover:text-primary">
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href={altHref} class="rounded-md border border-token px-2.5 py-1 text-xs font-medium text-muted hover:text-primary">
+        {t.langLabel}
+      </a>
+      <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle dark mode"
+        class="rounded-md border border-token p-1.5 text-muted hover:text-primary"
+      >
+        <Icon name="tabler:sun" class="hidden h-4 w-4 dark:block" />
+        <Icon name="tabler:moon" class="block h-4 w-4 dark:hidden" />
+      </button>
+      <a
+        href={t.cta.href}
+        class="hidden rounded-md bg-primary px-3.5 py-1.5 text-sm font-medium text-[var(--primary-contrast)] hover:opacity-90 sm:inline-block"
+      >
+        {t.cta.label}
+      </a>
+      <button
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        class="rounded-md border border-token p-1.5 text-muted md:hidden"
+      >
+        <Icon name="tabler:menu-2" class="h-4 w-4" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav id="mobile-nav" class="hidden border-t border-token px-4 py-3 md:hidden">
+    {
+      t.nav.map((item) => (
+        <a href={item.href} class="block py-2 text-sm text-muted hover:text-primary">
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<script is:inline>
+  (function () {
+    const btn = document.getElementById('menu-toggle');
+    const nav = document.getElementById('mobile-nav');
+    if (btn && nav) btn.addEventListener('click', () => nav.classList.toggle('hidden'));
+
+    const theme = document.getElementById('theme-toggle');
+    if (theme)
+      theme.addEventListener('click', () => {
+        const root = document.documentElement;
+        const isDark = root.classList.toggle('dark');
+        try {
+          localStorage.setItem('nx-theme', isDark ? 'dark' : 'light');
+        } catch (e) {}
+      });
+  })();
+</script>

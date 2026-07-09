@@ -1,0 +1,108 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import Features from '~/components/Features.astro';
+import CTA from '~/components/CTA.astro';
+
+const domains = [
+  {
+    title: 'Agentic AI in production',
+    description:
+      'Multi-user AI assistants that read tools, act on data and stay controllable — designed, shipped and operated by us, not outsourced.',
+    icon: 'tabler:robot',
+  },
+  {
+    title: 'Derivatives pricing & risk',
+    description:
+      'Exotic and optional products, IRS, swaps, inflation and FX. Pricing, deltas, stress scenarios and the practical management of a live book.',
+    icon: 'tabler:chart-candle',
+  },
+  {
+    title: 'Regulatory frameworks',
+    description:
+      'Hands-on with evolving compliance regimes — FRTB, IRRBB — and the modelling discipline they demand.',
+    icon: 'tabler:gavel',
+  },
+  {
+    title: 'Quant & software engineering',
+    description:
+      'Excel add-ins, web pricers, crawlers and data platforms. The full path from a model on paper to a tool a team uses daily.',
+    icon: 'tabler:code',
+  },
+  {
+    title: 'Data engineering & analytics',
+    description:
+      'Turning messy real-world data into queryable models — the same engine that powers NitroxBrain’s dataset tools.',
+    icon: 'tabler:database',
+  },
+  {
+    title: 'Education & simulation',
+    description:
+      'Interactive teaching platforms with performance debriefing — making complex instruments and AI tooling genuinely learnable.',
+    icon: 'tabler:school',
+  },
+];
+
+const track = [
+  {
+    year: '2024–2026',
+    title: 'NitroxBrain',
+    body: 'Designed and shipped a production multi-user AI second brain across Google Chat, Slack and Microsoft Teams — approved on the Microsoft Teams Store.',
+  },
+  {
+    year: '2018–2023',
+    title: 'FX option platforms & CRO work',
+    body: 'Web-based FX option risk platforms (KO / KI instruments) and chief-risk-office engagements for institutional clients.',
+  },
+  {
+    year: '2001–2017',
+    title: 'Pricing & risk systems',
+    body: 'Excel pricing add-ins, wine-pricing analytics with web crawlers, and modelling for exotic and optional products across capital-markets desks.',
+  },
+];
+---
+
+<Layout
+  title="Expertise"
+  description="NitroX Consulting's expertise: agentic AI in production, derivatives pricing and risk, regulatory modelling, quant and software engineering — a track record since 2001."
+  lang="en"
+  path="/expertise"
+>
+  <Hero
+    tagline="Expertise"
+    title="Deep domains, not a wide brochure."
+    subtitle="We do a few things at a high level: production AI, quantitative software, and regulated-finance risk. Here is where that depth comes from."
+    actions={[{ label: 'Work with us', href: '/contact', variant: 'primary' }]}
+  />
+
+  <Section
+    tagline="Domains"
+    title="What we know deeply"
+    subtitle="A rare combination: modern AI engineering and the discipline of regulated capital markets."
+  >
+    <Features items={domains} columns={3} />
+  </Section>
+
+  <Section surface tagline="Track record" title="Twenty-five years of shipping" subtitle="A selection — from live trading desks to AI in production.">
+    <div class="space-y-6">
+      {
+        track.map((t) => (
+          <div class="flex flex-col gap-2 rounded-xl border border-token bg-surface p-6 sm:flex-row sm:gap-8">
+            <div class="shrink-0 text-sm font-semibold uppercase tracking-wider text-primary sm:w-32">{t.year}</div>
+            <div>
+              <h3 class="text-lg font-semibold">{t.title}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-muted">{t.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <CTA
+    title="Need this specific mix of skills?"
+    subtitle="AI engineering plus real risk judgement is uncommon. If that is what your problem needs, let us talk."
+    actions={[{ label: 'Talk to us', href: '/contact', variant: 'primary' }]}
+  />
+</Layout>

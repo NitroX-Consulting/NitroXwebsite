@@ -1,0 +1,48 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Section from '~/components/Section.astro';
+import { SITE } from '~/i18n/ui';
+---
+
+<Layout
+  title="Confidentialité"
+  description="Comment NitroX Consulting traite les données personnelles que vous soumettez via ce site."
+  lang="fr"
+  path="/privacy"
+>
+  <Section title="Politique de confidentialité">
+    <div class="max-w-3xl space-y-5 text-muted [&_h3]:mt-8 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-[var(--text)]">
+      <p class="text-sm">Dernière mise à jour : 2026-07-09</p>
+
+      <h3>Qui nous sommes</h3>
+      <p>
+        Ce site est exploité par {SITE.name}, société française basée à {SITE.location}. Pour toute question relative à la
+        confidentialité, écrivez-nous à <a href={`mailto:${SITE.email}`} class="underline">{SITE.email}</a>.
+      </p>
+
+      <h3>Ce que nous collectons</h3>
+      <p>
+        Nous collectons uniquement les informations que vous choisissez de nous envoyer via le formulaire de contact — votre nom,
+        votre email et votre message. Nous ne vendons aucune donnée et ne l’utilisons pas à des fins marketing.
+      </p>
+
+      <h3>Traitement de votre message</h3>
+      <p>
+        Les envois du formulaire sont transmis via une connexion chiffrée à notre propre infrastructure et nous sont relayés par email
+        via Amazon SES dans l’UE (région de Paris). Votre message est traité au sein de l’Union européenne, uniquement pour vous répondre.
+      </p>
+
+      <h3>Conservation</h3>
+      <p>Nous conservons les messages de contact seulement le temps nécessaire au traitement de votre demande, puis les supprimons.</p>
+
+      <h3>Vos droits</h3>
+      <p>
+        Au titre du RGPD, vous pouvez demander l’accès, la rectification ou la suppression de vos données personnelles, et vous opposer à
+        leur traitement. Écrivez à <a href={`mailto:${SITE.email}`} class="underline">{SITE.email}</a> et nous répondrons.
+      </p>
+
+      <h3>Cookies & analytique</h3>
+      <p>Ce site ne dépose pas de cookies publicitaires. Toute analytique éventuelle est respectueuse de la vie privée et basée dans l’UE.</p>
+    </div>
+  </Section>
+</Layout>

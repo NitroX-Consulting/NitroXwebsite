@@ -1,0 +1,93 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import Features from '~/components/Features.astro';
+import CTA from '~/components/CTA.astro';
+
+const ai = [
+  {
+    title: 'Assistants agentiques',
+    description: 'Déployez une IA là où votre équipe travaille déjà — chat, email, documents — et qui agit réellement, en toute sécurité.',
+    icon: 'tabler:robot',
+  },
+  {
+    title: 'RAG & bases de connaissances',
+    description: 'Rendez vos documents, données et historiques recherchables et interrogeables, avec isolation par utilisateur et résidence UE.',
+    icon: 'tabler:database-search',
+  },
+  {
+    title: 'Automatisation & tâches planifiées',
+    description: 'Briefings récurrents, veilles et workflows multi-étapes qui s’exécutent sans surveillance et rendent compte.',
+    icon: 'tabler:clock-cog',
+  },
+];
+
+const it = [
+  {
+    title: 'Logiciels & plateformes web',
+    description: 'Outils internes, tableaux de bord et applications web — conçus pour être livrés et maintenables ensuite.',
+    icon: 'tabler:app-window',
+  },
+  {
+    title: 'Outils de pricing & quant',
+    description: 'Add-ins Excel et pricers web pour IRS, swaps, options, inflation et FX, y compris instruments KO/KI.',
+    icon: 'tabler:calculator',
+  },
+  {
+    title: 'Cloud & déploiement',
+    description: 'Déploiements conteneurisés, scale-to-zero sur GCP / Azure / AWS, avec des défauts de coût et de sécurité sains.',
+    icon: 'tabler:cloud-cog',
+  },
+];
+
+const advisory = [
+  {
+    title: 'Stratégie & faisabilité IA',
+    description: 'Là où l’IA rapporte vraiment pour votre équipe — et là où non. Un cadrage honnête avant de dépenser.',
+    icon: 'tabler:route',
+  },
+  {
+    title: 'Modélisation risque & réglementaire',
+    description: 'Modélisation, scénarios de stress et conception conforme, issus de l’expérience FRTB / IRRBB.',
+    icon: 'tabler:shield-check',
+  },
+  {
+    title: 'Formation & accompagnement',
+    description: 'Enseignement interactif et débriefs concrets — de la simulation d’options FX à la montée en compétence IA d’une équipe.',
+    icon: 'tabler:school',
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="Ce que fait NitroX Consulting : systèmes d’IA agentique, IT et logiciels pragmatiques, outils de pricing et quant, conseil IA et risque."
+  lang="fr"
+  path="/services"
+>
+  <Hero
+    tagline="Services"
+    title="Trois pratiques. Une équipe responsable."
+    subtitle="Nous prenons les problèmes de bout en bout — de la faisabilité à un système en production, maintenu ensuite."
+    actions={[{ label: 'Nous contacter', href: '/fr/contact', variant: 'primary' }]}
+  />
+
+  <Section tagline="IA" title="Systèmes d’IA agentique" subtitle="Une IA autonome et contrôlable qui agit sur vos données — l’ingénierie derrière NitroxBrain.">
+    <Features items={ai} columns={3} />
+  </Section>
+
+  <Section surface tagline="IT" title="IT & logiciels pragmatiques" subtitle="Des logiciels concrets qui résolvent un vrai problème et restent maintenables.">
+    <Features items={it} columns={3} />
+  </Section>
+
+  <Section tagline="Conseil" title="Stratégie, risque & accompagnement" subtitle="Deux décennies de jugement en finance régulée, appliquées à vos décisions.">
+    <Features items={advisory} columns={3} />
+  </Section>
+
+  <CTA
+    title="Vous ne savez pas de quoi vous avez besoin ?"
+    subtitle="C’est le rôle d’une première conversation. Nous vous aidons à cadrer — sans engagement."
+    actions={[{ label: 'Prendre rendez-vous', href: '/fr/contact', variant: 'primary' }]}
+  />
+</Layout>
