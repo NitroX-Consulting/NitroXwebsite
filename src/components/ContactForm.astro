@@ -100,48 +100,52 @@ const inputCls =
 
 <script is:inline data-astro-rerun>
   (function () {
-    const form = document.getElementById('nx-contact-form');
-    if (!form || form.dataset.bound) return;
-    form.dataset.bound = '1';
-    const status = document.getElementById('nx-contact-status');
-    const btn = form.querySelector('button[type="submit"]');
-    const endpoint = form.getAttribute('data-endpoint');
-    const M = {
-      sending: form.getAttribute('data-msg-sending'),
-      ok: form.getAttribute('data-msg-ok'),
-      rate: form.getAttribute('data-msg-rate'),
-      err: form.getAttribute('data-msg-err'),
-      net: form.getAttribute('data-msg-net'),
-    };
-    const val = (id) => {
-      const el = document.getElementById(id);
-      return el ? el.value : '';
-    };
+    // Bind every #nx-contact-form on the page independently, scoping all
+    // queries to the form element — robust to multiple instances and to
+    // client-side re-renders (no global document.getElementById).
+    document.querySelectorAll('#nx-contact-form').forEach(function (form) {
+      if (form.dataset.bound) return;
+      form.dataset.bound = '1';
+      const status = form.querySelector('#nx-contact-status');
+      const btn = form.querySelector('button[type="submit"]');
+      const endpoint = form.getAttribute('data-endpoint');
+      const M = {
+        sending: form.getAttribute('data-msg-sending'),
+        ok: form.getAttribute('data-msg-ok'),
+        rate: form.getAttribute('data-msg-rate'),
+        err: form.getAttribute('data-msg-err'),
+        net: form.getAttribute('data-msg-net'),
+      };
+      const val = (name) => {
+        const el = form.querySelector('[name="' + name + '"]');
+        return el ? el.value : '';
+      };
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (status) status.textContent = M.sending;
-      if (btn) btn.disabled = true;
-      const hp = form.querySelector('input[name="hp"]');
-      const payload = { name: val('nx-name'), email: val('nx-email'), message: val('nx-message'), hp: hp ? hp.value : '' };
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (status) status.textContent = M.sending;
+        if (btn) btn.disabled = true;
+        const payload = { name: val('name'), email: val('email'), message: val('message'), hp: val('hp') };
 
-      fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-        .then(function (r) {
-          if (r.ok) {
-            if (status) status.textContent = M.ok;
-            form.reset();
-          } else if (r.status === 429) {
-            if (status) status.textContent = M.rate;
+        fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+          .then(function (r) {
+            if (r.ok) {
+              if (status) status.textContent = M.ok;
+              form.reset();
+            } else if (r.status === 429) {
+              if (status) status.textContent = M.rate;
+            } else {
+              if (status) status.textContent = M.err;
+            }
+          })
+          .catch(function () {
+            if (status) status.textContent = M.net;
+          })
+          .finally(function () {
+            // Always re-enable so the user can send another message or retry.
             if (btn) btn.disabled = false;
-          } else {
-            if (status) status.textContent = M.err;
-            if (btn) btn.disabled = false;
-          }
-        })
-        .catch(function () {
-          if (status) status.textContent = M.net;
-          if (btn) btn.disabled = false;
-        });
+          });
+      });
     });
   })();
 </script>

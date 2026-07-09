@@ -24,6 +24,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {/* hreflang alternates so search engines pair the EN root with its /fr mirror */}
+    <link rel="alternate" hreflang="en" href={new URL(path === '/' ? '/' : path, Astro.site).href} />
+    <link rel="alternate" hreflang="fr" href={new URL(path === '/' ? '/fr' : '/fr' + path, Astro.site).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL(path === '/' ? '/' : path, Astro.site).href} />
     <link rel="icon" href="/favicon.ico" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={fullTitle} />

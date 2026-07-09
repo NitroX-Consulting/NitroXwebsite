@@ -9,9 +9,9 @@ interface Props {
 }
 const { lang, path } = Astro.props;
 const t = ui[lang];
-// `path` is locale-relative (no /fr prefix). Point the toggle at the same
-// page in the other locale.
-const altHref = lang === 'en' ? '/fr' + (path === '/' ? '' : path) : path === '/' ? '/' : path;
+// `path` is locale-relative (no /fr prefix). The per-locale altLangHref helper
+// in i18n/ui.ts maps it to the same page in the other locale.
+const altHref = t.altLangHref(path);
 ---
 
 <header class="sticky top-0 z-40 border-b border-token bg-surface/85 backdrop-blur-md">
