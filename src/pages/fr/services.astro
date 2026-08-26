@@ -7,54 +7,63 @@ import CTA from '~/components/CTA.astro';
 
 const build = [
   {
-    title: 'Assistants agentiques',
-    description: 'Déployez une IA là où votre équipe travaille déjà — chat, email, documents — et qui agit réellement, en toute sécurité.',
+    title: 'Un assistant qui agit',
+    description:
+      'Une IA disponible là où votre équipe travaille déjà — messagerie, email, documents — et qui fait le travail, pas seulement qui répond.',
     icon: 'tabler:robot',
   },
   {
-    title: 'RAG & bases de connaissances',
-    description: 'Rendez vos documents, données et historiques recherchables et interrogeables, avec isolation par utilisateur et résidence UE.',
+    title: 'Vos documents, interrogeables',
+    description:
+      'Contrats, procédures, comptes rendus, dossiers clients : vos équipes posent une question et obtiennent une réponse tirée de vos propres documents, avec ses sources.',
     icon: 'tabler:database-search',
   },
   {
-    title: 'Automatisation & tâches planifiées',
-    description: 'Briefings récurrents, veilles et workflows multi-étapes qui s’exécutent sans surveillance et rendent compte.',
+    title: 'Tâches automatiques et récurrentes',
+    description:
+      'Un briefing chaque matin, une veille qui tourne toute seule, plusieurs tâches enchaînées sans surveillance — et un compte rendu de ce qui a été fait.',
     icon: 'tabler:clock-cog',
   },
 ];
 
 const deliver = [
   {
-    title: 'Intégration à vos outils',
-    description: 'Connectez l’IA aux systèmes que vous utilisez déjà — Google, Microsoft, Slack, votre CRM et vos API internes — pour qu’elle agisse, pas seulement qu’elle réponde.',
+    title: 'Branché à vos outils',
+    description:
+      'Nous connectons l’IA aux systèmes que vous utilisez déjà — Google, Microsoft, Slack, votre CRM, vos logiciels internes — pour qu’elle agisse, et pas seulement qu’elle discute.',
     icon: 'tabler:plug-connected',
   },
   {
-    title: 'Cloud & déploiement',
-    description: 'Déploiements conteneurisés, scale-to-zero sur GCP / Azure / AWS, avec des défauts de coût et de sécurité sains.',
+    title: 'Hébergement et exploitation',
+    description:
+      'Hébergement sur Google Cloud, Azure ou AWS, dimensionné pour ne vous coûter que ce que vous utilisez réellement. Nous l’installons, nous le maintenons.',
     icon: 'tabler:cloud-cog',
   },
   {
-    title: 'Sûre et conforme par conception',
-    description: 'Garde-fous, isolation par utilisateur, actions auditables et RGPD / résidence des données en UE — une IA à mettre entre les mains de vrais utilisateurs.',
+    title: 'Sûre dès la conception',
+    description:
+      'Chacun ne voit que ce à quoi il a droit, les actions sont enregistrées et vérifiables, et vos données peuvent rester hébergées dans l’Union européenne, conformément au RGPD.',
     icon: 'tabler:shield-check',
   },
 ];
 
 const enable = [
   {
-    title: 'Stratégie & faisabilité IA',
-    description: 'Là où l’IA rapporte vraiment pour votre équipe — et là où non. Un cadrage honnête avant de dépenser.',
+    title: 'Cadrage et faisabilité',
+    description:
+      'Là où l’IA vous rapporte vraiment — et là où elle ne vous apportera rien. Un avis honnête avant que vous ne dépensiez.',
     icon: 'tabler:route',
   },
   {
     title: 'Formation',
-    description: 'Des formations concrètes qui rendent vos équipes autonomes avec l’IA — sur vos propres cas d’usage, pas des diapositives.<br /><a href="/fr/formations" class="text-primary hover:underline">Voir nos formations →</a>',
+    description:
+      'Des formations concrètes qui rendent vos équipes autonomes, sur vos propres cas plutôt que sur des diapositives.<br /><a href="/fr/formations" class="text-primary hover:underline">Voir nos formations →</a>',
     icon: 'tabler:school',
   },
   {
-    title: 'Accompagnement continu',
-    description: 'Un partenaire du premier cadrage jusqu’à un système qui tourne et reste maintenu — adoption et montée en compétence incluses.<br /><a href="/fr/accompagnement" class="text-primary hover:underline">Accompagnement →</a>',
+    title: 'Accompagnement dans la durée',
+    description:
+      'Un interlocuteur du premier cadrage jusqu’à une solution qui tourne et reste entretenue — adoption et montée en compétence comprises.<br /><a href="/fr/accompagnement" class="text-primary hover:underline">Accompagnement →</a>',
     icon: 'tabler:trending-up',
   },
 ];
@@ -62,32 +71,45 @@ const enable = [
 
 <Layout
   title="Services"
-  description="Ce que fait NitroX Consulting : systèmes d’IA agentique, intégration et déploiement, et stratégie, formation et accompagnement IA — une équipe responsable."
+  description="Ce que fait NitroX Consulting : des assistants IA connectés à vos outils, l’installation et l’exploitation, et le cadrage, la formation et l’accompagnement de vos équipes."
   lang="fr"
   path="/services"
 >
   <Hero
     tagline="Services"
-    title="Trois pratiques. Une équipe responsable."
-    subtitle="Nous prenons les problèmes d’IA de bout en bout — de la faisabilité à un système en production, maintenu ensuite."
-    actions={[{ label: 'Nous contacter', href: '/fr/contact', variant: 'primary' }]}
+    title="Trois métiers. Un seul interlocuteur."
+    subtitle="Nous prenons le sujet de bout en bout — depuis « est-ce que c’est faisable ? » jusqu’à une solution utilisée tous les jours, que nous continuons à entretenir."
+    actions={[{ label: 'Réserver 30 minutes', href: '/fr/contact', variant: 'primary' }]}
   />
 
-  <Section tagline="Construire" title="Systèmes d’IA agentique" subtitle="Une IA autonome et contrôlable qui agit sur vos données — l’ingénierie derrière NitroxBrain.">
+  <Section
+    tagline="Construire"
+    title="Des assistants qui font le travail"
+    subtitle="Une IA connectée à vos données et à vos outils, qui reste sous votre contrôle — l’ingénierie derrière NitroxBrain."
+  >
     <Features items={build} columns={3} />
   </Section>
 
-  <Section surface tagline="Livrer" title="Intégration, déploiement & maîtrise" subtitle="Mettre l’IA en production, branchée à vos outils, et sûre à exploiter.">
+  <Section
+    surface
+    tagline="Livrer"
+    title="Installation, hébergement et maîtrise"
+    subtitle="Passer de la maquette à un outil que vos équipes utilisent tous les jours, branché à vos systèmes et sûr à exploiter."
+  >
     <Features items={deliver} columns={3} />
   </Section>
 
-  <Section tagline="Autonomiser" title="Stratégie, formation & accompagnement" subtitle="Du cadrage honnête à des équipes qui maîtrisent leur IA — nous transmettons, nous ne vous enfermons pas.">
+  <Section
+    tagline="Rendre autonome"
+    title="Cadrage, formation et accompagnement"
+    subtitle="Du conseil honnête jusqu’à des équipes qui maîtrisent leur outil — nous transmettons, nous ne vous rendons pas dépendants."
+  >
     <Features items={enable} columns={3} />
   </Section>
 
   <CTA
-    title="Vous ne savez pas de quoi vous avez besoin ?"
-    subtitle="C’est le rôle d’une première conversation. Nous vous aidons à cadrer — sans engagement."
-    actions={[{ label: 'Prendre rendez-vous', href: '/fr/contact', variant: 'primary' }]}
+    title="Vous ne savez pas encore de quoi vous avez besoin ?"
+    subtitle="C’est justement le rôle d’une première conversation. Trente minutes, sans engagement et sans frais."
+    actions={[{ label: 'Réserver 30 minutes', href: '/fr/contact', variant: 'primary' }]}
   />
 </Layout>

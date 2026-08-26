@@ -8,37 +8,37 @@ import CTA from '~/components/CTA.astro';
 
 const domains = [
   {
-    title: 'Agentic AI in production',
+    title: 'Assistants that do the work',
     description:
-      'Multi-user AI assistants that read tools, act on data and stay controllable — designed, shipped and operated by us, not outsourced.',
+      'AI assistants shared by a whole team, that read your tools, act on your data and stay under your control — designed, installed and run by us, not outsourced.',
     icon: 'tabler:robot',
   },
   {
-    title: 'Retrieval & knowledge (RAG)',
+    title: 'Finding the answer',
     description:
-      'Turning messy, scattered data into a knowledge base your AI can answer from — accurate, sourced, and isolated per user.',
+      'Turning messy, scattered data into knowledge your team can simply ask — accurate answers with their sources, and everyone sees only what they should.',
     icon: 'tabler:database-search',
   },
   {
-    title: 'AI automation & agents',
+    title: 'Automatic tasks',
     description:
-      'Scheduled briefings, watchers and multi-step agents that do real work unattended — with the guardrails that belong with them.',
+      'Scheduled briefings, watchers and several tasks chained together that do real work unattended — with the guardrails that belong with them.',
     icon: 'tabler:clock-cog',
   },
   {
-    title: 'Multi-platform delivery',
+    title: 'Inside the tools you already use',
     description:
-      'One assistant across Google Chat, Slack and Microsoft Teams, plugged into the tools and APIs your team already uses.',
+      'One assistant across Google Chat, Slack and Microsoft Teams, plugged into the software your team already works in.',
     icon: 'tabler:plug-connected',
   },
   {
-    title: 'Safe & governed AI',
+    title: 'Safe and controlled',
     description:
-      'Guardrails, auditable actions, per-user isolation and EU data residency — the engineering rigour to run AI in front of real users.',
+      'Guardrails, recorded and checkable actions, access limited per person and hosting available in the European Union — the rigour AI needs before real users touch it.',
     icon: 'tabler:shield-check',
   },
   {
-    title: 'AI enablement & training',
+    title: 'Training and skills',
     description:
       'Hands-on teaching and follow-up that make a team genuinely productive with AI — not dependent on us.',
     icon: 'tabler:school',
@@ -50,33 +50,33 @@ const track = [
     year: '2025–2026',
     title: 'NitroxBrain',
     href: 'https://nitroxbrain.com',
-    body: 'Designed and shipped a production multi-user AI second brain across Google Chat, Slack and Microsoft Teams — approved on the Microsoft Teams Store, EU-resident and GDPR-first.',
+    body: 'Designed and shipped a shared AI assistant used every day across Google Chat, Slack and Microsoft Teams — approved on the Microsoft Teams Store, hostable in the EU and GDPR-first.',
   },
   {
     year: '2026',
     title: 'SailingRouter',
     href: 'https://sailingrouter.com',
-    body: 'A weather-routing web platform with real-time optimal-route computation — proof we take data-heavy products all the way to production.',
+    body: 'A weather-routing web platform that computes the optimal route in real time — proof we take data-heavy products all the way to the finish.',
   },
   {
-    year: '2001–2024',
-    title: 'Two decades of high-stakes engineering',
-    body: 'Before AI, we built pricing, risk and modelling systems for capital markets — where a bug costs real money. That rigour is the foundation under everything we now ship in AI.',
+    year: '1991–2024',
+    title: 'Thirty-five years of high-stakes engineering',
+    body: 'Before AI: ten years trading options on the Paribas and Commerzbank floors, then pricing, risk and modelling systems for banks, funds and insurers — where a mistake shows up the same day. That rigour is the foundation under everything we now ship.',
   },
 ];
 ---
 
 <Layout
   title="Expertise"
-  description="NitroX Consulting's expertise: agentic AI in production, retrieval and RAG, automation, multi-platform delivery and governed AI — with thirty-five years of high-stakes engineering behind it."
+  description="NitroX Consulting's expertise: AI assistants teams actually use, finding answers in your own documents, automating tasks and keeping it all controlled — with thirty-five years of high-stakes engineering behind it."
   lang="en"
   path="/expertise"
 >
   <Hero
     tagline="Expertise"
-    title="Deep in AI, not a wide brochure."
-    subtitle="We do a few things at a high level: production AI systems, the retrieval that makes them useful, and the engineering rigour to run them safely."
-    actions={[{ label: 'Work with us', href: '/contact', variant: 'primary' }]}
+    title="Few areas, mastered deeply."
+    subtitle="We do not claim to do everything. We know a few subjects thoroughly: AI assistants teams genuinely use, the search that makes them useful, and the rigour to run them without danger."
+    actions={[{ label: 'Book 30 minutes', href: '/contact', variant: 'primary' }]}
   />
 
   <Section
@@ -87,7 +87,7 @@ const track = [
     <Features items={domains} columns={3} />
   </Section>
 
-  <Section surface tagline="Track record" title="From high-stakes engineering to AI in production" subtitle="A selection of what we have shipped.">
+  <Section surface tagline="Track record" title="From trading floors to everyday AI" subtitle="A selection of what we have shipped.">
     <div class="space-y-6">
       {
         track.map((t) => (
@@ -97,7 +97,7 @@ const track = [
               <h3 class="text-lg font-semibold">
                 {
                   t.href ? (
-                    <a href={t.href} target="_blank" rel="noopener" class="inline-flex items-center gap-1 hover:text-primary">
+                    <a href={t.href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:text-primary">
                       {t.title}
                       <Icon name="tabler:external-link" class="h-4 w-4 opacity-60" />
                     </a>
@@ -117,6 +117,6 @@ const track = [
   <CTA
     title="Need AI built with real rigour?"
     subtitle="Modern AI engineering plus hard-won risk judgement is uncommon. If that is what your problem needs, let us talk."
-    actions={[{ label: 'Talk to us', href: '/contact', variant: 'primary' }]}
+    actions={[{ label: 'Book 30 minutes', href: '/contact', variant: 'primary' }]}
   />
 </Layout>
