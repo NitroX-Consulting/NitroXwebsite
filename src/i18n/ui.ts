@@ -39,7 +39,7 @@ export const ui: Record<Lang, Strings> = {
     langLabel: 'FR',
     altLangHref: (path) => '/fr' + (path === '/' ? '' : path),
     footer: {
-      tagline: 'AI & IT consulting, built on 20+ years of capital-markets engineering.',
+      tagline: 'AI consulting & engineering, built on 20+ years of high-stakes engineering.',
       rights: 'All rights reserved.',
       contact: 'Contact us',
       privacy: { label: 'Privacy', href: '/privacy' },
@@ -59,7 +59,7 @@ export const ui: Record<Lang, Strings> = {
     langLabel: 'EN',
     altLangHref: (path) => (path.replace(/^\/fr/, '') || '/'),
     footer: {
-      tagline: "Conseil en IA & IT, fondé sur 20+ ans d'ingénierie des marchés de capitaux.",
+      tagline: "Conseil & ingénierie IA, fondés sur 20+ ans d'ingénierie à fort enjeu.",
       rights: 'Tous droits réservés.',
       contact: 'Nous contacter',
       privacy: { label: 'Confidentialité', href: '/fr/privacy' },

@@ -14,82 +14,80 @@ const domains = [
     icon: 'tabler:robot',
   },
   {
-    title: 'Pricing & risque de dérivés',
+    title: 'Recherche & connaissances (RAG)',
     description:
-      'Produits exotiques et optionnels, IRS, swaps, inflation et FX. Pricing, deltas, scénarios de stress et gestion concrète d’un livre en vie.',
-    icon: 'tabler:chart-candle',
+      'Transformer des données éparses et désordonnées en une base de connaissances que votre IA sait exploiter — juste, sourcée et isolée par utilisateur.',
+    icon: 'tabler:database-search',
   },
   {
-    title: 'Cadres réglementaires',
-    description: 'Une pratique concrète des régimes de conformité en évolution — FRTB, IRRBB — et de la discipline de modélisation qu’ils exigent.',
-    icon: 'tabler:gavel',
-  },
-  {
-    title: 'Ingénierie quant & logicielle',
+    title: 'Automatisation & agents IA',
     description:
-      'Add-ins Excel, pricers web, crawlers et plateformes de données. Tout le chemin du modèle sur le papier à l’outil utilisé au quotidien.',
-    icon: 'tabler:code',
+      'Briefings planifiés, veilles et agents multi-étapes qui font un vrai travail sans surveillance — avec les garde-fous qui vont avec.',
+    icon: 'tabler:clock-cog',
   },
   {
-    title: 'Data engineering & analytique',
-    description: 'Transformer des données réelles désordonnées en modèles interrogeables — le moteur qui alimente les outils datasets de NitroxBrain.',
-    icon: 'tabler:database',
+    title: 'Livraison multi-plateforme',
+    description:
+      'Un seul assistant sur Google Chat, Slack et Microsoft Teams, branché aux outils et aux API que votre équipe utilise déjà.',
+    icon: 'tabler:plug-connected',
   },
   {
-    title: 'Formation & simulation',
-    description: 'Plateformes d’enseignement interactives avec débriefing de performance — pour rendre instruments complexes et outils IA réellement apprenables.',
+    title: 'IA sûre et maîtrisée',
+    description:
+      'Garde-fous, actions auditables, isolation par utilisateur et résidence des données en UE — la rigueur d’ingénierie pour exploiter l’IA face à de vrais utilisateurs.',
+    icon: 'tabler:shield-check',
+  },
+  {
+    title: 'Formation & montée en compétence IA',
+    description:
+      'Enseignement concret et suivi qui rendent une équipe réellement productive avec l’IA — sans dépendre de nous.',
     icon: 'tabler:school',
   },
 ];
 
 const track = [
   {
-    year: '2026',
-    title: 'SailingRouter',
-    href: 'https://sailingrouter.com',
-    body: 'Une plateforme web de routage météo à la voile — calcul d’itinéraire optimal en temps réel, appliquant notre ingénierie de données et notre modélisation à un produit en production.',
-  },
-  {
     year: '2025–2026',
     title: 'NitroxBrain',
     href: 'https://nitroxbrain.com',
-    body: 'Conception et livraison d’un second cerveau IA multi-utilisateurs en production sur Google Chat, Slack et Microsoft Teams — approuvé sur le Microsoft Teams Store.',
+    body: 'Conception et livraison d’un second cerveau IA multi-utilisateurs en production sur Google Chat, Slack et Microsoft Teams — approuvé sur le Microsoft Teams Store, résident UE et RGPD d’abord.',
   },
   {
-    year: '2018–2023',
-    title: 'Plateformes d’options FX & missions CRO',
-    body: 'Plateformes web de risque d’options FX (instruments KO / KI) et missions de direction des risques pour clients institutionnels.',
+    year: '2026',
+    title: 'SailingRouter',
+    href: 'https://sailingrouter.com',
+    body: 'Une plateforme web de routage météo avec calcul d’itinéraire optimal en temps réel — la preuve que nous menons des produits riches en données jusqu’en production.',
   },
   {
-    year: '2001–2017',
-    title: 'Systèmes de pricing & risque',
-    body: 'Add-ins de pricing Excel, analytique de pricing du vin avec crawlers web, et modélisation de produits exotiques et optionnels sur desks de marchés.',
+    year: '2001–2024',
+    title: 'Deux décennies d’ingénierie à fort enjeu',
+    body: 'Avant l’IA, nous avons construit des systèmes de pricing, de risque et de modélisation pour les marchés de capitaux — où un bug coûte cher. Cette rigueur est le socle de tout ce que nous livrons aujourd’hui en IA.',
   },
 ];
 ---
 
 <Layout
   title="Expertise"
-  description="L’expertise de NitroX Consulting : IA agentique en production, pricing et risque de dérivés, modélisation réglementaire, ingénierie quant et logicielle — un parcours depuis 2001."
+  description="L’expertise de NitroX Consulting : IA agentique en production, recherche et RAG, automatisation, livraison multi-plateforme et IA maîtrisée — s’appuyant sur deux décennies d’ingénierie à fort enjeu."
   lang="fr"
   path="/expertise"
 >
   <Hero
     tagline="Expertise"
-    title="Des domaines profonds, pas une large brochure."
-    subtitle="Nous faisons quelques choses à haut niveau : IA en production, logiciel quantitatif et risque de finance régulée. Voici d’où vient cette profondeur."
+    title="Profonds en IA, pas une large brochure."
+    subtitle="Nous maîtrisons quelques domaines clés à un haut niveau : des systèmes d’IA en production, la recherche qui les rend utiles, et la rigueur d’ingénierie pour les exploiter en toute sûreté."
     actions={[{ label: 'Travailler avec nous', href: '/fr/contact', variant: 'primary' }]}
   />
 
   <Section
     tagline="Domaines"
     title="Ce que nous maîtrisons en profondeur"
-    subtitle="Une combinaison rare : l’ingénierie IA moderne et la discipline des marchés de capitaux régulés."
+    subtitle="L’ingénierie IA moderne, livrée avec la discipline de deux décennies de systèmes régulés à fort enjeu."
   >
     <Features items={domains} columns={3} />
   </Section>
 
-  <Section surface tagline="Parcours" title="Vingt-cinq ans à livrer" subtitle="Une sélection — des desks de trading à l’IA en production.">
+  <Section surface tagline="Parcours" title="De l’ingénierie à fort enjeu à l’IA en production" subtitle="Une sélection de ce que nous avons livré.">
     <div class="space-y-6">
       {
         track.map((t) => (
@@ -117,8 +115,8 @@ const track = [
   </Section>
 
   <CTA
-    title="Besoin de ce mélange précis de compétences ?"
-    subtitle="Ingénierie IA et vrai jugement du risque : c’est rare. Si c’est ce qu’exige votre problème, parlons-en."
+    title="Besoin d’une IA construite avec une vraie rigueur ?"
+    subtitle="L’ingénierie IA moderne alliée à un jugement du risque durement acquis, c’est rare. Si c’est ce qu’exige votre problème, parlons-en."
     actions={[{ label: 'Nous contacter', href: '/fr/contact', variant: 'primary' }]}
   />
 </Layout>

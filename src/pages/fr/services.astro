@@ -5,7 +5,7 @@ import Section from '~/components/Section.astro';
 import Features from '~/components/Features.astro';
 import CTA from '~/components/CTA.astro';
 
-const ai = [
+const build = [
   {
     title: 'Assistants agentiques',
     description: 'Déployez une IA là où votre équipe travaille déjà — chat, email, documents — et qui agit réellement, en toute sécurité.',
@@ -23,66 +23,66 @@ const ai = [
   },
 ];
 
-const it = [
+const deliver = [
   {
-    title: 'Logiciels & plateformes web',
-    description: 'Outils internes, tableaux de bord et applications web — conçus pour être livrés et maintenables ensuite.',
-    icon: 'tabler:app-window',
-  },
-  {
-    title: 'Outils de pricing & quant',
-    description: 'Add-ins Excel et pricers web pour IRS, swaps, options, inflation et FX, y compris instruments KO/KI.',
-    icon: 'tabler:calculator',
+    title: 'Intégration à vos outils',
+    description: 'Connectez l’IA aux systèmes que vous utilisez déjà — Google, Microsoft, Slack, votre CRM et vos API internes — pour qu’elle agisse, pas seulement qu’elle réponde.',
+    icon: 'tabler:plug-connected',
   },
   {
     title: 'Cloud & déploiement',
     description: 'Déploiements conteneurisés, scale-to-zero sur GCP / Azure / AWS, avec des défauts de coût et de sécurité sains.',
     icon: 'tabler:cloud-cog',
   },
+  {
+    title: 'Sûre et conforme par conception',
+    description: 'Garde-fous, isolation par utilisateur, actions auditables et RGPD / résidence des données en UE — une IA à mettre entre les mains de vrais utilisateurs.',
+    icon: 'tabler:shield-check',
+  },
 ];
 
-const advisory = [
+const enable = [
   {
     title: 'Stratégie & faisabilité IA',
     description: 'Là où l’IA rapporte vraiment pour votre équipe — et là où non. Un cadrage honnête avant de dépenser.',
     icon: 'tabler:route',
   },
   {
-    title: 'Modélisation risque & réglementaire',
-    description: 'Modélisation, scénarios de stress et conception conforme, issus de l’expérience FRTB / IRRBB.',
-    icon: 'tabler:shield-check',
+    title: 'Formation',
+    description: 'Des formations concrètes qui rendent vos équipes autonomes avec l’IA — sur vos propres cas d’usage, pas des diapositives.<br /><a href="/fr/formations" class="text-primary hover:underline">Voir nos formations →</a>',
+    icon: 'tabler:school',
   },
   {
-    title: 'Formation & accompagnement',
-    description: 'Enseignement interactif et débriefs concrets — de la simulation d’options FX à la montée en compétence IA d’une équipe.<br /><a href="/fr/formations" class="text-primary hover:underline">Formations</a> · <a href="/fr/accompagnement" class="text-primary hover:underline">Accompagnement</a>',
-    icon: 'tabler:school',
+    title: 'Accompagnement continu',
+    description: 'Un partenaire du premier cadrage jusqu’à un système qui tourne et reste maintenu — adoption et montée en compétence incluses.<br /><a href="/fr/accompagnement" class="text-primary hover:underline">Accompagnement →</a>',
+    icon: 'tabler:trending-up',
   },
 ];
 ---
 
 <Layout
   title="Services"
-  description="Ce que fait NitroX Consulting : systèmes d’IA agentique, IT et logiciels pragmatiques, outils de pricing et quant, conseil IA et risque."
+  description="Ce que fait NitroX Consulting : systèmes d’IA agentique, intégration et déploiement, et stratégie, formation et accompagnement IA — une équipe responsable."
   lang="fr"
   path="/services"
 >
   <Hero
     tagline="Services"
     title="Trois pratiques. Une équipe responsable."
-    subtitle="Nous prenons les problèmes de bout en bout — de la faisabilité à un système en production, maintenu ensuite."
+    subtitle="Nous prenons les problèmes d’IA de bout en bout — de la faisabilité à un système en production, maintenu ensuite."
     actions={[{ label: 'Nous contacter', href: '/fr/contact', variant: 'primary' }]}
   />
 
-  <Section tagline="IA" title="Systèmes d’IA agentique" subtitle="Une IA autonome et contrôlable qui agit sur vos données — l’ingénierie derrière NitroxBrain.">
-    <Features items={ai} columns={3} />
+  <Section tagline="Construire" title="Systèmes d’IA agentique" subtitle="Une IA autonome et contrôlable qui agit sur vos données — l’ingénierie derrière NitroxBrain.">
+    <Features items={build} columns={3} />
   </Section>
 
-  <Section surface tagline="IT" title="IT & logiciels pragmatiques" subtitle="Des logiciels concrets qui résolvent un vrai problème et restent maintenables.">
-    <Features items={it} columns={3} />
+  <Section surface tagline="Livrer" title="Intégration, déploiement & maîtrise" subtitle="Mettre l’IA en production, branchée à vos outils, et sûre à exploiter.">
+    <Features items={deliver} columns={3} />
   </Section>
 
-  <Section tagline="Conseil" title="Stratégie, risque & accompagnement" subtitle="Deux décennies de jugement en finance régulée, appliquées à vos décisions.">
-    <Features items={advisory} columns={3} />
+  <Section tagline="Autonomiser" title="Stratégie, formation & accompagnement" subtitle="Du cadrage honnête à des équipes qui maîtrisent leur IA — nous transmettons, nous ne vous enfermons pas.">
+    <Features items={enable} columns={3} />
   </Section>
 
   <CTA
