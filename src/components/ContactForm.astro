@@ -13,11 +13,15 @@ const CONTACT_ENDPOINT = SITE.contactEndpoint;
 
 const copy = {
   en: {
-    heading: 'Send us a message',
-    subtitle: 'We answer every inbound enquiry as quickly as we can.',
+    heading: 'Tell us about the task',
+    subtitle: 'You don\'t need an “AI project”. A task that costs you time is enough. We answer every inbound enquiry as quickly as we can.',
     name: 'Name',
     email: 'Email',
-    message: 'Message',
+    message: 'Which task takes too long?',
+    messagePlaceholder:
+      'e.g. “Every Monday two people spend half a day pulling last week\'s numbers together into a report.”',
+    messageHelp:
+      'Repetitive work, information nobody can find, a report produced every week — any of those is a good starting point. If AI is not the right answer, we will say so.',
     send: 'Send message',
     sending: 'Sending…',
     ok: 'Thanks — your message is on its way. We\'ll reply as quickly as we can.',
@@ -29,11 +33,15 @@ const copy = {
     privacyHref: '/privacy',
   },
   fr: {
-    heading: 'Envoyez-nous un message',
-    subtitle: 'Nous répondons à chaque demande — dans les meilleurs délais.',
+    heading: 'Décrivez-nous la tâche',
+    subtitle: 'Pas besoin d’avoir un « projet IA ». Une tâche qui vous coûte du temps suffit. Nous répondons à chaque demande, dans les meilleurs délais.',
     name: 'Nom',
     email: 'Email',
-    message: 'Message',
+    message: 'Quelle tâche vous prend trop de temps ?',
+    messagePlaceholder:
+      'ex. « Chaque lundi, deux personnes passent une demi-journée à consolider les chiffres de la semaine dans un rapport. »',
+    messageHelp:
+      'Une tâche répétitive, une information que personne ne retrouve, un compte rendu à produire chaque semaine — tout cela est un bon point de départ. Et si l’IA n’est pas la bonne réponse, nous vous le dirons.',
     send: 'Envoyer',
     sending: 'Envoi…',
     ok: 'Merci — votre message est parti. Nous vous répondons dans les meilleurs délais.',
@@ -78,7 +86,16 @@ const inputCls =
       </div>
       <div class="sm:col-span-2">
         <label for="nx-message" class="mb-1 block text-sm font-medium">{copy.message}</label>
-        <textarea id="nx-message" name="message" rows="5" required class={inputCls}></textarea>
+        <textarea
+          id="nx-message"
+          name="message"
+          rows="5"
+          required
+          placeholder={copy.messagePlaceholder}
+          aria-describedby="nx-message-help"
+          class={inputCls}
+        ></textarea>
+        <p id="nx-message-help" class="mt-2 text-xs text-muted">{copy.messageHelp}</p>
       </div>
     </div>
 

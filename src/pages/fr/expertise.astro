@@ -8,39 +8,39 @@ import CTA from '~/components/CTA.astro';
 
 const domains = [
   {
-    title: 'IA agentique en production',
+    title: 'Des assistants qui font le travail',
     description:
-      'Des assistants IA multi-utilisateurs qui lisent les outils, agissent sur les données et restent contrôlables — conçus, livrés et opérés par nous.',
+      'Des assistants IA partagés par toute une équipe, qui lisent vos outils, agissent sur vos données et restent sous votre contrôle — conçus, installés et exploités par nous.',
     icon: 'tabler:robot',
   },
   {
-    title: 'Recherche & connaissances (RAG)',
+    title: 'Retrouver l’information',
     description:
-      'Transformer des données éparses et désordonnées en une base de connaissances que votre IA sait exploiter — juste, sourcée et isolée par utilisateur.',
+      'Transformer des données éparses et désordonnées en un savoir que vos équipes interrogent simplement — des réponses justes, avec leurs sources, et chacun ne voit que ce à quoi il a droit.',
     icon: 'tabler:database-search',
   },
   {
-    title: 'Automatisation & agents IA',
+    title: 'Tâches automatiques',
     description:
-      'Briefings planifiés, veilles et agents multi-étapes qui font un vrai travail sans surveillance — avec les garde-fous qui vont avec.',
+      'Briefings planifiés, veilles et plusieurs tâches enchaînées qui font un vrai travail sans surveillance — avec les garde-fous qui vont avec.',
     icon: 'tabler:clock-cog',
   },
   {
-    title: 'Livraison multi-plateforme',
+    title: 'Dans les outils que vous utilisez',
     description:
-      'Un seul assistant sur Google Chat, Slack et Microsoft Teams, branché aux outils et aux API que votre équipe utilise déjà.',
+      'Un seul assistant sur Google Chat, Slack et Microsoft Teams, branché aux logiciels que votre équipe utilise déjà.',
     icon: 'tabler:plug-connected',
   },
   {
-    title: 'IA sûre et maîtrisée',
+    title: 'Sûre et maîtrisée',
     description:
-      'Garde-fous, actions auditables, isolation par utilisateur et résidence des données en UE — la rigueur d’ingénierie pour exploiter l’IA face à de vrais utilisateurs.',
+      'Garde-fous, actions enregistrées et vérifiables, accès limités à chaque personne et hébergement possible dans l’Union européenne — la rigueur qu’exige une IA mise entre les mains de vrais utilisateurs.',
     icon: 'tabler:shield-check',
   },
   {
-    title: 'Formation & montée en compétence IA',
+    title: 'Formation et montée en compétence',
     description:
-      'Enseignement concret et suivi qui rendent une équipe réellement productive avec l’IA — sans dépendre de nous.',
+      'Un enseignement concret et un suivi qui rendent une équipe réellement productive avec l’IA — sans dépendre de nous.',
     icon: 'tabler:school',
   },
 ];
@@ -50,33 +50,33 @@ const track = [
     year: '2025–2026',
     title: 'NitroxBrain',
     href: 'https://nitroxbrain.com',
-    body: 'Conception et livraison d’un second cerveau IA multi-utilisateurs en production sur Google Chat, Slack et Microsoft Teams — approuvé sur le Microsoft Teams Store, résident UE et RGPD d’abord.',
+    body: 'Conception et livraison d’un assistant IA partagé, utilisé tous les jours dans Google Chat, Slack et Microsoft Teams — approuvé sur le Microsoft Teams Store, hébergeable dans l’UE et conçu RGPD d’abord.',
   },
   {
     year: '2026',
     title: 'SailingRouter',
     href: 'https://sailingrouter.com',
-    body: 'Une plateforme web de routage météo avec calcul d’itinéraire optimal en temps réel — la preuve que nous menons des produits riches en données jusqu’en production.',
+    body: 'Une plateforme web de routage météo qui calcule l’itinéraire optimal en temps réel — la preuve que nous menons jusqu’au bout des produits riches en données.',
   },
   {
-    year: '2001–2024',
-    title: 'Deux décennies d’ingénierie à fort enjeu',
-    body: 'Avant l’IA, nous avons construit des systèmes de pricing, de risque et de modélisation pour les marchés de capitaux — où un bug coûte cher. Cette rigueur est le socle de tout ce que nous livrons aujourd’hui en IA.',
+    year: '1991–2024',
+    title: 'Trente-cinq ans d’ingénierie à fort enjeu',
+    body: 'Avant l’IA : dix ans de trading d’options sur les salles de marché de Paribas et Commerzbank, puis des systèmes de prix, de risque et de modélisation pour les banques, les fonds et les assureurs — là où une erreur se voit le jour même. Cette rigueur est le socle de tout ce que nous livrons aujourd’hui.',
   },
 ];
 ---
 
 <Layout
   title="Expertise"
-  description="L’expertise de NitroX Consulting : IA agentique en production, recherche et RAG, automatisation, livraison multi-plateforme et IA maîtrisée — s’appuyant sur trente-cinq ans d’ingénierie à fort enjeu."
+  description="L’expertise de NitroX Consulting : des assistants IA utilisés au quotidien, la recherche d’information dans vos documents, l’automatisation des tâches et une IA maîtrisée — appuyées sur trente-cinq ans d’ingénierie à fort enjeu."
   lang="fr"
   path="/expertise"
 >
   <Hero
     tagline="Expertise"
-    title="Profonds en IA, pas une large brochure."
-    subtitle="Nous maîtrisons quelques domaines clés à un haut niveau : des systèmes d’IA en production, la recherche qui les rend utiles, et la rigueur d’ingénierie pour les exploiter en toute sûreté."
-    actions={[{ label: 'Travailler avec nous', href: '/fr/contact', variant: 'primary' }]}
+    title="Peu de domaines, maîtrisés en profondeur."
+    subtitle="Nous ne prétendons pas tout faire. Nous maîtrisons quelques sujets à fond : des assistants IA que les équipes utilisent vraiment, la recherche qui les rend utiles, et la rigueur nécessaire pour les exploiter sans danger."
+    actions={[{ label: 'Réserver 30 minutes', href: '/fr/contact', variant: 'primary' }]}
   />
 
   <Section
@@ -87,7 +87,12 @@ const track = [
     <Features items={domains} columns={3} />
   </Section>
 
-  <Section surface tagline="Parcours" title="De l’ingénierie à fort enjeu à l’IA en production" subtitle="Une sélection de ce que nous avons livré.">
+  <Section
+    surface
+    tagline="Parcours"
+    title="Des salles de marché à l’IA du quotidien"
+    subtitle="Une sélection de ce que nous avons livré."
+  >
     <div class="space-y-6">
       {
         track.map((t) => (
@@ -97,7 +102,12 @@ const track = [
               <h3 class="text-lg font-semibold">
                 {
                   t.href ? (
-                    <a href={t.href} target="_blank" rel="noopener" class="inline-flex items-center gap-1 hover:text-primary">
+                    <a
+                      href={t.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1 hover:text-primary"
+                    >
                       {t.title}
                       <Icon name="tabler:external-link" class="h-4 w-4 opacity-60" />
                     </a>
@@ -117,6 +127,6 @@ const track = [
   <CTA
     title="Besoin d’une IA construite avec une vraie rigueur ?"
     subtitle="L’ingénierie IA moderne alliée à un jugement du risque durement acquis, c’est rare. Si c’est ce qu’exige votre problème, parlons-en."
-    actions={[{ label: 'Nous contacter', href: '/fr/contact', variant: 'primary' }]}
+    actions={[{ label: 'Réserver 30 minutes', href: '/fr/contact', variant: 'primary' }]}
   />
 </Layout>

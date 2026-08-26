@@ -7,54 +7,63 @@ import CTA from '~/components/CTA.astro';
 
 const build = [
   {
-    title: 'Agentic assistants',
-    description: 'Deploy AI that lives where your team already works — chat, email, documents — and takes real actions safely.',
+    title: 'An assistant that acts',
+    description:
+      'AI available where your team already works — messaging, email, documents — that does the work, not just answers questions.',
     icon: 'tabler:robot',
   },
   {
-    title: 'RAG & knowledge systems',
-    description: 'Make your own documents, data and history searchable and answerable, with per-user isolation and EU residency.',
+    title: 'Your documents, answerable',
+    description:
+      'Contracts, procedures, meeting notes, client files: your team asks a question and gets an answer drawn from your own documents, with its sources.',
     icon: 'tabler:database-search',
   },
   {
-    title: 'Automation & scheduled tasks',
-    description: 'Recurring briefings, watchers, and multi-step workflows that run unattended and report back.',
+    title: 'Automatic, recurring tasks',
+    description:
+      'A briefing every morning, a watch that runs on its own, several tasks chained together unattended — and a report of what was done.',
     icon: 'tabler:clock-cog',
   },
 ];
 
 const deliver = [
   {
-    title: 'Integration into your tools',
-    description: 'Connect AI to the systems you already run — Google, Microsoft, Slack, your CRM and internal APIs — so it acts, not just answers.',
+    title: 'Plugged into your tools',
+    description:
+      'We connect AI to the systems you already run — Google, Microsoft, Slack, your CRM, your internal software — so it acts rather than just talks.',
     icon: 'tabler:plug-connected',
   },
   {
-    title: 'Cloud & deployment',
-    description: 'Containerised, scale-to-zero deployments on GCP / Azure / AWS with sensible cost and security defaults.',
+    title: 'Hosting and operation',
+    description:
+      'Hosted on Google Cloud, Azure or AWS, sized so it only costs you what you actually use. We install it and we keep it running.',
     icon: 'tabler:cloud-cog',
   },
   {
-    title: 'Safe & compliant by design',
-    description: 'Guardrails, per-user isolation, auditable actions and GDPR / EU data residency — AI you can put in front of real users.',
+    title: 'Safe by design',
+    description:
+      'Everyone sees only what they should, actions are recorded and checkable, and your data can stay hosted in the European Union under GDPR.',
     icon: 'tabler:shield-check',
   },
 ];
 
 const enable = [
   {
-    title: 'AI strategy & feasibility',
-    description: 'Where AI actually pays off for your team — and where it does not. Honest scoping before you spend.',
+    title: 'Scoping and feasibility',
+    description:
+      'Where AI genuinely pays off for you — and where it will do nothing for you. An honest answer before you spend.',
     icon: 'tabler:route',
   },
   {
     title: 'Training',
-    description: 'Hands-on training that makes your teams autonomous with AI — on your own use cases, not slideware.<br /><a href="/formations" class="text-primary hover:underline">See our training →</a>',
+    description:
+      'Hands-on training that makes your teams self-sufficient, on your own cases rather than slideware.<br /><a href="/formations" class="text-primary hover:underline">See our training →</a>',
     icon: 'tabler:school',
   },
   {
     title: 'Ongoing support',
-    description: 'A partner from first scoping to a system that runs and stays maintained — adoption and enablement included.<br /><a href="/accompagnement" class="text-primary hover:underline">AI Adoption →</a>',
+    description:
+      'One contact from first scoping to a solution that runs and stays maintained — adoption and skills included.<br /><a href="/accompagnement" class="text-primary hover:underline">AI Adoption →</a>',
     icon: 'tabler:trending-up',
   },
 ];
@@ -62,32 +71,45 @@ const enable = [
 
 <Layout
   title="Services"
-  description="What NitroX Consulting does: agentic AI systems, integration and deployment, and AI strategy, training and support — one accountable team."
+  description="What NitroX Consulting does: AI assistants connected to your tools, installation and hosting, and the scoping, training and support your teams need."
   lang="en"
   path="/services"
 >
   <Hero
     tagline="Services"
-    title="Three practices. One accountable team."
-    subtitle="We take AI problems end to end — from feasibility to a system running in production and maintained afterwards."
-    actions={[{ label: 'Talk to us', href: '/contact', variant: 'primary' }]}
+    title="Three trades. One person to talk to."
+    subtitle="We take the whole thing end to end — from “is this even feasible?” to a solution your team uses every day, which we keep maintained afterwards."
+    actions={[{ label: 'Book 30 minutes', href: '/contact', variant: 'primary' }]}
   />
 
-  <Section tagline="Build" title="Agentic AI systems" subtitle="Autonomous, controllable AI that acts on your data — the engineering behind NitroxBrain.">
+  <Section
+    tagline="Build"
+    title="Assistants that do the work"
+    subtitle="AI connected to your data and your tools, staying under your control — the engineering behind NitroxBrain."
+  >
     <Features items={build} columns={3} />
   </Section>
 
-  <Section surface tagline="Deliver" title="Integration, deployment & governance" subtitle="Getting AI into production, plugged into your tools, and safe to run.">
+  <Section
+    surface
+    tagline="Deliver"
+    title="Installation, hosting and control"
+    subtitle="Getting from a mock-up to a tool your team uses every day, plugged into your systems and safe to run."
+  >
     <Features items={deliver} columns={3} />
   </Section>
 
-  <Section tagline="Enable" title="Strategy, training & support" subtitle="From honest scoping to teams that own their AI — we hand it over, we do not lock you in.">
+  <Section
+    tagline="Enable"
+    title="Scoping, training and support"
+    subtitle="From honest advice to teams that own their tool — we hand it over, we do not make you dependent."
+  >
     <Features items={enable} columns={3} />
   </Section>
 
   <CTA
-    title="Not sure which of these you need?"
-    subtitle="That is what a first conversation is for. We will help you scope it — no obligation."
-    actions={[{ label: 'Book a call', href: '/contact', variant: 'primary' }]}
+    title="Not sure yet which of these you need?"
+    subtitle="That is exactly what a first conversation is for. Thirty minutes, no commitment and no charge."
+    actions={[{ label: 'Book 30 minutes', href: '/contact', variant: 'primary' }]}
   />
 </Layout>
