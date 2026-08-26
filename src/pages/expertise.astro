@@ -14,85 +14,80 @@ const domains = [
     icon: 'tabler:robot',
   },
   {
-    title: 'Derivatives pricing & risk',
+    title: 'Retrieval & knowledge (RAG)',
     description:
-      'Exotic and optional products, IRS, swaps, inflation and FX. Pricing, deltas, stress scenarios and the practical management of a live book.',
-    icon: 'tabler:chart-candle',
+      'Turning messy, scattered data into a knowledge base your AI can answer from — accurate, sourced, and isolated per user.',
+    icon: 'tabler:database-search',
   },
   {
-    title: 'Regulatory frameworks',
+    title: 'AI automation & agents',
     description:
-      'Hands-on with evolving compliance regimes — FRTB, IRRBB — and the modelling discipline they demand.',
-    icon: 'tabler:gavel',
+      'Scheduled briefings, watchers and multi-step agents that do real work unattended — with the guardrails that belong with them.',
+    icon: 'tabler:clock-cog',
   },
   {
-    title: 'Quant & software engineering',
+    title: 'Multi-platform delivery',
     description:
-      'Excel add-ins, web pricers, crawlers and data platforms. The full path from a model on paper to a tool a team uses daily.',
-    icon: 'tabler:code',
+      'One assistant across Google Chat, Slack and Microsoft Teams, plugged into the tools and APIs your team already uses.',
+    icon: 'tabler:plug-connected',
   },
   {
-    title: 'Data engineering & analytics',
+    title: 'Safe & governed AI',
     description:
-      'Turning messy real-world data into queryable models — the same engine that powers NitroxBrain’s dataset tools.',
-    icon: 'tabler:database',
+      'Guardrails, auditable actions, per-user isolation and EU data residency — the engineering rigour to run AI in front of real users.',
+    icon: 'tabler:shield-check',
   },
   {
-    title: 'Education & simulation',
+    title: 'AI enablement & training',
     description:
-      'Interactive teaching platforms with performance debriefing — making complex instruments and AI tooling genuinely learnable.',
+      'Hands-on teaching and follow-up that make a team genuinely productive with AI — not dependent on us.',
     icon: 'tabler:school',
   },
 ];
 
 const track = [
   {
-    year: '2026',
-    title: 'SailingRouter',
-    href: 'https://sailingrouter.com',
-    body: 'A sailing weather-routing web platform — real-time optimal-route computation, applying our data and modelling engineering to a live product.',
-  },
-  {
     year: '2025–2026',
     title: 'NitroxBrain',
     href: 'https://nitroxbrain.com',
-    body: 'Designed and shipped a production multi-user AI second brain across Google Chat, Slack and Microsoft Teams — approved on the Microsoft Teams Store.',
+    body: 'Designed and shipped a production multi-user AI second brain across Google Chat, Slack and Microsoft Teams — approved on the Microsoft Teams Store, EU-resident and RGPD-first.',
   },
   {
-    year: '2018–2023',
-    title: 'FX option platforms & CRO work',
-    body: 'Web-based FX option risk platforms (KO / KI instruments) and chief-risk-office engagements for institutional clients.',
+    year: '2026',
+    title: 'SailingRouter',
+    href: 'https://sailingrouter.com',
+    body: 'A weather-routing web platform with real-time optimal-route computation — proof we take data-heavy products all the way to production.',
   },
   {
-    year: '2001–2017',
-    title: 'Pricing & risk systems',
-    body: 'Excel pricing add-ins, wine-pricing analytics with web crawlers, and modelling for exotic and optional products across capital-markets desks.',
+    year: '2001–2024',
+    title: 'Two decades of high-stakes engineering',
+    body: 'Before AI, we built pricing, risk and modelling systems for capital markets — where a bug costs real money. That rigour is the foundation under everything we now ship in AI.',
   },
 ];
 ---
 
 <Layout
   title="Expertise"
-  description="NitroX Consulting's expertise: agentic AI in production, derivatives pricing and risk, regulatory modelling, quant and software engineering — a track record since 2001."
+  description="NitroX Consulting's expertise: agentic AI in production, retrieval and RAG, automation, multi-platform delivery and governed AI — with two decades of high-stakes engineering behind it."
   lang="en"
   path="/expertise"
 >
   <Hero
     tagline="Expertise"
-    title="Deep domains, not a wide brochure."
-    subtitle="We do a few things at a high level: production AI, quantitative software, and regulated-finance risk. Here is where that depth comes from."
+    title="Deep in AI, not a wide brochure."
+    subtitle="We do a few things at a high level: production AI systems, the retrieval that makes them useful, and the engineering rigour to run them safely."
     actions={[{ label: 'Work with us', href: '/contact', variant: 'primary' }]}
   />
 
   <Section
     tagline="Domains"
     title="What we know deeply"
-    subtitle="A rare combination: modern AI engineering and the discipline of regulated capital markets."
+    subtitle="Modern AI engineering, delivered with the discipline of two decades in regulated, high-stakes systems."
   >
     <Features items={domains} columns={3} />
   </Section>
 
-  <Section surface tagline="Track record" title="Twenty-five years of shipping" subtitle="A selection — from live trading desks to AI in production.">
+  <Section surface tagline="Track record" title="From high-stakes engineering to AI in production" subtitle="A selection of what we have shipped.">
     <div class="space-y-6">
       {
         track.map((t) => (
@@ -120,8 +115,8 @@ const track = [
   </Section>
 
   <CTA
-    title="Need this specific mix of skills?"
-    subtitle="AI engineering plus real risk judgement is uncommon. If that is what your problem needs, let us talk."
+    title="Need AI built with real rigour?"
+    subtitle="Modern AI engineering plus hard-won risk judgement is uncommon. If that is what your problem needs, let us talk."
     actions={[{ label: 'Talk to us', href: '/contact', variant: 'primary' }]}
   />
 </Layout>
