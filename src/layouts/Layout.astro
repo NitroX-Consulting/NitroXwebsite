@@ -17,7 +17,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <!doctype html>
-<html lang={lang} class="dark">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,13 +37,17 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/images/hero-terminal.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <!-- Reason: set the theme class before paint to avoid a light/dark flash. Default dark. -->
+    <!-- Reason: set the theme class before paint to avoid a light/dark flash. Default light
+         (2026-08-26): the audience is SMB owners, for whom a charcoal page reads as unwelcoming.
+         Dark is opt-in via the header toggle and persists in `nx-theme`. Deliberately does NOT
+         follow prefers-color-scheme — a dark-preferring visitor would still land on charcoal,
+         which is exactly what this change is meant to stop. -->
     <script is:inline>
       (function () {
         try {
           const saved = localStorage.getItem('nx-theme');
-          if (saved === 'light') document.documentElement.classList.remove('dark');
-          else document.documentElement.classList.add('dark');
+          if (saved === 'dark') document.documentElement.classList.add('dark');
+          else document.documentElement.classList.remove('dark');
         } catch (e) {}
       })();
     </script>
