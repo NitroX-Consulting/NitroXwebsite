@@ -13,30 +13,34 @@ interface Props {
 const { tagline, title, subtitle, actions = [] } = Astro.props;
 ---
 
-<section class="relative isolate overflow-hidden">
-  <!-- Hero background: the dark trading-terminal screen -->
-  <div class="absolute inset-0 -z-10">
-    <img
-      src="/images/hero-terminal.png"
-      alt=""
-      class="h-full w-full object-cover"
-      loading="eager"
-      decoding="async"
-    />
-    <!-- Light wash + a left-side gradient: keeps the headline legible while
-         letting much more of the terminal image show through on the right. -->
-    <div class="absolute inset-0 bg-charcoal-950/35"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-charcoal-950/80 via-charcoal-950/25 to-transparent"></div>
-    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-charcoal-950 to-transparent"></div>
-  </div>
+{/*
+  Typographic hero — no background image (2026-08-26).
 
-  <div class="mx-auto max-w-6xl px-4 py-32 sm:px-6 sm:py-40 lg:py-48">
-    <div class="max-w-2xl">
-      {tagline && <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-brand-400">{tagline}</p>}
-      <h1 class="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+  Replaces the dark trading-terminal photo: it was a leftover from the pre-2026
+  financial-consulting positioning and the main remaining reason the site read as
+  "un site de hacker" to the SMB owners we now sell to.
+
+  Everything here is built from the semantic tokens (page/surface/text/muted/primary),
+  so it works in BOTH themes — dark is still available from the header toggle.
+*/}
+<section class="relative isolate overflow-hidden border-b border-token">
+  {/* Soft brand wash: gives the band shape without needing an image. */}
+  <div class="absolute inset-0 -z-10 bg-gradient-to-br from-primary/8 to-primary/0"></div>
+
+  <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32 lg:py-36">
+    <div class="max-w-3xl">
+      {
+        tagline && (
+          <p class="mb-4 flex items-center gap-3 text-sm font-semibold uppercase tracking-wider text-primary">
+            <span aria-hidden="true" class="inline-block h-px w-8 bg-primary" />
+            {tagline}
+          </p>
+        )
+      }
+      <h1 class="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
         <Fragment set:html={title} />
       </h1>
-      {subtitle && <p class="mt-6 max-w-xl text-lg leading-relaxed text-gray-300">{subtitle}</p>}
+      {subtitle && <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{subtitle}</p>}
       {
         actions.length > 0 && (
           <div class="mt-8 flex flex-wrap gap-3">
@@ -44,7 +48,7 @@ const { tagline, title, subtitle, actions = [] } = Astro.props;
               a.variant === 'ghost' ? (
                 <a
                   href={a.href}
-                  class="rounded-md border border-white/25 px-5 py-2.5 text-base font-medium text-white hover:border-brand-400 hover:text-brand-400"
+                  class="rounded-md border border-token px-5 py-2.5 text-base font-medium hover:border-primary hover:text-primary"
                 >
                   {a.label}
                 </a>
