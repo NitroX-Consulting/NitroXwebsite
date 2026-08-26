@@ -27,7 +27,7 @@ const altHref = t.altLangHref(path);
     <nav class="hidden items-center gap-5 md:flex lg:gap-8">
       {
         t.nav.map((item) => (
-          <a href={item.href} class="text-lg font-medium text-muted transition-colors hover:text-primary">
+          <a href={item.href} class="whitespace-nowrap text-lg font-medium text-muted transition-colors hover:text-primary">
             {item.label}
           </a>
         ))
