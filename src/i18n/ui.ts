@@ -59,7 +59,7 @@ export const ui: Record<Lang, Strings> = {
     langLabel: 'EN',
     altLangHref: (path) => (path.replace(/^\/fr/, '') || '/'),
     footer: {
-      tagline: "Conseil & ingénierie IA, fondé sur 20+ ans d'ingénierie à fort enjeu.",
+      tagline: "Conseil & ingénierie IA, fondés sur 20+ ans d'ingénierie à fort enjeu.",
       rights: 'Tous droits réservés.',
       contact: 'Nous contacter',
       privacy: { label: 'Confidentialité', href: '/fr/privacy' },
