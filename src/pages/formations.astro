@@ -1,0 +1,100 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import Features from '~/components/Features.astro';
+import CTA from '~/components/CTA.astro';
+
+const programmes = [
+  {
+    title: 'Generative AI, from the ground up',
+    description:
+      '<span class="text-muted/80">Everyone · half a day</span><br />What AI can and cannot do, on real cases. No jargon, hands on the keyboard from the start.',
+    icon: 'tabler:sparkles',
+  },
+  {
+    title: 'AI for leaders & decision-makers',
+    description:
+      '<span class="text-muted/80">Leadership team · 2–3 hrs</span><br />Where AI creates value in your organisation, what it costs, and how to steer it without losing control or compliance.',
+    icon: 'tabler:presentation',
+  },
+  {
+    title: 'Prompt engineering for teams',
+    description:
+      '<span class="text-muted/80">Business teams · 1 day, workshop</span><br />Write good prompts, structure your asks, reuse what works — a hands-on workshop on your own tasks.',
+    icon: 'tabler:messages',
+  },
+  {
+    title: 'Automation & AI agents',
+    description:
+      '<span class="text-muted/80">Ops / technical · 1–2 days</span><br />Build automations and agents that act: briefings, watchers, multi-step workflows — with the guardrails that belong with them.',
+    icon: 'tabler:robot',
+  },
+];
+
+const approche = [
+  {
+    title: 'Bespoke or off-the-shelf',
+    description:
+      'We start from your real use cases. The programs above are starting points, tailored to your field and your level.',
+    icon: 'tabler:adjustments-cog',
+  },
+  {
+    title: 'On-site or remote',
+    description:
+      'On-site in Montpellier and across Occitanie, or remote anywhere else. Small groups so everyone gets to practise.',
+    icon: 'tabler:map-pin',
+  },
+  {
+    title: 'Practice, then follow-up',
+    description:
+      'You learn by doing, on your own tasks. A debrief and light follow-up after the session to make it stick.',
+    icon: 'tabler:trending-up',
+  },
+];
+---
+
+<Layout
+  title="AI Training"
+  description="AI training that makes your teams autonomous: generative-AI foundations, AI for leaders, prompt engineering and automation. On-site in Montpellier or remote."
+  lang="en"
+  path="/formations"
+>
+  <Hero
+    tagline="Training"
+    title="Make your teams autonomous with AI"
+    subtitle="Practical training on your own use cases — not slideware. Run by engineers who ship AI in production."
+    actions={[{ label: 'Request a quote', href: '/contact', variant: 'primary' }]}
+  />
+
+  <Section
+    tagline="Programs"
+    title="Four programs, one starting point"
+    subtitle="Each program adapts to your sector and your team's level. We also build fully bespoke tracks."
+  >
+    <Features items={programmes} columns={2} />
+  </Section>
+
+  <Section
+    surface
+    tagline="Approach"
+    title="Format & approach"
+    subtitle="We train the way we build: close to the real work, with follow-up after the session."
+  >
+    <Features items={approche} columns={3} />
+  </Section>
+
+  <Section tagline="Why us">
+    <p class="max-w-2xl text-lg text-muted">
+      We are not a classic training shop: we build and run AI systems in production — including
+      <strong class="text-primary">NitroxBrain</strong>, our multi-user assistant. You learn from
+      people who carry real engineering risk, within a <strong>GDPR, EU-resident</strong> frame.
+    </p>
+  </Section>
+
+  <CTA
+    title="Let's build your training plan"
+    subtitle="Tell us who to train and on what — we'll propose a track and a quote, no obligation."
+    actions={[{ label: 'Request a quote', href: '/contact', variant: 'primary' }]}
+  />
+</Layout>

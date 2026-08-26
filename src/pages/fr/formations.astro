@@ -1,0 +1,101 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import Features from '~/components/Features.astro';
+import CTA from '~/components/CTA.astro';
+
+const programmes = [
+  {
+    title: 'Découverte de l’IA générative',
+    description:
+      '<span class="text-muted/80">Tous publics · demi-journée</span><br />Comprendre ce que l’IA sait faire — et ne sait pas faire — sur des cas concrets. Sans jargon, avec les mains sur le clavier.',
+    icon: 'tabler:sparkles',
+  },
+  {
+    title: 'L’IA pour dirigeants & décideurs',
+    description:
+      '<span class="text-muted/80">Comité de direction · 2–3 h</span><br />Où l’IA crée de la valeur dans votre organisation, ce qu’elle coûte, et comment la piloter sans y perdre en maîtrise ni en conformité.',
+    icon: 'tabler:presentation',
+  },
+  {
+    title: 'Prompt engineering pour les équipes',
+    description:
+      '<span class="text-muted/80">Équipes métier · 1 jour, atelier</span><br />Écrire de bons prompts, structurer ses demandes, réutiliser ce qui marche. Un atelier pratique sur vos propres tâches.',
+    icon: 'tabler:messages',
+  },
+  {
+    title: 'Automatisations & agents IA',
+    description:
+      '<span class="text-muted/80">Profils ops / technique · 1–2 jours</span><br />Construire des automatisations et des agents qui agissent : briefings, veilles, workflows multi-étapes — avec les garde-fous qui vont avec.',
+    icon: 'tabler:robot',
+  },
+];
+
+const approche = [
+  {
+    title: 'Sur mesure ou sur catalogue',
+    description:
+      'Nous partons de vos cas d’usage réels. Les programmes ci-dessus sont des points de départ, adaptés à votre métier et votre niveau.',
+    icon: 'tabler:adjustments-cog',
+  },
+  {
+    title: 'Présentiel ou distanciel',
+    description:
+      'En présentiel à Montpellier et en Occitanie, ou à distance partout ailleurs. Petits groupes pour que chacun pratique.',
+    icon: 'tabler:map-pin',
+  },
+  {
+    title: 'Pratique, puis suivi',
+    description:
+      'On apprend en faisant, sur vos propres tâches. Un débrief et un suivi léger après la session pour ancrer les acquis.',
+    icon: 'tabler:trending-up',
+  },
+];
+---
+
+<Layout
+  title="Formations IA"
+  description="Formations IA pour rendre vos équipes autonomes : découverte de l’IA générative, IA pour dirigeants, prompt engineering et automatisations. Présentiel à Montpellier ou distanciel."
+  lang="fr"
+  path="/formations"
+>
+  <Hero
+    tagline="Formations"
+    title="Rendre vos équipes autonomes avec l’IA"
+    subtitle="Des formations concrètes, sur vos propres cas d’usage — pas des diapositives. Animées par des ingénieurs qui déploient l’IA en production."
+    actions={[{ label: 'Demander un devis', href: '/fr/contact', variant: 'primary' }]}
+  />
+
+  <Section
+    tagline="Programmes"
+    title="Quatre programmes, un point de départ"
+    subtitle="Chaque programme s’adapte à votre secteur et au niveau de vos équipes. Nous construisons aussi des parcours sur mesure."
+  >
+    <Features items={programmes} columns={2} />
+  </Section>
+
+  <Section
+    surface
+    tagline="Approche"
+    title="Format & approche"
+    subtitle="On forme comme on construit : au plus près du réel, avec un suivi après la session."
+  >
+    <Features items={approche} columns={3} />
+  </Section>
+
+  <Section tagline="Pourquoi nous">
+    <p class="max-w-2xl text-lg text-muted">
+      Nous ne sommes pas un organisme de formation classique : nous construisons et exploitons des
+      systèmes d’IA en production — dont <strong class="text-primary">NitroxBrain</strong>, notre
+      assistant multi-utilisateurs. Vous apprenez de gens qui prennent un vrai risque d’ingénierie,
+      dans un cadre <strong>RGPD, données en UE</strong>.
+    </p>
+  </Section>
+
+  <CTA
+    title="Construisons votre plan de formation"
+    subtitle="Dites-nous qui former et sur quoi — nous vous proposons un parcours et un devis, sans engagement."
+    actions={[{ label: 'Demander un devis', href: '/fr/contact', variant: 'primary' }]}
+  />
+</Layout>

@@ -1,0 +1,95 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import Features from '~/components/Features.astro';
+import CTA from '~/components/CTA.astro';
+
+const etapes = [
+  {
+    title: 'Cadrage & faisabilité',
+    description:
+      'Où l’IA rapporte vraiment chez vous — et où elle ne rapporte pas. Un cadrage honnête, chiffré, avant de dépenser.',
+    icon: 'tabler:route',
+  },
+  {
+    title: 'Déploiement & intégration',
+    description:
+      'On construit, on livre, et on branche l’IA là où votre équipe travaille déjà — chat, email, documents, outils métier.',
+    icon: 'tabler:rocket',
+  },
+  {
+    title: 'Suivi & montée en compétence',
+    description:
+      'Adoption, formation des équipes et maintien en conditions opérationnelles. RGPD et données en UE par défaut.',
+    icon: 'tabler:trending-up',
+  },
+];
+
+const pourQui = [
+  {
+    title: 'PME & ETI',
+    description:
+      'Un premier projet d’IA cadré, livré et maintenu — sans agrandir votre équipe technique ni multiplier les prestataires.',
+    icon: 'tabler:building-store',
+  },
+  {
+    title: 'Dirigeants',
+    description:
+      'Une vision claire de ce que l’IA change pour votre organisation, et un partenaire qui parle autant métier qu’ingénierie.',
+    icon: 'tabler:user-star',
+  },
+  {
+    title: 'Équipes métier',
+    description:
+      'Des outils qui leur font gagner des heures chaque semaine, pensés avec elles et adoptés parce qu’ils sont utiles.',
+    icon: 'tabler:users-group',
+  },
+];
+---
+
+<Layout
+  title="Accompagnement IA"
+  description="Accompagnement IA de bout en bout : cadrage et faisabilité, déploiement et intégration, suivi et montée en compétence. RGPD, données en UE."
+  lang="fr"
+  path="/accompagnement"
+>
+  <Hero
+    tagline="Accompagnement"
+    title="De la stratégie IA au système en production"
+    subtitle="Un partenaire unique et responsable, du premier cadrage jusqu’à un système qui tourne et reste maintenu. Pas des prototypes."
+    actions={[{ label: 'Réserver un échange', href: '/fr/contact', variant: 'primary' }]}
+  />
+
+  <Section
+    tagline="Comment"
+    title="Comment nous vous accompagnons"
+    subtitle="Trois temps qui s’enchaînent — vous n’êtes jamais seul face à l’outil une fois livré."
+  >
+    <Features items={etapes} columns={3} />
+  </Section>
+
+  <Section
+    surface
+    tagline="Pour qui"
+    title="À qui ça s’adresse"
+    subtitle="Nous travaillons avec ceux qui veulent un résultat en production, pas une démo."
+  >
+    <Features items={pourQui} columns={3} />
+  </Section>
+
+  <Section tagline="Notre différence">
+    <p class="max-w-2xl text-lg text-muted">
+      Deux décennies d’ingénierie sur les marchés de capitaux, où un bug coûte cher : nous appliquons
+      cette rigueur — risque, conformité, robustesse — à vos projets d’IA. La preuve tient dans nos
+      propres produits, dont <strong class="text-primary">NitroxBrain</strong>, en production chez de
+      vrais utilisateurs.
+    </p>
+  </Section>
+
+  <CTA
+    title="Parlons de votre projet"
+    subtitle="Un premier échange pour cadrer votre besoin — sans engagement, et sans jargon."
+    actions={[{ label: 'Réserver un échange', href: '/fr/contact', variant: 'primary' }]}
+  />
+</Layout>

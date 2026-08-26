@@ -1,0 +1,94 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import Features from '~/components/Features.astro';
+import CTA from '~/components/CTA.astro';
+
+const etapes = [
+  {
+    title: 'Scoping & feasibility',
+    description:
+      'Where AI actually pays off for you — and where it does not. An honest, costed scoping before you spend.',
+    icon: 'tabler:route',
+  },
+  {
+    title: 'Deployment & integration',
+    description:
+      'We build it, ship it, and plug the AI into where your team already works — chat, email, documents, business tools.',
+    icon: 'tabler:rocket',
+  },
+  {
+    title: 'Follow-up & enablement',
+    description:
+      'Adoption, team training and keeping the system running. GDPR and EU-resident data by default.',
+    icon: 'tabler:trending-up',
+  },
+];
+
+const pourQui = [
+  {
+    title: 'SMEs & mid-caps',
+    description:
+      'A first AI project scoped, shipped and maintained — without growing your tech team or juggling vendors.',
+    icon: 'tabler:building-store',
+  },
+  {
+    title: 'Leaders',
+    description:
+      'A clear view of what AI changes for your organisation, and a partner who speaks business as fluently as engineering.',
+    icon: 'tabler:user-star',
+  },
+  {
+    title: 'Business teams',
+    description:
+      'Tools that save them hours every week, designed with them and adopted because they are genuinely useful.',
+    icon: 'tabler:users-group',
+  },
+];
+---
+
+<Layout
+  title="AI Adoption"
+  description="End-to-end AI adoption support: scoping and feasibility, deployment and integration, follow-up and enablement. GDPR, EU-resident data."
+  lang="en"
+  path="/accompagnement"
+>
+  <Hero
+    tagline="AI Adoption"
+    title="From AI strategy to a system in production"
+    subtitle="One accountable partner, from the first scoping to a system that runs and stays maintained. Not prototypes."
+    actions={[{ label: 'Book a call', href: '/contact', variant: 'primary' }]}
+  />
+
+  <Section
+    tagline="How"
+    title="How we support you"
+    subtitle="Three stages that flow into each other — you are never left alone with the tool once it ships."
+  >
+    <Features items={etapes} columns={3} />
+  </Section>
+
+  <Section
+    surface
+    tagline="Who for"
+    title="Who it's for"
+    subtitle="We work with people who want a result in production, not a demo."
+  >
+    <Features items={pourQui} columns={3} />
+  </Section>
+
+  <Section tagline="Our difference">
+    <p class="max-w-2xl text-lg text-muted">
+      Two decades of capital-markets engineering, where a bug is expensive: we bring that rigour —
+      risk, compliance, robustness — to your AI projects. The proof is in our own products, including
+      <strong class="text-primary">NitroxBrain</strong>, running in production for real users.
+    </p>
+  </Section>
+
+  <CTA
+    title="Let's talk about your project"
+    subtitle="A first conversation to scope your need — no obligation, and no jargon."
+    actions={[{ label: 'Book a call', href: '/contact', variant: 'primary' }]}
+  />
+</Layout>

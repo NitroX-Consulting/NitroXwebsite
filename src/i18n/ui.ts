@@ -29,6 +29,8 @@ export const ui: Record<Lang, Strings> = {
     nav: [
       { label: 'Home', href: '/' },
       { label: 'Services', href: '/services' },
+      { label: 'Training', href: '/formations' },
+      { label: 'AI Adoption', href: '/accompagnement' },
       { label: 'Expertise', href: '/expertise' },
       { label: 'About', href: '/about' },
       { label: 'Contact', href: '/contact' },
@@ -47,6 +49,8 @@ export const ui: Record<Lang, Strings> = {
     nav: [
       { label: 'Accueil', href: '/fr' },
       { label: 'Services', href: '/fr/services' },
+      { label: 'Formations', href: '/fr/formations' },
+      { label: 'Accompagnement', href: '/fr/accompagnement' },
       { label: 'Expertise', href: '/fr/expertise' },
       { label: 'À propos', href: '/fr/about' },
       { label: 'Contact', href: '/fr/contact' },
