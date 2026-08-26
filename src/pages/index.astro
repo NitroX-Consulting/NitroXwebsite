@@ -5,108 +5,232 @@ import Section from '~/components/Section.astro';
 import Features from '~/components/Features.astro';
 import CTA from '~/components/CTA.astro';
 
-const services = [
+/*
+  P2 — problem-first homepage (2026-08-26). EN mirror of src/pages/fr/index.astro.
+
+  Order is deliberate: problem → gains → good uses → our offers → who you work
+  with → trust. The previous page opened on the technology we sell, which asked
+  the visitor to have already diagnosed themselves.
+
+  Vocabulary rule: no "agentic", "RAG", "multi-step", "in production",
+  "per-user isolation". A term earns its place only if a company owner with no
+  AI background can restate it.
+*/
+
+const problems = [
   {
-    title: 'Agentic AI assistants',
+    title: '"Eight people, two hours a week"',
     description:
-      'Autonomous assistants that read your tools, act on your data, and stay under your control. We built <strong>NitroxBrain</strong> — our own multi-user AI second brain — and we deploy the same engineering for you.',
-    icon: 'tabler:robot',
+      'The same task, redone every week, by several people at once. Nobody enjoys it and everybody does it.',
+    icon: 'tabler:clock',
   },
   {
-    title: 'AI automation & agents',
+    title: '"My sales team searches instead of selling"',
     description:
-      'Recurring briefings, watchers, and multi-step workflows that run unattended and report back — the busywork handled, so your team does the work that matters.',
-    icon: 'tabler:clock-cog',
+      'The information exists — in a folder, an email, a contract. Finding it is the problem, and it costs minutes every time.',
+    icon: 'tabler:search',
   },
   {
-    title: 'Knowledge & RAG systems',
+    title: '"Everything rests on two people"',
     description:
-      'Turn your documents, data and history into something your team can simply ask — accurate, sourced answers, with per-user isolation and EU residency.',
-    icon: 'tabler:database-search',
+      'The company\'s knowledge lives in a few heads. When they are away everything slows down — and when they leave, it goes with them.',
+    icon: 'tabler:users',
+  },
+  {
+    title: '"I want AI without exposing our data"',
+    description:
+      'Your teams are probably using consumer AI tools already. The question is no longer <em>whether</em>, but under what rules.',
+    icon: 'tabler:lock',
   },
 ];
 
-const proof = [
+const gains = [
   {
-    title: 'NitroxBrain',
+    title: 'Time given back',
     description:
-      'A production multi-user AI assistant on Google Chat, Slack and Microsoft Teams — our flagship proof that we build and run real AI in production, approved on the Microsoft Teams Store.',
-    icon: 'tabler:brain',
+      'Hours spent on repetitive work go back to what needs judgement, expertise and a relationship with the customer.',
+    icon: 'tabler:clock-play',
   },
   {
-    title: 'Agents & automation',
+    title: 'Less key-person risk',
     description:
-      'Scheduled briefings, watchers and multi-step agents running unattended in production — AI that does things, not just chats.',
-    icon: 'tabler:robot',
+      'Company knowledge becomes something anyone can consult, instead of depending on two colleagues being available.',
+    icon: 'tabler:users-group',
   },
   {
-    title: 'Grounded & governed',
+    title: 'Answers in seconds',
     description:
-      'Retrieval over your own data, per-user isolation, EU-resident and GDPR-first, with actions that are auditable and safe to trust.',
-    icon: 'tabler:shield-check',
+      'Ask a question and get an answer drawn from your own documents, with a pointer to where it came from.',
+    icon: 'tabler:message-2',
+  },
+];
+
+const usages = [
+  {
+    title: 'Find an answer',
+    description:
+      'Contracts, procedures, meeting notes, client files: your team asks a question and the answer comes back with its sources.',
+    icon: 'tabler:file-search',
+  },
+  {
+    title: 'Prepare and draft',
+    description:
+      'Notes after a meeting, a file summary, a first draft of a reply — prepared for you, to review and approve.',
+    icon: 'tabler:file-text',
+  },
+  {
+    title: 'Chain tasks together',
+    description:
+      'A briefing every morning, a watch that runs on its own, data consolidated without anyone thinking about it — on your rules.',
+    icon: 'tabler:settings-automation',
+  },
+];
+
+const offers = [
+  {
+    title: 'AI training',
+    description:
+      'Teach your teams to use AI properly, on your real cases rather than generic examples. <a href="/formations" class="font-medium text-primary hover:underline">See the courses</a>',
+    icon: 'tabler:school',
+  },
+  {
+    title: 'Ongoing support',
+    description:
+      'Someone to help you pick the right uses, set the rules and bring the team along, over time. <a href="/accompagnement" class="font-medium text-primary hover:underline">Learn more</a>',
+    icon: 'tabler:compass',
+  },
+  {
+    title: 'Custom solutions',
+    description:
+      'When an off-the-shelf tool is not enough, we design, build and run the solution that fits your company. <a href="/services" class="font-medium text-primary hover:underline">Our services</a>',
+    icon: 'tabler:tools',
+  },
+];
+
+const trust = [
+  {
+    title: 'Everyone sees only what they should',
+    description:
+      'Access follows your company\'s own permissions: nobody gets an answer drawn from a document they were never meant to read.',
+    icon: 'tabler:shield-lock',
+  },
+  {
+    title: 'European hosting',
+    description:
+      'Your data can stay hosted in the European Union, meeting GDPR requirements. By default, not as an add-on.',
+    icon: 'tabler:map-pin',
+  },
+  {
+    title: 'Actions you can audit',
+    description:
+      'What the assistant does is recorded and checkable. You decide what it is allowed to do on its own.',
+    icon: 'tabler:list-check',
   },
 ];
 ---
 
 <Layout
-  title="AI Consulting & Engineering"
-  description="NitroX Consulting designs, builds and operates AI systems — agentic assistants, automation and RAG — with the engineering rigour of thirty-five years in high-stakes markets."
+  title="AI consulting, training and solutions"
+  description="NitroX Consulting helps small and mid-sized company owners use AI to save time, automate repetitive work and get more out of the information they already hold."
   lang="en"
   path="/"
 >
   <Hero
-    tagline="AI Consulting & Engineering"
-    title="AI systems that actually ship —<br class='hidden sm:block'/> built by engineers who ran real risk."
-    subtitle="NitroX Consulting designs, builds and operates AI systems for teams that need results, not prototypes — with the engineering discipline of thirty-five years in high-stakes markets."
+    tagline="AI consulting, training and solutions"
+    title="AI that gives you time back —<br class='hidden sm:block'/> not another demo."
+    subtitle="Show us a task that takes your team too long. We'll tell you whether AI can genuinely solve it, what it could save you, and how to put it in place without disrupting how you work."
     actions={[
-      { label: 'Talk to us', href: '/contact', variant: 'primary' },
-      { label: 'Our expertise', href: '/expertise', variant: 'ghost' },
+      { label: 'Book 30 minutes', href: '/contact', variant: 'primary' },
+      { label: 'Our training', href: '/formations', variant: 'ghost' },
     ]}
   />
 
   <Section
-    tagline="What we do"
-    title="From idea to AI running in production"
-    subtitle="We take an AI problem end to end — design, build, deploy, and keep it running where your team already works."
+    tagline="Where it starts"
+    title="You probably recognise one of these"
+    subtitle="You don't need to arrive with an “AI project” already worked out. A task that costs you time is enough."
   >
-    <Features items={services} columns={3} />
+    <Features items={problems} columns={2} />
   </Section>
 
-  <Section surface tagline="Why us" title="Engineering rigour, applied to AI">
-    <div class="grid gap-8 md:grid-cols-2 md:items-center">
-      <p class="text-lg leading-relaxed text-muted">
-        For thirty-five years we engineered systems for high-stakes, regulated environments — where a bug costs real money and
-        &ldquo;probably fine&rdquo; is never good enough. That discipline — correct, auditable, safe to put in front of real users —
-        is exactly what most AI projects lack. We bring it to AI: assistants and agents you can actually trust in production.
+  <Section surface tagline="The gains" title="What actually changes">
+    <Features items={gains} columns={3} />
+  </Section>
+
+  <Section
+    tagline="Good uses"
+    title="Where AI delivers on the promise"
+    subtitle="Not every task suits AI. These are the ones where it gives a real return today, in a company your size."
+  >
+    <Features items={usages} columns={3} />
+    <div class="mt-8 rounded-xl border border-primary/30 bg-primary/5 p-6">
+      <p class="text-lg font-medium">And if AI isn't the right answer, we'll say so.</p>
+      <p class="mt-2 text-muted">
+        We won't propose AI because the subject is fashionable. If an existing tool, a simpler process or a
+        conventional build solves your problem better, you'll hear it before you spend.
       </p>
+    </div>
+  </Section>
+
+  <Section
+    surface
+    tagline="Our offers"
+    title="Three ways to start"
+    subtitle="Most of our clients begin with training or ongoing support, then build a solution once the right uses are clear."
+  >
+    <Features items={offers} columns={3} />
+  </Section>
+
+  <Section tagline="Who you work with" title="One person, not an account layer">
+    <div class="grid gap-8 md:grid-cols-2 md:items-center">
+      <div class="space-y-5 text-lg leading-relaxed text-muted">
+        <p>
+          NitroX Consulting is led by <strong>Olivier Moreau</strong> — <strong>École Polytechnique (X 88)</strong>,
+          France's foremost engineering grande école, and thirty-five years across finance, software and
+          running a business.
+        </p>
+        <p>
+          Ten years on the Paribas and Commerzbank trading floors, then chief risk officer and CTO: systems
+          where a mistake shows up the same day, in real money. He has taught finance and risk at
+          <strong>EDHEC</strong> and <strong>SKEMA</strong> since 2018.
+        </p>
+        <p>
+          You talk directly to the person who builds your solution.
+          <a href="/about" class="font-medium text-primary hover:underline">Learn more</a>
+        </p>
+      </div>
       <div class="grid grid-cols-2 gap-4">
         <div class="rounded-xl border border-token bg-surface p-6">
-          <div class="text-3xl font-bold text-primary">3</div>
-          <div class="mt-1 text-sm text-muted">AI channels in production (Chat · Slack · Teams)</div>
+          <div class="text-3xl font-bold text-primary">X 88</div>
+          <div class="mt-1 text-sm text-muted">École Polytechnique</div>
         </div>
         <div class="rounded-xl border border-token bg-surface p-6">
           <div class="text-3xl font-bold text-primary">35+</div>
-          <div class="mt-1 text-sm text-muted">Years of high-stakes engineering</div>
+          <div class="mt-1 text-sm text-muted">Years of experience</div>
         </div>
         <div class="rounded-xl border border-token bg-surface p-6">
-          <div class="text-3xl font-bold text-primary">EU</div>
-          <div class="mt-1 text-sm text-muted">Data-resident, GDPR-first</div>
+          <div class="text-3xl font-bold text-primary">EDHEC</div>
+          <div class="mt-1 text-sm text-muted">and SKEMA — teaching since 2018</div>
         </div>
         <div class="rounded-xl border border-token bg-surface p-6">
-          <div class="text-3xl font-bold text-primary">Live</div>
-          <div class="mt-1 text-sm text-muted">Our own AI, NitroxBrain, in production</div>
+          <div class="text-3xl font-bold text-primary">2001</div>
+          <div class="mt-1 text-sm text-muted">The year NitroX was founded</div>
         </div>
       </div>
     </div>
   </Section>
 
-  <Section tagline="Proof" title="We ship our own AI, too" subtitle="The fastest way to judge a builder is what they run in production.">
-    <Features items={proof} columns={3} />
+  <Section surface tagline="Trust" title="Your data stays yours">
+    <Features items={trust} columns={3} />
+    <p class="mt-8 max-w-3xl text-muted">
+      We use what we sell: <strong>NitroxBrain</strong>, our own professional assistant, runs every day inside
+      Google Chat, Slack and Microsoft Teams — and it is available and approved on the Microsoft Teams Store.
+    </p>
   </Section>
 
   <CTA
-    title="Have a problem worth solving with AI?"
-    subtitle="Tell us what you wish AI handled for your team. If we are the wrong fit, we will say so."
-    actions={[{ label: 'Start a conversation', href: '/contact', variant: 'primary' }]}
+    title="Could AI solve a real problem in your company?"
+    subtitle="Thirty minutes, no commitment and no charge. Describe a task that costs you time and we'll tell you honestly whether AI can help."
+    actions={[{ label: 'Book 30 minutes', href: '/contact', variant: 'primary' }]}
   />
 </Layout>

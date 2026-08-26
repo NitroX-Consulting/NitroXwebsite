@@ -5,109 +5,234 @@ import Section from '~/components/Section.astro';
 import Features from '~/components/Features.astro';
 import CTA from '~/components/CTA.astro';
 
-const services = [
+/*
+  P2 — problem-first homepage (2026-08-26).
+
+  Order is deliberate: problème → gains → bons usages → nos offres → qui vous
+  accompagne → sécurité. The previous page opened on the technology we sell,
+  which asked the visitor to have already diagnosed themselves.
+
+  Vocabulary rule: no "agentique", "RAG", "multi-étapes", "en production",
+  "isolation par utilisateur". A term earns its place only if a company owner
+  with no AI background can restate it.
+*/
+
+// The visitor's own words — these are the sentences a dirigeant actually says.
+const problems = [
   {
-    title: 'Assistants IA agentiques',
+    title: '« Huit personnes, deux heures par semaine »',
     description:
-      'Des assistants autonomes qui lisent vos outils, agissent sur vos données et restent sous votre contrôle. Nous avons créé <strong>NitroxBrain</strong> — notre propre second cerveau IA multi-utilisateurs — et nous déployons la même ingénierie pour vous.',
-    icon: 'tabler:robot',
+      'La même tâche, refaite chaque semaine, par plusieurs personnes à la fois. Personne ne l’aime, tout le monde la fait.',
+    icon: 'tabler:clock',
   },
   {
-    title: 'Automatisation & agents IA',
+    title: '« Mes commerciaux cherchent au lieu de vendre »',
     description:
-      'Briefings récurrents, veilles et workflows multi-étapes qui s’exécutent sans surveillance et rendent compte — les tâches ingrates prises en charge, pour que votre équipe se concentre sur l’essentiel.',
-    icon: 'tabler:clock-cog',
+      'L’information existe — dans un dossier, un mail, un contrat. Encore faut-il la retrouver, et cela prend des minutes à chaque fois.',
+    icon: 'tabler:search',
   },
   {
-    title: 'Bases de connaissances & RAG',
+    title: '« Tout repose sur deux personnes »',
     description:
-      'Transformez vos documents, données et historiques en un savoir que votre équipe interroge simplement — des réponses justes et sourcées, avec isolation par utilisateur et résidence UE.',
-    icon: 'tabler:database-search',
+      'Le savoir de l’entreprise tient dans quelques têtes. Quand elles sont absentes, tout ralentit — et quand elles partent, il s’en va avec elles.',
+    icon: 'tabler:users',
+  },
+  {
+    title: '« Je veux l’IA, sans exposer mes données »',
+    description:
+      'Vos équipes utilisent probablement déjà des outils grand public. La question n’est plus <em>si</em>, mais dans quel cadre.',
+    icon: 'tabler:lock',
   },
 ];
 
-const proof = [
+const gains = [
   {
-    title: 'NitroxBrain',
+    title: 'Du temps repris',
     description:
-      'Un assistant IA multi-utilisateurs en production sur Google Chat, Slack et Microsoft Teams — la preuve que nous construisons et opérons de l’IA réelle en production, approuvé sur le Microsoft Teams Store.',
-    icon: 'tabler:brain',
+      'Les heures passées sur les tâches répétitives reviennent à ce qui demande du jugement, de l’expertise et de la relation client.',
+    icon: 'tabler:clock-play',
   },
   {
-    title: 'Agents & automatisation',
+    title: 'Moins de dépendance',
     description:
-      'Briefings planifiés, veilles et agents multi-étapes qui tournent sans surveillance en production — une IA qui agit, pas seulement qui discute.',
-    icon: 'tabler:robot',
+      'Le savoir de l’entreprise devient consultable par tous, au lieu de reposer sur la disponibilité de deux collaborateurs.',
+    icon: 'tabler:users-group',
   },
   {
-    title: 'Ancrée & maîtrisée',
+    title: 'Des réponses en secondes',
     description:
-      'Recherche sur vos propres données, isolation par utilisateur, résidence UE et RGPD d’abord, avec des actions auditables et sûres.',
-    icon: 'tabler:shield-check',
+      'Poser une question et obtenir une réponse tirée de vos propres documents, avec l’indication d’où elle vient.',
+    icon: 'tabler:message-2',
+  },
+];
+
+const usages = [
+  {
+    title: 'Retrouver une information',
+    description:
+      'Contrats, procédures, comptes rendus, dossiers clients : vos collaborateurs posent une question, la réponse arrive avec ses sources.',
+    icon: 'tabler:file-search',
+  },
+  {
+    title: 'Préparer et rédiger',
+    description:
+      'Un compte rendu après une réunion, une synthèse de dossier, un premier jet de réponse — préparés pour vous, à relire et valider.',
+    icon: 'tabler:file-text',
+  },
+  {
+    title: 'Enchaîner des tâches',
+    description:
+      'Un briefing chaque matin, une veille qui tourne toute seule, des données consolidées sans que personne n’y pense — selon vos règles.',
+    icon: 'tabler:settings-automation',
+  },
+];
+
+const offers = [
+  {
+    title: 'Formations IA',
+    description:
+      'Former vos équipes à utiliser l’IA correctement, sur vos cas réels plutôt que sur des exemples génériques. <a href="/fr/formations" class="font-medium text-primary hover:underline">Voir les formations</a>',
+    icon: 'tabler:school',
+  },
+  {
+    title: 'Accompagnement',
+    description:
+      'Un interlocuteur qui vous aide à choisir les bons usages, cadrer les règles et embarquer les équipes, dans la durée. <a href="/fr/accompagnement" class="font-medium text-primary hover:underline">En savoir plus</a>',
+    icon: 'tabler:compass',
+  },
+  {
+    title: 'Solutions sur mesure',
+    description:
+      'Quand un outil du marché ne suffit pas, nous concevons, développons et exploitons la solution adaptée à votre entreprise. <a href="/fr/services" class="font-medium text-primary hover:underline">Nos services</a>',
+    icon: 'tabler:tools',
+  },
+];
+
+const trust = [
+  {
+    title: 'Chacun voit ce à quoi il a droit',
+    description:
+      'Les accès suivent ceux de votre entreprise : un collaborateur n’obtient jamais une réponse tirée d’un document qui ne lui est pas destiné.',
+    icon: 'tabler:shield-lock',
+  },
+  {
+    title: 'Hébergement européen',
+    description:
+      'Vos données peuvent rester hébergées dans l’Union européenne, dans le respect des exigences du RGPD. Par défaut, pas en option.',
+    icon: 'tabler:map-pin',
+  },
+  {
+    title: 'Des actions tracées',
+    description:
+      'Ce que fait l’assistant est enregistré et vérifiable. Vous gardez la main sur ce qu’il a le droit de faire seul.',
+    icon: 'tabler:list-check',
   },
 ];
 ---
 
 <Layout
-  title="Conseil & Ingénierie IA"
-  description="NitroX Consulting conçoit, construit et opère des systèmes d’IA — assistants agentiques, automatisation et RAG — avec la rigueur de trente-cinq ans d’ingénierie dans des environnements à fort enjeu."
+  title="Conseil, formation et solutions IA"
+  description="NitroX Consulting aide les dirigeants de TPE et PME à utiliser l’intelligence artificielle pour gagner du temps, automatiser les tâches répétitives et mieux exploiter leurs informations."
   lang="fr"
   path="/"
 >
   <Hero
-    tagline="Conseil & Ingénierie IA"
-    title="Des systèmes d’IA réellement livrés —<br class='hidden sm:block'/> par des ingénieurs qui ont géré du vrai risque."
-    subtitle="NitroX Consulting conçoit, construit et opère des systèmes d’IA pour les équipes qui veulent des résultats, pas des prototypes — avec la discipline de trente-cinq ans d’ingénierie en environnements à fort enjeu."
+    tagline="Conseil, formation et solutions IA"
+    title="L’IA qui vous fait gagner du temps —<br class='hidden sm:block'/> pas une démonstration de plus."
+    subtitle="Montrez-nous une tâche qui prend trop de temps à vos équipes. Nous vous dirons si l’intelligence artificielle peut vraiment la résoudre, ce qu’elle peut vous faire gagner, et comment la mettre en place sans bouleverser votre organisation."
     actions={[
-      { label: 'Nous contacter', href: '/fr/contact', variant: 'primary' },
-      { label: 'Notre expertise', href: '/fr/expertise', variant: 'ghost' },
+      { label: 'Réserver 30 minutes', href: '/fr/contact', variant: 'primary' },
+      { label: 'Nos formations', href: '/fr/formations', variant: 'ghost' },
     ]}
   />
 
   <Section
-    tagline="Ce que nous faisons"
-    title="De l’idée à une IA en production"
-    subtitle="Nous prenons un problème d’IA de bout en bout — conception, construction, déploiement et exploitation, là où votre équipe travaille déjà."
+    tagline="Le point de départ"
+    title="Vous reconnaissez sans doute l’une de ces situations"
+    subtitle="Vous n’avez pas besoin d’arriver avec un « projet IA » déjà identifié. Une tâche qui vous coûte du temps suffit."
   >
-    <Features items={services} columns={3} />
+    <Features items={problems} columns={2} />
   </Section>
 
-  <Section surface tagline="Pourquoi nous" title="La rigueur d’ingénierie, appliquée à l’IA">
-    <div class="grid gap-8 md:grid-cols-2 md:items-center">
-      <p class="text-lg leading-relaxed text-muted">
-        Pendant trente-cinq ans, nous avons conçu des systèmes pour des environnements régulés à fort enjeu — où un bug coûte cher et
-        où le «&nbsp;ça passera&nbsp;» n’a jamais suffi. Cette discipline — correcte, auditable, sûre à mettre entre les mains de vrais
-        utilisateurs — est précisément ce qui manque à la plupart des projets d’IA. Nous l’apportons à l’IA : des assistants et des
-        agents en qui vous pouvez vraiment avoir confiance en production.
+  <Section surface tagline="Les gains" title="Ce que cela change concrètement">
+    <Features items={gains} columns={3} />
+  </Section>
+
+  <Section
+    tagline="Les bons usages"
+    title="Là où l’IA tient ses promesses"
+    subtitle="Toutes les tâches ne se prêtent pas à l’IA. Voici celles où elle apporte un gain réel, aujourd’hui, dans une entreprise de votre taille."
+  >
+    <Features items={usages} columns={3} />
+    <div class="mt-8 rounded-xl border border-primary/30 bg-primary/5 p-6">
+      <p class="text-lg font-medium">Et si ce n’est pas la bonne réponse, nous vous le disons.</p>
+      <p class="mt-2 text-muted">
+        Nous ne vous proposerons pas de l’IA parce que le sujet est à la mode. Si un outil existant, une
+        procédure plus simple ou un développement classique règle mieux votre problème, vous le saurez avant
+        de dépenser.
       </p>
+    </div>
+  </Section>
+
+  <Section
+    surface
+    tagline="Nos offres"
+    title="Trois façons de commencer"
+    subtitle="La plupart de nos clients commencent par une formation ou un accompagnement, puis construisent une solution une fois les bons usages identifiés."
+  >
+    <Features items={offers} columns={3} />
+  </Section>
+
+  <Section tagline="Qui vous accompagne" title="Un interlocuteur, pas une couche commerciale">
+    <div class="grid gap-8 md:grid-cols-2 md:items-center">
+      <div class="space-y-5 text-lg leading-relaxed text-muted">
+        <p>
+          NitroX Consulting est dirigée par <strong>Olivier Moreau</strong> — <strong>École Polytechnique
+          (X 88)</strong>, trente-cinq ans entre la finance, l’informatique et la conduite d’entreprise.
+        </p>
+        <p>
+          Dix ans sur les salles de marché de Paribas et Commerzbank, puis directeur des risques et directeur
+          technique : des systèmes où une erreur se voit le jour même, sur de l’argent réel. Il enseigne la
+          finance et le risque à l’<strong>EDHEC</strong> et à <strong>SKEMA</strong> depuis 2018.
+        </p>
+        <p>
+          Vous parlez directement à la personne qui construit votre solution.
+          <a href="/fr/about" class="font-medium text-primary hover:underline">En savoir plus</a>
+        </p>
+      </div>
       <div class="grid grid-cols-2 gap-4">
         <div class="rounded-xl border border-token bg-surface p-6">
-          <div class="text-3xl font-bold text-primary">3</div>
-          <div class="mt-1 text-sm text-muted">Canaux IA en production (Chat · Slack · Teams)</div>
+          <div class="text-3xl font-bold text-primary">X 88</div>
+          <div class="mt-1 text-sm text-muted">École Polytechnique</div>
         </div>
         <div class="rounded-xl border border-token bg-surface p-6">
           <div class="text-3xl font-bold text-primary">35+</div>
-          <div class="mt-1 text-sm text-muted">Ans d’ingénierie à fort enjeu</div>
+          <div class="mt-1 text-sm text-muted">Ans d’expérience</div>
         </div>
         <div class="rounded-xl border border-token bg-surface p-6">
-          <div class="text-3xl font-bold text-primary">UE</div>
-          <div class="mt-1 text-sm text-muted">Données résidentes, RGPD d’abord</div>
+          <div class="text-3xl font-bold text-primary">EDHEC</div>
+          <div class="mt-1 text-sm text-muted">et SKEMA — enseignant depuis 2018</div>
         </div>
         <div class="rounded-xl border border-token bg-surface p-6">
-          <div class="text-3xl font-bold text-primary">Live</div>
-          <div class="mt-1 text-sm text-muted">Notre propre IA, NitroxBrain, en production</div>
+          <div class="text-3xl font-bold text-primary">2001</div>
+          <div class="mt-1 text-sm text-muted">Année de création de NitroX</div>
         </div>
       </div>
     </div>
   </Section>
 
-  <Section tagline="Preuve" title="Nous livrons aussi notre propre IA" subtitle="La meilleure façon de juger un constructeur, c’est ce qu’il met en production.">
-    <Features items={proof} columns={3} />
+  <Section surface tagline="Confiance" title="Vos données restent les vôtres">
+    <Features items={trust} columns={3} />
+    <p class="mt-8 max-w-3xl text-muted">
+      Nous utilisons nous-mêmes ce que nous proposons : <strong>NitroxBrain</strong>, notre propre assistant
+      professionnel, fonctionne tous les jours dans Google Chat, Slack et Microsoft Teams — et il est
+      disponible et approuvé sur le Microsoft Teams Store.
+    </p>
   </Section>
 
   <CTA
-    title="Un problème à résoudre avec l’IA ?"
-    subtitle="Dites-nous ce que vous aimeriez confier à l’IA. Si nous ne sommes pas les bons, nous vous le dirons."
-    actions={[{ label: 'Démarrer la conversation', href: '/fr/contact', variant: 'primary' }]}
+    title="Et si l’IA résolvait un problème concret chez vous ?"
+    subtitle="Trente minutes, sans engagement et sans frais. Vous nous décrivez une tâche qui vous coûte du temps ; nous vous disons franchement si l’IA peut vous aider."
+    actions={[{ label: 'Réserver 30 minutes', href: '/fr/contact', variant: 'primary' }]}
   />
 </Layout>
