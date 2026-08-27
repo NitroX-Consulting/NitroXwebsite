@@ -14,6 +14,24 @@ interface Props {
 const { title, description, lang = 'en', path = '/' } = Astro.props;
 const fullTitle = `${title} — ${SITE.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+/*
+  Matomo — self-hosted on our own EU (OVH) box, so visitor data never leaves
+  infrastructure we control. That matters here: the site sells EU hosting and
+  GDPR-by-default, and a US analytics SaaS would quietly contradict it.
+
+  Configured for the CNIL consent exemption (first-party cookies only, no User ID,
+  no e-commerce, IP anonymised), which is why there is no cookie banner.
+
+  Values are public by nature — they appear in the page source — so they are
+  defaulted inline rather than required as CI secrets, and stay overridable via
+  env for a staging instance.
+*/
+const MATOMO_URL = import.meta.env.PUBLIC_MATOMO_URL ?? 'https://analytics.nitroxconsulting.com/';
+const MATOMO_SITE_ID = import.meta.env.PUBLIC_MATOMO_SITE_ID ?? '1';
+// Only track real visitors: never count `npm run dev`, and allow opt-out by
+// setting PUBLIC_MATOMO_SITE_ID to an empty string.
+const trackingEnabled = import.meta.env.PROD && Boolean(MATOMO_SITE_ID);
 ---
 
 <!doctype html>
@@ -51,6 +69,30 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
         } catch (e) {}
       })();
     </script>
+    {
+      trackingEnabled && (
+        <script
+          is:inline
+          define:vars={{ matomoUrl: MATOMO_URL, matomoSiteId: MATOMO_SITE_ID }}
+          set:html={`
+            var _paq = (window._paq = window._paq || []);
+            _paq.push(['setTrackerUrl', matomoUrl + 'matomo.php']);
+            _paq.push(['setSiteId', matomoSiteId]);
+            _paq.push(['setSecureCookie', true]);
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function () {
+              var d = document,
+                g = d.createElement('script'),
+                s = d.getElementsByTagName('script')[0];
+              g.async = true;
+              g.src = matomoUrl + 'matomo.js';
+              s.parentNode.insertBefore(g, s);
+            })();
+          `}
+        />
+      )
+    }
   </head>
   <body class="min-h-screen">
     <Header lang={lang} path={path} />
