@@ -40,6 +40,10 @@
     variable that flips between the light `:root` and `.dark` values below,
     so the utilities are theme-aware at runtime.
   */
+  /* `text-ink` = the page's own body colour (near-black on light, near-white
+     on dark). Used by the header's active nav item, which has to read as
+     plain black text rather than the muted grey of the inactive links. */
+  --color-ink: var(--text);
   --color-primary: var(--primary);
   --color-surface: var(--surface);
   --color-page: var(--page);
