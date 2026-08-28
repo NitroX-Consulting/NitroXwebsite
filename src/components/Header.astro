@@ -12,6 +12,12 @@ const t = ui[lang];
 // `path` is locale-relative (no /fr prefix). The per-locale altLangHref helper
 // in i18n/ui.ts maps it to the same page in the other locale.
 const altHref = t.altLangHref(path);
+// Locale-absolute href of the page we are on, so it can be compared against the
+// nav hrefs (which are locale-absolute too: '/services' in EN, '/fr/services' in FR).
+// Reason: the visitor has to be able to tell which page they are on — the current
+// nav entry is rendered bold + in the body colour instead of muted grey.
+const currentHref = lang === 'fr' ? '/fr' + (path === '/' ? '' : path) : path;
+const isActive = (href: string) => href === currentHref;
 ---
 
 <header class="sticky top-0 z-40 border-b border-token bg-surface/85 backdrop-blur-md">
@@ -27,7 +33,13 @@ const altHref = t.altLangHref(path);
     <nav class="hidden items-center gap-5 md:flex lg:gap-8">
       {
         t.nav.map((item) => (
-          <a href={item.href} class="whitespace-nowrap text-lg font-medium text-muted transition-colors hover:text-primary">
+          <a
+            href={item.href}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            class={`whitespace-nowrap text-lg transition-colors hover:text-primary ${
+              isActive(item.href) ? 'font-bold text-ink' : 'font-medium text-muted'
+            }`}
+          >
             {item.label}
           </a>
         ))
@@ -68,7 +80,13 @@ const altHref = t.altLangHref(path);
   <nav id="mobile-nav" class="hidden border-t border-token px-4 py-3 md:hidden">
     {
       t.nav.map((item) => (
-        <a href={item.href} class="block py-2 text-lg font-medium text-muted hover:text-primary">
+        <a
+          href={item.href}
+          aria-current={isActive(item.href) ? 'page' : undefined}
+          class={`block py-2 text-lg hover:text-primary ${
+            isActive(item.href) ? 'font-bold text-ink' : 'font-medium text-muted'
+          }`}
+        >
           {item.label}
         </a>
       ))
