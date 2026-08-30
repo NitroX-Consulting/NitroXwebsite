@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import CTA from '~/components/CTA.astro';
+
+const posts = (await getCollection('perspective', (p) => p.data.lang === 'en')).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const dateFmt = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout
+  title="Perspective"
+  description="Where we stand on enterprise AI: what actually matters, what quietly costs a fortune, and the questions to ask before you sign."
+  lang="en"
+  path="/perspective"
+>
+  <Hero
+    tagline="Perspective"
+    title="What we think, written down."
+    subtitle="No company news. Positions on enterprise AI — the ones we argue in front of a chief executive, with what they actually commit you to."
+  />
+
+  <Section>
+    <ul class="divide-y divide-token border-y border-token">
+      {
+        posts.map((post) => (
+          <li>
+            <a
+              href={`/perspective/${post.data.slug}`}
+              class="group flex flex-col gap-2 py-8 transition-colors sm:flex-row sm:items-baseline sm:gap-10"
+            >
+              <div class="shrink-0 sm:w-44">
+                <p class="text-sm font-semibold uppercase tracking-wider text-primary">{post.data.tagline}</p>
+                <p class="mt-1 text-sm text-muted">
+                  <time datetime={post.data.pubDate.toISOString()}>{dateFmt.format(post.data.pubDate)}</time>
+                  <span class="mx-1.5">·</span>
+                  {post.data.readingTime}
+                </p>
+              </div>
+              <div class="max-w-2xl">
+                <h2 class="text-2xl font-bold tracking-tight group-hover:text-primary sm:text-3xl">
+                  {post.data.title}
+                </h2>
+                <p class="mt-3 text-lg text-muted">{post.data.description}</p>
+                <p class="mt-3 text-base font-medium text-primary">Read the article →</p>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <CTA
+    title="An AI project to frame?"
+    subtitle="A first conversation to ask the right questions before a line of code is written — no commitment, no jargon."
+    actions={[{ label: 'Talk to us', href: '/contact' }]}
+  />
+</Layout>

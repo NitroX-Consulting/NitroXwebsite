@@ -1,0 +1,56 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '~/layouts/Layout.astro';
+import CTA from '~/components/CTA.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('perspective', (p) => p.data.lang === 'en');
+  return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const dateFmt = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  lang="en"
+  path={`/perspective/${post.data.slug}`}
+  altPath={`/fr/perspective/${post.data.altSlug}`}
+>
+  <article>
+    {/* Article header — same soft brand wash as the site hero, without the h1 scale of a landing page. */}
+    <header class="relative isolate overflow-hidden border-b border-token">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-primary/8 to-primary/0"></div>
+      <div class="mx-auto max-w-[42rem] px-4 py-16 sm:px-6 sm:py-24">
+        <a href="/perspective" class="text-sm font-medium text-muted hover:text-primary">← Perspective</a>
+        <p class="mt-8 text-sm font-semibold uppercase tracking-wider text-primary">{post.data.tagline}</p>
+        <h1 class="mt-2 text-4xl font-bold tracking-tight text-balance sm:text-5xl">{post.data.title}</h1>
+        <p class="mt-5 text-xl text-muted">{post.data.description}</p>
+        <p class="mt-6 text-sm text-muted">
+          <time datetime={post.data.pubDate.toISOString()}>{dateFmt.format(post.data.pubDate)}</time>
+          <span class="mx-1.5">·</span>
+          {post.data.readingTime} read
+        </p>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-[42rem] px-4 py-14 sm:px-6 sm:py-16">
+      <div class="prose-nx">
+        <Content />
+      </div>
+    </div>
+  </article>
+
+  <CTA
+    title="Do these questions apply to your project?"
+    subtitle="A first conversation to frame what you need — no commitment, no jargon."
+    actions={[
+      { label: 'Talk to us', href: '/contact' },
+      { label: 'How we work', href: '/accompagnement', variant: 'ghost' },
+    ]}
+  />
+</Layout>

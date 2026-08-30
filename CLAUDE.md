@@ -23,6 +23,12 @@ npm run preview  # preview the production build
 
 - **`src/pages/`** — routes. English at the root (`index`, `services`, `expertise`, `about`, `contact`, `privacy`),
   French mirrors under `src/pages/fr/`. Astro `build.format: 'file'` emits clean `foo.html` URLs for GitHub Pages.
+- **`src/content/perspective/<lang>/*.md`** — the editorial section behind `/perspective` (EN) and
+  `/fr/perspective` (FR), typed by `src/content.config.ts`. One Markdown file per article per locale.
+  Both locales are required (see Conventions); each carries its own `slug` plus the counterpart's
+  `altSlug`, which `Layout.astro` turns into the hreflang alternate and the header's language switch
+  (`altPath`). Article body styling is `.prose-nx` in `src/styles/global.css` — hand-rolled, no
+  `@tailwindcss/typography` dependency.
 - **`src/layouts/Layout.astro`** — HTML shell, SEO/OG head, dark-mode flash guard, Header + Footer.
 - **`src/components/`** — `Header`, `Footer`, `Hero`, `Section`, `Features`, `CTA`, `ContactForm`.
   `ContactForm.astro` POSTs JSON to `https://ls.nitroxconsulting.com/contact` (the same NitroxBrain dispatcher /
@@ -38,7 +44,10 @@ The previous jQuery 1.7.1 single-page site is preserved under **`legacy/`** for 
 ## Conventions
 
 - **PR-first.** All changes go through a pull request. Astro build must be green (`npm run build`) before merge.
-- Keep EN and FR pages in sync when editing copy.
+- Keep EN and FR pages in sync when editing copy. This includes `/perspective` articles: every post
+  ships in both locales, with `slug`/`altSlug` pointing at each other.
+- The header nav is at its width limit at 7 entries (`text-base`/`lg:gap-6`, desktop row only from
+  `lg`). Adding an eighth means shortening labels or moving something to the footer.
 - **External links** opening in a new tab must carry `rel="noopener noreferrer"`.
 
 ## Voice — write for a company owner, not an AI engineer

@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '~/layouts/Layout.astro';
+import Hero from '~/components/Hero.astro';
+import Section from '~/components/Section.astro';
+import CTA from '~/components/CTA.astro';
+
+const posts = (await getCollection('perspective', (p) => p.data.lang === 'fr')).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const dateFmt = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout
+  title="Point de vue"
+  description="Nos prises de position sur l’IA en entreprise : ce qui compte vraiment, ce qui coûte cher, et les questions à poser avant de signer."
+  lang="fr"
+  path="/perspective"
+>
+  <Hero
+    tagline="Point de vue"
+    title="Ce que nous pensons, écrit noir sur blanc."
+    subtitle="Pas d’actualités d’entreprise. Des prises de position sur l’IA en entreprise — celles que nous défendons devant un dirigeant, avec ce qu’elles impliquent réellement."
+  />
+
+  <Section>
+    <ul class="divide-y divide-token border-y border-token">
+      {
+        posts.map((post) => (
+          <li>
+            <a
+              href={`/fr/perspective/${post.data.slug}`}
+              class="group flex flex-col gap-2 py-8 transition-colors sm:flex-row sm:items-baseline sm:gap-10"
+            >
+              <div class="shrink-0 sm:w-44">
+                <p class="text-sm font-semibold uppercase tracking-wider text-primary">{post.data.tagline}</p>
+                <p class="mt-1 text-sm text-muted">
+                  <time datetime={post.data.pubDate.toISOString()}>{dateFmt.format(post.data.pubDate)}</time>
+                  <span class="mx-1.5">·</span>
+                  {post.data.readingTime}
+                </p>
+              </div>
+              <div class="max-w-2xl">
+                <h2 class="text-2xl font-bold tracking-tight group-hover:text-primary sm:text-3xl">
+                  {post.data.title}
+                </h2>
+                <p class="mt-3 text-lg text-muted">{post.data.description}</p>
+                <p class="mt-3 text-base font-medium text-primary">Lire l’article →</p>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <CTA
+    title="Un projet d’IA à cadrer ?"
+    subtitle="Un premier échange pour poser les bonnes questions avant d’écrire la première ligne de code — sans engagement, et sans jargon."
+    actions={[{ label: 'Nous contacter', href: '/fr/contact' }]}
+  />
+</Layout>

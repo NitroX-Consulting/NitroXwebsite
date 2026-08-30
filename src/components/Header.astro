@@ -6,12 +6,15 @@ interface Props {
   lang: Lang;
   /** Locale-relative path of the current page, e.g. '/' or '/services' (no /fr prefix). */
   path: string;
+  /** Absolute path of this page in the other locale, where the slug differs. */
+  altPath?: string;
 }
-const { lang, path } = Astro.props;
+const { lang, path, altPath } = Astro.props;
 const t = ui[lang];
 // `path` is locale-relative (no /fr prefix). The per-locale altLangHref helper
-// in i18n/ui.ts maps it to the same page in the other locale.
-const altHref = t.altLangHref(path);
+// in i18n/ui.ts maps it to the same page in the other locale; `altPath` overrides
+// it for pages whose counterpart carries a different slug (articles).
+const altHref = altPath ?? t.altLangHref(path);
 ---
 
 <header class="sticky top-0 z-40 border-b border-token bg-surface/85 backdrop-blur-md">
@@ -23,11 +26,14 @@ const altHref = t.altLangHref(path);
       <img src="/images/logo-nitrox-white.png" alt="" width="900" height="213" class="hidden h-9 w-auto dark:block" />
     </a>
 
-    <!-- Desktop nav -->
-    <nav class="hidden items-center gap-5 md:flex lg:gap-8">
+    <!-- Desktop nav. Two sizing constraints, both from the 7th entry (Perspective):
+       the inline row no longer fits the max-w-6xl container at text-lg/gap-8 (it
+       overlapped the logo), hence text-base/gap-6; and it cannot fit at all between
+       768px and 1024px, hence lg:flex rather than md:flex — tablets get the burger. -->
+    <nav class="hidden items-center gap-5 lg:flex lg:gap-6">
       {
         t.nav.map((item) => (
-          <a href={item.href} class="whitespace-nowrap text-lg font-medium text-muted transition-colors hover:text-primary">
+          <a href={item.href} class="whitespace-nowrap text-base font-medium text-muted transition-colors hover:text-primary">
             {item.label}
           </a>
         ))
@@ -57,7 +63,7 @@ const altHref = t.altLangHref(path);
         id="menu-toggle"
         type="button"
         aria-label="Open menu"
-        class="rounded-md border border-token p-1.5 text-muted md:hidden"
+        class="rounded-md border border-token p-1.5 text-muted lg:hidden"
       >
         <Icon name="tabler:menu-2" class="h-4 w-4" />
       </button>
@@ -65,7 +71,7 @@ const altHref = t.altLangHref(path);
   </div>
 
   <!-- Mobile nav -->
-  <nav id="mobile-nav" class="hidden border-t border-token px-4 py-3 md:hidden">
+  <nav id="mobile-nav" class="hidden border-t border-token px-4 py-3 lg:hidden">
     {
       t.nav.map((item) => (
         <a href={item.href} class="block py-2 text-lg font-medium text-muted hover:text-primary">
