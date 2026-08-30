@@ -4,12 +4,11 @@ import Layout from '~/layouts/Layout.astro';
 import Hero from '~/components/Hero.astro';
 import Section from '~/components/Section.astro';
 import CTA from '~/components/CTA.astro';
+import { formatDate } from '~/i18n/ui';
 
 const posts = (await getCollection('perspective', (p) => p.data.lang === 'fr')).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
-
-const dateFmt = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 
 <Layout
@@ -36,7 +35,7 @@ const dateFmt = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long'
               <div class="shrink-0 sm:w-44">
                 <p class="text-sm font-semibold uppercase tracking-wider text-primary">{post.data.tagline}</p>
                 <p class="mt-1 text-sm text-muted">
-                  <time datetime={post.data.pubDate.toISOString()}>{dateFmt.format(post.data.pubDate)}</time>
+                  <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate, 'fr')}</time>
                   <span class="mx-1.5">·</span>
                   {post.data.readingTime}
                 </p>

@@ -67,6 +67,20 @@ export const ui: Record<Lang, Strings> = {
   },
 };
 
+/*
+  Article dates. Kept here with the rest of the locale-specific strings so the
+  two listing pages and the two article pages share one definition instead of
+  re-declaring an Intl formatter each (Gemini review, PR #17).
+*/
+const dateFormatters: Record<Lang, Intl.DateTimeFormat> = {
+  en: new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }),
+  fr: new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }),
+};
+
+export function formatDate(date: Date, lang: Lang): string {
+  return dateFormatters[lang].format(date);
+}
+
 export const SITE = {
   name: 'NitroX Consulting',
   domain: 'nitroxconsulting.com',
