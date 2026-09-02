@@ -1,5 +1,5 @@
 ---
-title: "The easy half of your week"
+title: "AI in a small company: the easy half of your week"
 description: "Nine tasks a small company can hand to AI this month — inbox triage, invoices, the commercial proposal — and the four-part test that tells you which of your own belong on the list."
 pubDate: 2026-09-02
 lang: en
@@ -75,7 +75,7 @@ The commercial proposal. The offer deck. The one-page summary for a prospect. Fo
 
 It now can be. You give the numbers and dictate what each page should say; a draft in your own branding comes back; you spend your time correcting a document that exists instead of building one from nothing. Same for the annual report, the price list, the memo that has to be presentable.
 
-This is exactly the work the general models from **Anthropic** and **OpenAI** — and a handful of specialised tools around them — have become genuinely good at over the last eighteen months. It is worth being precise about who does what: the design and drafting are delegated to those models, while your company keeps its own layer around them — the one that decides which documents they may read and what they are allowed to do. **Why that separation matters is the subject of [our previous note](/perspective/the-model-is-not-the-product): the model is replaceable, the layer around it is yours.**
+The general models from **Anthropic** and **OpenAI** have become very good at this. What matters is elsewhere: the drafting and layout are delegated to them, while the layer deciding which documents they may read — and what they may do with them — stays yours. **[That is the subject of our previous note](/perspective/the-model-is-not-the-product): the model is replaceable, the layer around it is yours.**
 
 > **The trap** — the numbers. A beautiful proposal with the wrong price is worse than an ugly one. The figures come from your files and are checked by a person, page by page, before the client sees it.
 
