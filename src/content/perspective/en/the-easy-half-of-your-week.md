@@ -75,7 +75,7 @@ The commercial proposal. The offer deck. The one-page summary for a prospect. Fo
 
 It now can be. You give the numbers and dictate what each page should say; a draft in your own branding comes back; you spend your time correcting a document that exists instead of building one from nothing. Same for the annual report, the price list, the memo that has to be presentable.
 
-The general models from **Anthropic** and **OpenAI** have become very good at this. What matters is elsewhere: the drafting and layout are delegated to them, while the layer deciding which documents they may read — and what they may do with them — stays yours. **[That is the subject of our previous note](/perspective/the-model-is-not-the-product): the model is replaceable, the layer around it is yours.**
+The general models from **Anthropic** and **OpenAI** have become very good at this. What matters is elsewhere: the drafting and layout are delegated to them, while the layer deciding which documents they may read — and what they may do with them — stays yours, which is [the whole subject of our previous note](/perspective/the-model-is-not-the-product) — the model is replaceable, the layer around it is not.
 
 > **The trap** — the numbers. A beautiful proposal with the wrong price is worse than an ugly one. The figures come from your files and are checked by a person, page by page, before the client sees it.
 
@@ -110,6 +110,8 @@ Your company's whole picture sits in a handful of mailboxes and drives. One rule
 **The assistant sees exactly what the person it serves sees — and loses that access when they do.**
 
 Nothing is copied into a separate index to make it searchable; each document is read at the moment of the question, with that person's own credentials. Removing an access takes effect immediately, because there is no copy to clean up. The wall between accounting and HR is the same wall as today, enforced the same way. [We set out how that works, and the four questions to put to any vendor, here](/perspective/the-model-is-not-the-product).
+
+That leaves the question every careful owner ends up asking: are my documents used to train the models? On the professional plans from Anthropic and OpenAI, no — what you send does not join the training data, and it is written into the contract. On the free consumer versions, that is not always true. Check it before the first file goes out, and expect an answer that sits in a contract clause rather than in a sales promise.
 
 ## Asking well is a skill, and it is taught
 

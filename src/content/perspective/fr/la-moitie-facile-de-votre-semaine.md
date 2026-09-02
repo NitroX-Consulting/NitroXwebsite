@@ -75,7 +75,7 @@ La proposition commerciale. Le support d’offre. La note d’une page pour un p
 
 Ça l’est devenu. Vous fournissez les chiffres et vous dictez ce que chaque page doit dire ; un document déjà à votre charte revient ; vous passez votre temps à corriger un document qui existe au lieu d’en fabriquer un à partir de rien. Même chose pour le rapport annuel, le tarif, la note qui doit être présentable.
 
-Les modèles généralistes d’**Anthropic** et d’**OpenAI** sont devenus très bons à cet exercice. L’essentiel est ailleurs : la mise en forme leur est déléguée, mais la couche qui décide quels documents ils ont le droit de lire, et ce qu’ils ont le droit d’en faire, reste la vôtre. **[C’est le sujet de notre note précédente](/fr/perspective/le-modele-nest-pas-le-produit) : le modèle est remplaçable, la couche autour est à vous.**
+Les modèles généralistes d’**Anthropic** et d’**OpenAI** sont devenus très bons à cet exercice. L’essentiel est ailleurs : la mise en forme leur est déléguée, mais la couche qui décide quels documents ils ont le droit de lire, et ce qu’ils ont le droit d’en faire, reste la vôtre — c’est [tout le propos de notre note précédente](/fr/perspective/le-modele-nest-pas-le-produit), le modèle se remplace, la couche autour ne se remplace pas.
 
 > **Le piège** — les chiffres. Une proposition magnifique avec le mauvais prix est pire qu’une proposition laide. Les données viennent de vos fichiers et sont vérifiées par une personne, page après page, avant que le client ne la voie.
 
@@ -110,6 +110,8 @@ Toute la situation de votre entreprise tient dans quelques boîtes mail et quelq
 **L’assistant voit exactement ce que voit la personne qu’il sert — et perd cet accès en même temps qu’elle.**
 
 Rien n’est recopié dans un index séparé pour être « interrogeable » ; chaque document est lu au moment de la question, avec les droits de cette personne. Retirer un accès prend effet immédiatement, puisqu’il n’y a aucune copie à nettoyer. Le mur entre la comptabilité et les RH est le même qu’aujourd’hui, tenu de la même façon. [Nous détaillons son fonctionnement, et les quatre questions à poser à n’importe quel prestataire, ici](/fr/perspective/le-modele-nest-pas-le-produit).
+
+Reste la question que tout dirigeant prudent finit par poser : mes documents servent-ils à entraîner les modèles ? Sur les offres professionnelles d’Anthropic et d’OpenAI, non — ce que vous envoyez ne rejoint pas les données d’entraînement, et cela figure au contrat. Sur les versions grand public gratuites, ce n’est pas toujours vrai. Vérifiez-le avant d’envoyer le premier fichier, et attendez une réponse qui tient dans un article de contrat, pas dans une promesse commerciale.
 
 ## Savoir demander, ça s’apprend
 
