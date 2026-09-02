@@ -73,7 +73,7 @@ C’est le démarrage qu’on délègue. La page blanche coûte plus cher que la
 
 La proposition commerciale. Le support d’offre. La note d’une page pour un prospect. Pour la plupart des dirigeants, c’est le premier gouffre à temps du mois, et celui auquel personne ne pense à déléguer, parce que « il faut que ce soit présentable ».
 
-Ça l’est devenu. Vous fournissez les chiffres et vous dictez ce que chaque page doit dire ; un document déjà à votre charte revient ; vous passez votre temps à corriger un document qui existe au lieu d’en fabriquer un à partir de rien. Même chose pour le rapport annuel, le tarif, la note qui doit être montrable.
+Ça l’est devenu. Vous fournissez les chiffres et vous dictez ce que chaque page doit dire ; un document déjà à votre charte revient ; vous passez votre temps à corriger un document qui existe au lieu d’en fabriquer un à partir de rien. Même chose pour le rapport annuel, le tarif, la note qui doit être présentable.
 
 C’est exactement le travail sur lequel les modèles généralistes d’**Anthropic** et d’**OpenAI** — et quelques outils spécialisés autour d’eux — sont devenus réellement bons ces dix-huit derniers mois. Autant être précis sur qui fait quoi : la mise en forme et la rédaction sont déléguées à ces modèles, pendant que votre entreprise garde sa propre couche autour d’eux — celle qui décide quels documents ils ont le droit de lire et ce qu’ils ont le droit de faire. **Pourquoi cette séparation compte est le sujet de [notre note précédente](/fr/perspective/le-modele-nest-pas-le-produit) : le modèle est remplaçable, la couche autour est à vous.**
 
@@ -99,7 +99,7 @@ Trois catégories, et ce sont les mêmes dans toutes les entreprises.
 
 **Tout ce qui paie, signe ou déclare tout seul.** Pas de paiement, pas de commande, pas de signature, pas de déclaration. Ce n’est pas une limite technique : c’est un choix de conception, et il doit être visible dans l’outil plutôt que promis en réunion.
 
-**Tout ce qui n’existe que dans une tête.** La moitié de ce que sait une petite entreprise n’est écrite nulle part : pourquoi ce fournisseur a été écarté, quel client ne se rappelle jamais avant onze heures. L’IA n’y accède pas. Le rendre disponible, c’est d’abord un travail d’écriture.
+**Tout ce qui n’existe que dans une tête.** La moitié de ce que sait une petite entreprise n’est écrite nulle part : pourquoi ce fournisseur a été écarté, quel client il ne faut jamais appeler avant onze heures. L’IA n’y accède pas. Le rendre disponible, c’est d’abord un travail d’écriture.
 
 **Tout ce dont les erreurs se voient tard.** Écritures comptables, positions fiscales, échéances calculées plutôt que constatées. L’erreur est facile à commettre et coûteuse à retrouver trois mois plus tard.
 
@@ -109,13 +109,13 @@ Toute la situation de votre entreprise tient dans quelques boîtes mail et quelq
 
 **L’assistant voit exactement ce que voit la personne qu’il sert — et perd cet accès en même temps qu’elle.**
 
-Rien n’est recopié dans un index séparé pour être « cherchable » ; chaque document est lu au moment de la question, avec les droits de cette personne. Retirer un accès prend effet immédiatement, puisqu’il n’y a aucune copie à nettoyer. Le mur entre la comptabilité et les RH est le même qu’aujourd’hui, tenu de la même façon. [Nous détaillons son fonctionnement, et les quatre questions à poser à n’importe quel prestataire, ici](/fr/perspective/le-modele-nest-pas-le-produit).
+Rien n’est recopié dans un index séparé pour être « interrogeable » ; chaque document est lu au moment de la question, avec les droits de cette personne. Retirer un accès prend effet immédiatement, puisqu’il n’y a aucune copie à nettoyer. Le mur entre la comptabilité et les RH est le même qu’aujourd’hui, tenu de la même façon. [Nous détaillons son fonctionnement, et les quatre questions à poser à n’importe quel prestataire, ici](/fr/perspective/le-modele-nest-pas-le-produit).
 
 ## Commencer lundi
 
 Pas un programme. Une tâche.
 
-Prenez celle qui agace le plus l’entreprise, notez ce qu’elle coûte aujourd’hui en minutes par semaine, et faites-la tourner quinze jours avec une personne qui relit chaque sortie. Au bout des quinze jours, vous la gardez ou vous l’abandonnez — et vous savez laquelle des deux, parce que vous aviez écrit le chiffre au départ.
+Prenez celle qui agace le plus l’entreprise, notez ce qu’elle coûte aujourd’hui en minutes par semaine, et faites-la tourner quinze jours avec une personne qui relit chaque sortie. Au bout des quinze jours, vous la gardez ou vous l’abandonnez — et vous savez quelle décision prendre, parce que vous aviez écrit le chiffre au départ.
 
 Puis prenez la deuxième. Une entreprise qui en a passé quatre a en général rendu une journée par semaine à deux personnes, et appris, sans risque, jusqu’où elle veut laisser l’IA approcher son activité.
 
