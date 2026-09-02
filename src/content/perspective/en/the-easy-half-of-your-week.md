@@ -111,6 +111,16 @@ Your company's whole picture sits in a handful of mailboxes and drives. One rule
 
 Nothing is copied into a separate index to make it searchable; each document is read at the moment of the question, with that person's own credentials. Removing an access takes effect immediately, because there is no copy to clean up. The wall between accounting and HR is the same wall as today, enforced the same way. [We set out how that works, and the four questions to put to any vendor, here](/perspective/the-model-is-not-the-product).
 
+## Asking well is a skill, and it is taught
+
+None of the nine tasks above requires technical ability. They all require the same single thing: knowing how to hand over a simple task. Saying what you expect, giving the context the other side does not have, and checking what comes back.
+
+It is the exercise you go through with a temp on their first morning. And in a company, the people who get something out of it are not the ones most at ease with computers: they are the ones who can describe precisely what they want.
+
+The good news is that this is learnt in hours, not months. The less good news is that it is not picked up by watching someone else do it. One properly trained person per team is enough to start the others off.
+
+Within two years, handing a task to an AI will be an ordinary skill, no different from writing a clean email or keeping a spreadsheet. Better to learn it while it is still an advantage.
+
 ## Starting Monday
 
 Not a programme. One task.

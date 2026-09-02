@@ -111,6 +111,16 @@ Toute la situation de votre entreprise tient dans quelques boîtes mail et quelq
 
 Rien n’est recopié dans un index séparé pour être « interrogeable » ; chaque document est lu au moment de la question, avec les droits de cette personne. Retirer un accès prend effet immédiatement, puisqu’il n’y a aucune copie à nettoyer. Le mur entre la comptabilité et les RH est le même qu’aujourd’hui, tenu de la même façon. [Nous détaillons son fonctionnement, et les quatre questions à poser à n’importe quel prestataire, ici](/fr/perspective/le-modele-nest-pas-le-produit).
 
+## Savoir demander, ça s’apprend
+
+Aucune des neuf tâches ci-dessus ne demande de compétence technique. Elles demandent toutes la même, et une seule : savoir confier une tâche simple. Dire ce qu’on attend, donner le contexte que la personne d’en face n’a pas, et vérifier ce qui revient.
+
+C’est exactement l’exercice qu’on fait avec un intérimaire le matin de son arrivée. Et dans une entreprise, ceux qui en tirent quelque chose ne sont pas les plus à l’aise avec l’informatique : ce sont ceux qui savent décrire précisément ce qu’ils veulent.
+
+La bonne nouvelle, c’est que cela s’apprend en quelques heures et pas en quelques mois. La moins bonne, c’est que cela ne s’attrape pas tout seul en regardant quelqu’un faire. Une personne formée sérieusement par équipe suffit à faire démarrer les autres.
+
+D’ici deux ans, savoir confier une tâche à une IA sera une compétence ordinaire, au même titre que rédiger un courriel propre ou tenir un tableur. Autant l’apprendre pendant que c’est encore un avantage.
+
 ## Commencer lundi
 
 Pas un programme. Une tâche.
