@@ -161,13 +161,20 @@
     text-underline-offset: 3px;
     text-decoration-line: underline;
   }
-  /* Reason: Markdown tables can't be wrapped in a scroll container, so the
-     table itself becomes the scroller — a wide comparison table then scrolls
-     sideways on a phone instead of pushing the whole page wider. */
-  .prose-nx table {
-    display: block;
+  /* Reason: the wrapper scrolls, not the table — a wide comparison table then
+     scrolls sideways on a phone instead of pushing the page wider, and the
+     table keeps its native semantics (changing a table's `display` can make
+     Safari/VoiceOver stop announcing it as a table). The wrapper is added to
+     every Markdown table by src/plugins/rehype-table-scroll.mjs. */
+  .prose-nx .table-scroll {
     max-width: 100%;
     overflow-x: auto;
+  }
+  .prose-nx .table-scroll:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+  .prose-nx table {
     border-collapse: collapse;
     font-size: 0.9rem;
     line-height: 1.5;
