@@ -27,7 +27,7 @@ La dernière phrase compte plus que toutes les autres. On y reviendra.
 
 L’assistant a retenu deux acteurs montpelliérains, Foxpilot et Liftia, et trois cabinets nationaux : Masteria, Mister IA et Stema Partners. S’y ajoute Limova, que nous avions demandé. Données relevées le 14 septembre 2026.
 
-| | Où | Ce qu’ils vendent | Prix affichés | Avis |
+| Entreprise | Où | Ce qu’ils vendent | Prix affichés | Avis |
 |---|---|---|---|---|
 | Foxpilot | Montpellier | Formation, diagnostic IA, automatisations sans code (Make, n8n), consultants en régie | Rien, sauf le diagnostic Bpifrance : 10 000 € HT, pris en charge à 40 % | 95 % de satisfaction, sans nombre d’avis |
 | Liftia | 30+ villes, dont Montpellier | Formation Qualiopi, conseil, assistants IA sur mesure | Non affichés | 4,9/5 sur leur site, 4,2/5 sur Trustpilot (21 avis) |

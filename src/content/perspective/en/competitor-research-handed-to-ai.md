@@ -27,7 +27,7 @@ That last sentence matters more than all the others. We'll come back to it.
 
 The assistant picked two Montpellier firms, Foxpilot and Liftia, and three national ones: Masteria, Mister IA and Stema Partners. Plus Limova, which we had asked for. Data collected on 14 September 2026.
 
-| | Where | What they sell | Published prices | Reviews |
+| Company | Where | What they sell | Published prices | Reviews |
 |---|---|---|---|---|
 | Foxpilot | Montpellier | Training, AI assessment, no-code automations (Make, n8n), consultants on assignment | None, except the Bpifrance assessment: €10,000 excl. VAT, 40% publicly funded | 95% satisfaction, no review count |
 | Liftia | 30+ cities, incl. Montpellier | Certified training (Qualiopi), consulting, custom AI assistants | Not published | 4.9/5 on their site, 4.2/5 on Trustpilot (21 reviews) |
