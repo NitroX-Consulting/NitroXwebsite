@@ -161,4 +161,27 @@
     text-underline-offset: 3px;
     text-decoration-line: underline;
   }
+  /* Reason: Markdown tables can't be wrapped in a scroll container, so the
+     table itself becomes the scroller — a wide comparison table then scrolls
+     sideways on a phone instead of pushing the whole page wider. */
+  .prose-nx table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .prose-nx th,
+  .prose-nx td {
+    min-width: 8rem;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+  .prose-nx th {
+    font-weight: 650;
+    background-color: var(--surface);
+  }
 }
