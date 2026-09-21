@@ -1,12 +1,12 @@
 ---
 title: "Preparing a sales meeting: the one-page brief"
-description: "What to have in front of you before you walk in, where the material already sits, and why the part that takes forty minutes is not the part that needs your judgement."
+description: "What to have in front of you before you walk in, the prompt that generates it, and why a model with no access to your inbox writes a brief that looks exactly as good and is invented."
 pubDate: 2026-09-21
 lang: en
 slug: preparing-a-sales-meeting
 altSlug: preparer-un-rendez-vous-commercial
 tagline: "Field note"
-readingTime: "7 min"
+readingTime: "8 min"
 ---
 
 1:52pm. You are parked outside their offices. You open their website on your phone, skim the About page, dig through your inbox for the name of the person you are about to meet. At 2:00 you walk in, and the first twelve minutes of the meeting go to rebuilding what you already knew three months ago.
@@ -63,6 +63,32 @@ There is nothing to invent. The work is to look in six places and come back with
 | Read the brief before you walk in | You |
 
 The right-hand column never empties. That column is the meeting.
+
+## The brief is generated — and the model has to see your data
+
+One point before the prompt, because it decides everything else: the brief has to be **generated**, not written. If you type it up yourself from what the AI tells you, you have gained nothing — you have moved the forty minutes.
+
+And for it to be generated, **the model has to have access to your data**. That is not an implementation detail, it is the condition. An assistant wired into your inbox, your quotes and your CRM comes back with the real thread, with the dates and the amounts on it. The same assistant with no access will produce exactly the same document, just as well written and just as confident — except it will have invented it from the company name. The two briefs look alike. Only one of them is true.
+
+> **The trap** — asking for a brief from a tool that can see nothing of yours. It will not refuse. It will produce a plausible page about a company it does not know, and you will walk into the meeting holding it.
+
+In practice that means four accesses: the mailbox of the person selling, the folder where quotes and invoices live, the CRM or the spreadsheet standing in for one, and a web search for the public pages. What is not reachable does not exist: if nobody ever wrote up the last meeting, no tool will recover it.
+
+It is also a company decision rather than a setting: you are giving a tool access to your client threads. Where that data goes, who hosts it, whether it trains a model. The question comes up front, once, and gets settled once.
+
+## The prompt
+
+Adapt it, then reuse it as-is before every meeting.
+
+> Prepare a one-page brief for my meeting on [date, time] with [first name last name], [role] at [company].
+>
+> Search: my inbox (the whole thread with this contact and with the [company.com] domain), my quotes and invoices for this client, [my CRM or tracking spreadsheet], and their public pages — website, job listings, filed accounts.
+>
+> Structure the brief in six blocks, in this order: who I am meeting (role, time in post, and whether this person signs or carries the case to somebody else); our shared history (last exchange with its date, quote and amount, what I promised that never went out, any unpaid invoices); the company and what has moved in the last six months; the likely trigger for this meeting; three questions to ask; the next step to obtain, with a date.
+>
+> Rules: one page maximum. For every fact, cite your source — email subject and date, quote number, link. Amounts and dates are copied, never estimated. Separate what you read from what you inferred. If you cannot find something, write "not found": invent nothing.
+
+That last paragraph does most of the work. Without it you get a piece of text; with it you get a verifiable document, where every line points back to an email you can reopen. It is what makes the two-minute reread before you walk in possible at all.
 
 ## What preparation is not
 
