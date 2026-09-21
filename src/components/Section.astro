@@ -17,7 +17,9 @@ const alignCls = align === 'center' ? 'text-center mx-auto' : '';
         <div class={`max-w-2xl ${alignCls}`}>
           {tagline && <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">{tagline}</p>}
           {title && <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>}
-          {subtitle && <p class="mt-4 text-lg text-muted">{subtitle}</p>}
+          {/* Reason: subtitles are author-written literals in this repo, so
+              inline markup (e.g. the NitroxBrain link) is rendered as HTML. */}
+          {subtitle && <p class="mt-4 text-lg text-muted" set:html={subtitle} />}
         </div>
       )
     }
