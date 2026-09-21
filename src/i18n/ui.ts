@@ -32,6 +32,7 @@ export const ui: Record<Lang, Strings> = {
       { label: 'Training', href: '/formations' },
       { label: 'AI Adoption', href: '/accompagnement' },
       { label: 'Expertise', href: '/expertise' },
+      { label: 'Perspective', href: '/perspective' },
       { label: 'About', href: '/about' },
     ],
     cta: { label: 'Talk to us', href: CONTACT_EN },
@@ -51,6 +52,7 @@ export const ui: Record<Lang, Strings> = {
       { label: 'Formations', href: '/fr/formations' },
       { label: 'Accompagnement', href: '/fr/accompagnement' },
       { label: 'Expertise', href: '/fr/expertise' },
+      { label: 'Point de vue', href: '/fr/perspective' },
       { label: 'À propos', href: '/fr/about' },
     ],
     cta: { label: 'Nous contacter', href: CONTACT_FR },
@@ -64,6 +66,20 @@ export const ui: Record<Lang, Strings> = {
     },
   },
 };
+
+/*
+  Article dates. Kept here with the rest of the locale-specific strings so the
+  two listing pages and the two article pages share one definition instead of
+  re-declaring an Intl formatter each (Gemini review, PR #17).
+*/
+const dateFormatters: Record<Lang, Intl.DateTimeFormat> = {
+  en: new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }),
+  fr: new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }),
+};
+
+export function formatDate(date: Date, lang: Lang): string {
+  return dateFormatters[lang].format(date);
+}
 
 export const SITE = {
   name: 'NitroX Consulting',

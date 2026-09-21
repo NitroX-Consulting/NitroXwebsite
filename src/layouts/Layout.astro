@@ -10,10 +10,24 @@ interface Props {
   lang?: Lang;
   /** Locale-relative path of the current page (no /fr prefix), e.g. '/' or '/services'. */
   path?: string;
+  /**
+   * Absolute path of this page in the OTHER locale. Only needed where the two
+   * locales do not share a slug — e.g. /perspective/the-model-is-not-the-product
+   * and /fr/perspective/le-modele-nest-pas-le-produit. Marketing pages share their
+   * slug, so they leave this unset and get the default mirror below.
+   */
+  altPath?: string;
 }
-const { title, description, lang = 'en', path = '/' } = Astro.props;
+const { title, description, lang = 'en', path = '/', altPath } = Astro.props;
 const fullTitle = `${title} — ${SITE.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+// Default pairing: the FR mirror of an EN route is the same path under /fr.
+const selfPath = lang === 'fr' ? (path === '/' ? '/fr' : '/fr' + path) : path === '/' ? '/' : path;
+const mirrorPath = lang === 'fr' ? (path === '/' ? '/' : path) : path === '/' ? '/fr' : '/fr' + path;
+const otherPath = altPath ?? mirrorPath;
+const enPath = lang === 'en' ? selfPath : otherPath;
+const frPath = lang === 'fr' ? selfPath : otherPath;
 
 /*
   Matomo — self-hosted on our own EU (OVH) box, so visitor data never leaves
@@ -43,9 +57,9 @@ const trackingEnabled = import.meta.env.PROD && Boolean(MATOMO_SITE_ID);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {/* hreflang alternates so search engines pair the EN root with its /fr mirror */}
-    <link rel="alternate" hreflang="en" href={new URL(path === '/' ? '/' : path, Astro.site).href} />
-    <link rel="alternate" hreflang="fr" href={new URL(path === '/' ? '/fr' : '/fr' + path, Astro.site).href} />
-    <link rel="alternate" hreflang="x-default" href={new URL(path === '/' ? '/' : path, Astro.site).href} />
+    <link rel="alternate" hreflang="en" href={new URL(enPath, Astro.site).href} />
+    <link rel="alternate" hreflang="fr" href={new URL(frPath, Astro.site).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL(enPath, Astro.site).href} />
     {/* Favicon — same set as nitroxbrain.com */}
     <link rel="icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -95,7 +109,7 @@ const trackingEnabled = import.meta.env.PROD && Boolean(MATOMO_SITE_ID);
     }
   </head>
   <body class="min-h-screen">
-    <Header lang={lang} path={path} />
+    <Header lang={lang} path={path} altPath={altPath} />
     <main>
       <slot />
     </main>
