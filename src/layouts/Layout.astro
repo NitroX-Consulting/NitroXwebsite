@@ -20,7 +20,10 @@ interface Props {
 }
 const { title, description, lang = 'en', path = '/', altPath } = Astro.props;
 const fullTitle = `${title} — ${SITE.name}`;
-const canonical = new URL(Astro.url.pathname, Astro.site).href;
+// Reason: under Astro 7 + `build.format: 'file'`, Astro.url.pathname for the
+// home route is '/index.html' rather than '/', which would canonicalise the
+// homepage to /index.html and contradict the sitemap's '/'. Normalise it back.
+const canonical = new URL(Astro.url.pathname.replace(/\/index\.html$/, '/'), Astro.site).href;
 
 // Default pairing: the FR mirror of an EN route is the same path under /fr.
 const selfPath = lang === 'fr' ? (path === '/' ? '/fr' : '/fr' + path) : path === '/' ? '/' : path;
