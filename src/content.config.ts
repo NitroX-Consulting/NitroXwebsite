@@ -1,4 +1,7 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+// Reason: Astro 7 deprecates re-exporting `z` from 'astro:content'.
+// 'astro/zod' is Astro's own Zod 4 re-export, so no extra dependency.
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 /*

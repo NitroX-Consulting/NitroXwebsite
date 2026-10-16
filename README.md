@@ -7,6 +7,8 @@ product site [nitroxbrain.com](https://nitroxbrain.com) with a charcoal base + t
 
 ## Develop
 
+Requires **Node.js 22.22.0 or newer** (Astro 7). CI builds on Node 24.
+
 ```bash
 npm install
 npm run dev        # http://localhost:4321
